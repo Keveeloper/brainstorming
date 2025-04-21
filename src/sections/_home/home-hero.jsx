@@ -24,7 +24,6 @@ export function HomeHero({ sx, ...other }) {
     <>
       <m.div variants={variants}>
         <Typography variant="h1">
-          Create your <br /> website today with
           <Box
             component="span"
             sx={(theme) => ({
@@ -33,15 +32,15 @@ export function HomeHero({ sx, ...other }) {
               ),
             })}
           >
-            {` ZONE`}
+            {`Brainstormers `}
           </Box>
+          Donde las ideas conectan ⚡
         </Typography>
       </m.div>
 
       <m.div variants={variants}>
         <Typography sx={{ maxWidth: 480 }}>
-          The ZONE UI is built on top of MUI, a powerful library that provides flexible,
-          customizable, and easy-to-use components.
+          Un encuentro para creadores, marketers y mentes que no se apagan.
         </Typography>
       </m.div>
     </>
@@ -59,7 +58,7 @@ export function HomeHero({ sx, ...other }) {
         }}
       >
         <Box component="span" sx={{ opacity: 0.48, typography: 'overline' }}>
-          Available for
+          Información del evento
         </Box>
 
         <Box
@@ -74,7 +73,7 @@ export function HomeHero({ sx, ...other }) {
             border: `solid 1px ${varAlpha(theme.vars.palette.grey['500Channel'], 0.24)}`,
           })}
         >
-          v{CONFIG.appVersion}
+          Miércoles 25 de mayo del 2025
         </Box>
       </Box>
     </m.div>
@@ -126,7 +125,7 @@ export function HomeHero({ sx, ...other }) {
           rel="noopener"
           href={paths.figmaUrl}
         >
-          Figma workspace
+          Quiero mi entrada
         </Button>
       </m.div>
 
@@ -147,7 +146,7 @@ export function HomeHero({ sx, ...other }) {
           key={index}
           component={m.img}
           variants={varFade('inDown', { distance: 40 })}
-          alt="Home hero"
+          alt="Brainstormers hero section image"
           src={`${CONFIG.assetsDir}/assets/images/home/hero-${index + 1}.webp`}
           sx={{
             top: 0,
