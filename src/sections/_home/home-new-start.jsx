@@ -47,13 +47,13 @@ export function HomeNewStart({ sx, ...other }) {
 
           <m.div variants={variants}>
             <Typography variant="overline" sx={{ color: 'text.disabled' }}>
-              new start
+              Esto no es un evento. Es un cortocircuito de ideas.
             </Typography>
           </m.div>
 
           <m.div variants={variants}>
             <Typography variant="h2">
-              The
+              ¿Qué es
               <Box
                 component="span"
                 sx={(theme) => ({
@@ -62,16 +62,16 @@ export function HomeNewStart({ sx, ...other }) {
                   ),
                 })}
               >
-                {` ZONE `}
+                {` Brainstormers? `}
               </Box>
-              UI Kit
             </Typography>
           </m.div>
 
           <m.div variants={variants}>
             <Typography sx={{ color: 'text.secondary', maxWidth: 480 }}>
-              Modern ui kit to save your time, boost your creativity. Neat and super stylish layout
-              ready to help with your projects
+              Brainstormers es una experiencia en vivo para creativos, marketers, estrategas, emprendedores y 
+              líderes que entienden que las mejores ideas no nacen solas. Paneles honestos. Conexiones reales. 
+              Casos que inspiran. Preguntas incómodas. Y sí, buena música y tragos también.
             </Typography>
           </m.div>
         </Box>
