@@ -30,6 +30,7 @@ export function Header({ sx, ...other }) {
           color="inherit"
           sx={{ p: 0 }}
         >
+          Holllaaaaa
           <Iconify width={22} icon="solar:heart-outline" />
         </IconButton>
       </Badge>
@@ -65,6 +66,7 @@ export function Header({ sx, ...other }) {
             sx={{ display: { md: 'none' }, fontWeight: 'fontWeightMedium' }}
           >
             Categories
+            holaaaaaa
           </Button>
         ),
       }}

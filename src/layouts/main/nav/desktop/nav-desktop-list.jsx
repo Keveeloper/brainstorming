@@ -4,6 +4,8 @@ import { isActiveLink, isExternalLink } from 'minimal-shared/utils';
 
 import { usePathname } from 'src/routes/hooks';
 
+import { useMenuRefsStore } from 'src/store/MenuRefsStore';
+
 import { NavItem } from './nav-desktop-item';
 import { NavSubList } from './nav-desktop-sub-list';
 import { Nav, NavLi, NavUl, NavDropdown } from '../components';
@@ -20,6 +22,8 @@ export function NavList({ data, sx, ...other }) {
   const mainList = data?.children?.filter((list) => list.subheader !== 'Common');
   const commonList = data?.children?.find((list) => list.subheader === 'Common');
 
+  const { whatIsItRef } = useMenuRefsStore();
+
   useEffect(() => {
     if (open) {
       onClose();
@@ -32,6 +36,29 @@ export function NavList({ data, sx, ...other }) {
       onOpen();
     }
   }, [data.children, onOpen]);
+
+  const handleClick = useCallback(() => {
+    console.log(navItemRef.current?.getAttribute('aria-label'));
+    
+    switch (navItemRef.current?.getAttribute('aria-label')) {
+      case '¿Qué es?':
+        whatIsItRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        break;
+      case 'Panelistas':
+        // panelistsRef.current?.scrollIntoView({ behavior: 'smooth' });
+        break;
+      case '¿Por qué venir?':
+        // whyComeRef.current?.scrollIntoView({ behavior: 'smooth' });
+        break;
+      case 'Sobre Alerta':
+        // aboutAlertaRef.current?.scrollIntoView({ behavior: 'smooth' });
+        break;
+      default:
+        break;
+    }
+    
+    
+  }, []);
 
   const renderNavItem = () => (
     <NavItem
@@ -48,6 +75,7 @@ export function NavList({ data, sx, ...other }) {
       // action
       onMouseEnter={handleOpenMenu}
       onMouseLeave={onClose}
+      onClick={handleClick}
     />
   );
 

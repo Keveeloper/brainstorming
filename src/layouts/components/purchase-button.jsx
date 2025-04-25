@@ -51,7 +51,7 @@ export function PurchaseButton({ slotProps, sx }) {
             : [slotProps?.button?.sx]),
         ]}
       >
-        Purchase
+        Contacto
       </Button>
     </AnimateBorder>
   );

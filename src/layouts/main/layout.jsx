@@ -67,13 +67,13 @@ export function MainLayout({ sx, cssVars, children, slotProps, layoutQuery = 'md
       rightArea: (
         <Box sx={{ gap: 1, display: 'flex', alignItems: 'center' }}>
           {/** @slot Searchbar */}
-          <Searchbar />
+          {/* <Searchbar /> */}
 
           {/** @slot Language popover */}
-          <LanguagePopover data={langs} />
+          {/* <LanguagePopover data={langs} /> */}
 
           {/** @slot Settings button */}
-          <SettingsButton />
+          {/* <SettingsButton /> */}
 
           {/** @slot Purchase button */}
           <PurchaseButton sx={{ display: { xs: 'none', [layoutQuery]: 'inline-flex' } }} />

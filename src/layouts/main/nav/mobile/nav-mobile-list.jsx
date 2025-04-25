@@ -7,6 +7,8 @@ import Collapse from '@mui/material/Collapse';
 import { paths } from 'src/routes/paths';
 import { usePathname } from 'src/routes/hooks';
 
+import { useMenuRefsStore } from 'src/store/MenuRefsStore';
+
 import { NavSectionVertical } from 'src/components/nav-section';
 
 import { NavLi } from '../components';
@@ -14,7 +16,7 @@ import { NavItem } from './nav-mobile-item';
 
 // ----------------------------------------------------------------------
 
-export function NavList({ data, sx, ...other }) {
+export function NavList({ data, sx, onClose, ...other }) {
   const pathname = usePathname();
   const navItemRef = useRef(null);
 
@@ -26,11 +28,34 @@ export function NavList({ data, sx, ...other }) {
 
   const { value: open, onToggle } = useBoolean(isOpenPath);
 
+  const { whatIsItRef } = useMenuRefsStore();
+
   const handleToggleMenu = useCallback(() => {
     if (data.children) {
       onToggle();
     }
   }, [data.children, onToggle]);
+
+  const handleClick = useCallback(() => {    
+    switch (navItemRef.current?.getAttribute('aria-label')) {
+      case '¿Qué es?':        
+        onClose();
+        whatIsItRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        break;
+      case 'Panelistas':
+        // panelistsRef.current?.scrollIntoView({ behavior: 'smooth' });
+        break;
+      case '¿Por qué venir?':
+        // whyComeRef.current?.scrollIntoView({ behavior: 'smooth' });
+        break;
+      case 'Sobre Alerta':
+        // aboutAlertaRef.current?.scrollIntoView({ behavior: 'smooth' });
+        break;
+      default:
+        break;
+    }
+    
+  }, []);
 
   const renderNavItem = () => (
     <NavItem
@@ -46,7 +71,7 @@ export function NavList({ data, sx, ...other }) {
       hasChild={!!data.children}
       externalLink={isExternalLink(data.path)}
       // actions
-      onClick={handleToggleMenu}
+      onClick={handleClick}
     />
   );
 

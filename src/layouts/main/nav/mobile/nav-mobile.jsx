@@ -65,7 +65,7 @@ export function NavMobile({ data, open, onClose, slots, sx }) {
         >
           <NavUl>
             {data.map((list) => (
-              <NavList key={list.title} data={list} />
+              <NavList key={list.title} data={list} onClose={onClose} />
             ))}
           </NavUl>
         </Nav>

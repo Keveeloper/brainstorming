@@ -11,7 +11,7 @@ import { paths } from 'src/routes/paths';
 import { CONFIG } from 'src/global-config';
 
 import { Iconify } from 'src/components/iconify';
-import { varFade, MotionViewport } from 'src/components/animate';
+import { varFade, MotionViewport, AnimateBorder } from 'src/components/animate';
 
 // ----------------------------------------------------------------------
 
@@ -20,6 +20,14 @@ const variants = varFade('inUp', { distance: 24 });
 // ----------------------------------------------------------------------
 
 export function HomeHero({ sx, ...other }) {
+
+  const slotsProps = {
+    button: {
+      fullWidth: true,
+      size: 'large',
+    },
+  }
+
   const renderTexts = () => (
     <>
       <m.div variants={variants}>
@@ -41,6 +49,7 @@ export function HomeHero({ sx, ...other }) {
       <m.div variants={variants}>
         <Typography sx={{ maxWidth: 480 }}>
           Un encuentro para creadores, marketers y mentes que no se apagan.
+          Conecta con quienes están reescribiendo las reglas del juego.
         </Typography>
       </m.div>
     </>
@@ -115,7 +124,7 @@ export function HomeHero({ sx, ...other }) {
     >
       {renderTexts()}
 
-      <m.div variants={variants}>
+      {/* <m.div variants={variants}>
         <Button
           color="inherit"
           size="large"
@@ -127,13 +136,65 @@ export function HomeHero({ sx, ...other }) {
         >
           Quiero mi entrada
         </Button>
-      </m.div>
+      </m.div> */}
+      <AnimateBorder
+        sx={[
+          {
+            borderRadius: 1,
+            position: 'relative',
+            bgcolor: 'text.primary',
+            color: 'background.paper',
+          },
+          ...(Array.isArray(sx) ? sx : [sx]),
+        ]}
+        duration={6}
+        slotProps={{
+          outlineColor: (theme) =>
+            `linear-gradient(135deg, ${varAlpha(theme.vars.palette.primary.mainChannel, 0.04)}, ${varAlpha(theme.vars.palette.warning.mainChannel, 0.04)})`,
+          primaryBorder: {
+            size: 32,
+            width: '2px',
+            sx: (theme) => ({
+              color: theme.vars.palette.primary.main,
+            }),
+          },
+          secondaryBorder: {
+            sx: (theme) => ({
+              color: theme.vars.palette.warning.main,
+            }),
+          },
+        }}
+      >
+        <Button
+          variant="text"
+          target="_blank"
+          endIcon={<Iconify icon="carbon:launch" />}
+          rel="noopener"
+          href={paths.zoneStore}
+          {...slotsProps?.button}
+          sx={[
+            { px: 2, borderRadius: 'inherit' },
+            ...(Array.isArray(slotsProps?.button?.sx)
+              ? ({
+              button: {
+                fullWidth: true,
+                size: 'large',
+              },
+            }?.button?.sx ?? [])
+              : [slotsProps?.button?.sx]),
+          ]}
+        >
+          Quiero mi entrada
+        </Button>
+      </AnimateBorder>
+      
 
       <div>
         {renderLabel()}
         {renderPlatformIcons()}
       </div>
     </MotionViewport>
+    
   );
 
   const renderImage = () => (

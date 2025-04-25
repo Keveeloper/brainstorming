@@ -107,8 +107,15 @@ export const pageLinks = [
 ];
 
 export const navData = [
-  { title: 'Home', path: '/' },
-  { title: 'Components', path: paths.components },
-  { title: 'Pages', path: paths.pages, children: pageLinks },
-  { title: 'Docs', path: paths.docs },
+  { title: '¿Qué es?', path: '/' },
+  { title: 'Panelistas', path: '/' },
+  { title: '¿Por qué venir?', path: '/' },
+  { title: 'Sobre Alerta', path: '/' },
 ];
+
+// export const navData = [
+//   { title: 'Home', path: '/' },
+//   { title: 'Components', path: paths.components },
+//   { title: 'Pages', path: paths.pages, children: pageLinks },
+//   { title: 'Docs', path: paths.docs },
+// ];
