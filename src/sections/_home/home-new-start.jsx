@@ -37,57 +37,75 @@ export function HomeNewStart({ sx, ...other }) {
     >
       <Container component={MotionViewport}>
         <Box
-          sx={{
-            px: 3,
+          sx={(theme) => ({
+            p: 4,
             gap: 3,
-            pb: 10,
+            height: '600px',
             display: 'flex',
             borderRadius: 3,
             textAlign: 'center',
             alignItems: 'center',
-            flexDirection: 'column',
+            flexDirection: 'column-reverse',
             bgcolor: 'background.neutral',
-          }}
+            [theme.breakpoints.up('md')]: { 
+              height: '500px',
+              flexDirection: 'row'
+             },
+          })}
         >
+           <m.div variants={variants}>
+            <Box>
+                <Typography variant="h3" 
+                sx={(theme) => ({
+                  textAlign: 'center',
+                  [theme.breakpoints.up('md')]: { 
+                    textAlign: 'start',
+                   },
+                })}>
+                  Más que un evento,
+                  <Box
+                    component="span"
+                    sx={(theme) => ({
+                      ...theme.mixins.textGradient(
+                        `90deg, ${theme.vars.palette.primary.main} 20%, ${theme.vars.palette.secondary.main} 100%`
+                      ),
+                    })}
+                  >
+                    {` es una tormenta de oportunidades. `}
+                  </Box>
+                </Typography>
+
+                <Typography
+                  sx={(theme) => ({
+                    mt: 3,
+                    textAlign: 'center',
+                    color: 'text.secondary', 
+                    maxWidth: 480,
+                    [theme.breakpoints.up('md')]: { 
+                      textAlign: 'start',
+                    },
+                  })}
+                >
+                  Brainstormers es una experiencia en vivo para creativos, marketers, estrategas, emprendedores y 
+                  líderes que buscan ampliar sus oportunidades haciendo mejores conexiones en Colombia y el exterior. 
+                  Paneles honestos. Conexiones reales.
+                </Typography>
+            </Box>
+          </m.div>
           <m.div variants={variants}>
             <Box
               component="img"
               loading="lazy"
               alt="Cover"
               src={`${CONFIG.assetsDir}/assets/images/home/desktop-mouse-keyboard.webp`}
-              sx={{ width: 720 }}
             />
           </m.div>
 
-          <m.div variants={variants}>
+          {/* <m.div variants={variants}>
             <Typography variant="overline" sx={{ color: 'text.disabled' }}>
               Casos que inspiran. Preguntas incómodas.
             </Typography>
-          </m.div>
-
-          <m.div variants={variants}>
-            <Typography variant="h2">
-              Más que un evento,
-              <Box
-                component="span"
-                sx={(theme) => ({
-                  ...theme.mixins.textGradient(
-                    `90deg, ${theme.vars.palette.primary.main} 20%, ${theme.vars.palette.secondary.main} 100%`
-                  ),
-                })}
-              >
-                {` es una tormenta de oportunidades. `}
-              </Box>
-            </Typography>
-          </m.div>
-
-          <m.div variants={variants}>
-            <Typography sx={{ color: 'text.secondary', maxWidth: 480 }}>
-              Brainstormers es una experiencia en vivo para creativos, marketers, estrategas, emprendedores y 
-              líderes que buscan ampliar sus oportunidades haciendo mejores conexiones en Colombia y el exterior. 
-              Paneles honestos. Conexiones reales.
-            </Typography>
-          </m.div>
+          </m.div> */}
         </Box>
       </Container>
     </Box>
