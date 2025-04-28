@@ -22,14 +22,7 @@ export function NavList({ data, sx, ...other }) {
   const mainList = data?.children?.filter((list) => list.subheader !== 'Common');
   const commonList = data?.children?.find((list) => list.subheader === 'Common');
 
-  const { whatIsItRef } = useMenuRefsStore();
-
-  useEffect(() => {
-    if (open) {
-      onClose();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathname]);
+  const { whatIsItRef, panelistsRef } = useMenuRefsStore();
 
   const handleOpenMenu = useCallback(() => {
     if (data.children) {
@@ -37,28 +30,21 @@ export function NavList({ data, sx, ...other }) {
     }
   }, [data.children, onOpen]);
 
-  const handleClick = useCallback(() => {
+  const handleClick = (e) => {
+    e.preventDefault();
     console.log(navItemRef.current?.getAttribute('aria-label'));
     
     switch (navItemRef.current?.getAttribute('aria-label')) {
-      case '¿Qué es?':
-        whatIsItRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      case '¿Qué es?':  
+        whatIsItRef.current?.scrollIntoView({ behavior: 'smooth'});
         break;
       case 'Panelistas':
-        // panelistsRef.current?.scrollIntoView({ behavior: 'smooth' });
-        break;
-      case '¿Por qué venir?':
-        // whyComeRef.current?.scrollIntoView({ behavior: 'smooth' });
-        break;
-      case 'Sobre Alerta':
-        // aboutAlertaRef.current?.scrollIntoView({ behavior: 'smooth' });
+        panelistsRef.current?.scrollIntoView({behavior: 'smooth'});
         break;
       default:
         break;
     }
-    
-    
-  }, []);
+  };
 
   const renderNavItem = () => (
     <NavItem

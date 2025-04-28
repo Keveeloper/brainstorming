@@ -30,12 +30,12 @@ export function SettingsDrawer({ sx, defaultSettings }) {
 
   const { mode, setMode, systemMode } = useColorScheme();
 
-  useEffect(() => {
-    if (mode === 'system' && systemMode) {
-      settings.setState({ colorScheme: systemMode });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [mode, systemMode]);
+  // useEffect(() => {
+  //   if (mode === 'system' && systemMode) {
+  //     settings.setState({ colorScheme: systemMode });
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [mode, systemMode]);
 
   // Visible options by default settings
   const isFontFamilyVisible = hasKeys(defaultSettings, ['fontFamily']);
@@ -88,6 +88,8 @@ export function SettingsDrawer({ sx, defaultSettings }) {
       icon={<SvgIcon>{settingIcons.moon}</SvgIcon>}
       onChangeOption={() => {
         setMode(mode === 'light' ? 'dark' : 'light');
+        console.log('mode', mode);
+        
         settings.setState({ colorScheme: mode === 'light' ? 'dark' : 'light' });
       }}
     />

@@ -7,6 +7,7 @@ import { HomeHero } from '../home-hero';
 import { HomeFAQs } from '../home-faqs';
 import { HomePricing } from '../home-pricing';
 import { HomeNewStart } from '../home-new-start';
+import { HomePanelistas } from '../home-panelistas';
 import { HomeMinimalUI } from '../home-combination';
 import { HomeForDesigner } from '../home-for-designer';
 import { HomeAdvertisement } from '../home-advertisement';
@@ -31,6 +32,8 @@ export function HomeView() {
       <HomeHero />
 
       <HomeNewStart />
+      
+      <HomePanelistas />
 
       <HomeFlexibleComponents />
 

@@ -23,7 +23,8 @@ export default function App({ children }) {
         <ThemeProvider
           themeOverrides={themeOverrides}
           modeStorageKey={themeConfig.modeStorageKey}
-          defaultMode={themeConfig.enableSystemMode ? 'system' : themeConfig.defaultMode}
+          // defaultMode={themeConfig.enableSystemMode ? 'system' : themeConfig.defaultMode}
+          defaultMode={themeConfig.defaultMode}
         >
           <MotionLazy>
             <ProgressBar />

@@ -20,13 +20,13 @@ export function HomeNewStart({ sx, ...other }) {
 
   const whatIsItRef = useRef(null);
   
-    const setRefs = useMenuRefsStore((state) => state.setRefs);
-  
-    useEffect(() => {
-      setRefs({
-        whatIsItRef,
-      });
-    }, []);
+  const setRefs = useMenuRefsStore((state) => state.setRefs);
+
+  useEffect(() => {
+    setRefs({
+      whatIsItRef,
+    });
+  }, []);
 
   return (
     <Box
@@ -100,12 +100,6 @@ export function HomeNewStart({ sx, ...other }) {
               src={`${CONFIG.assetsDir}/assets/images/home/desktop-mouse-keyboard.webp`}
             />
           </m.div>
-
-          {/* <m.div variants={variants}>
-            <Typography variant="overline" sx={{ color: 'text.disabled' }}>
-              Casos que inspiran. Preguntas incómodas.
-            </Typography>
-          </m.div> */}
         </Box>
       </Container>
     </Box>

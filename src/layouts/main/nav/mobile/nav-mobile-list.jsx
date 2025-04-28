@@ -28,7 +28,7 @@ export function NavList({ data, sx, onClose, ...other }) {
 
   const { value: open, onToggle } = useBoolean(isOpenPath);
 
-  const { whatIsItRef } = useMenuRefsStore();
+  const { whatIsItRef, panelistsRef } = useMenuRefsStore();
 
   const handleToggleMenu = useCallback(() => {
     if (data.children) {
@@ -36,14 +36,15 @@ export function NavList({ data, sx, onClose, ...other }) {
     }
   }, [data.children, onToggle]);
 
-  const handleClick = useCallback(() => {    
+  const handleClick = () => {    
     switch (navItemRef.current?.getAttribute('aria-label')) {
-      case '¿Qué es?':        
+      case '¿Qué es?':
         onClose();
-        whatIsItRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        whatIsItRef.current?.scrollIntoView({ behavior: 'smooth' });
         break;
       case 'Panelistas':
-        // panelistsRef.current?.scrollIntoView({ behavior: 'smooth' });
+        onClose();
+        panelistsRef.current?.scrollIntoView({ behavior: 'smooth' });
         break;
       case '¿Por qué venir?':
         // whyComeRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -54,8 +55,7 @@ export function NavList({ data, sx, onClose, ...other }) {
       default:
         break;
     }
-    
-  }, []);
+  };
 
   const renderNavItem = () => (
     <NavItem
