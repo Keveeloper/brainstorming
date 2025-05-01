@@ -57,7 +57,7 @@ export function TravelLandingToursByCity({ tours, sx, ...other }) {
               xs: 'repeat(1, 1fr)',
               sm: 'repeat(2, 1fr)',
               md: 'repeat(3, 1fr)',
-              lg: 'repeat(4, 1fr)',
+              lg: 'repeat(5, 1fr)',
             },
           }}
         >

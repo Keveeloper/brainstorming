@@ -32,7 +32,7 @@ export function HomeHero({ sx, ...other }) {
     <>
       <m.div variants={variants}>
         <Typography variant="h1">
-          <Box
+          {/* <Box
             component="span"
             sx={(theme) => ({
               ...theme.mixins.textGradient(
@@ -40,7 +40,12 @@ export function HomeHero({ sx, ...other }) {
               ),
             })}
           >
-            {`Brainstormers `}
+            {`Brain5tormers `}
+          </Box> */}
+          <Box
+          sx={{color: '#c400d0'}}
+          >
+          Brain5tormers
           </Box>
           Donde las ideas conectan ⚡
         </Typography>
@@ -200,27 +205,28 @@ export function HomeHero({ sx, ...other }) {
   const renderImage = () => (
     <Box
       component={MotionViewport}
-      sx={{ flex: '1 1 auto', position: 'relative', display: { xs: 'none', md: 'block' } }}
+      sx={{ flex: '1 1 auto', bgcolor: 'red', position: 'relative', display: { xs: 'none', md: 'block' } }}
     >
-      {Array.from({ length: 7 }, (_, index) => (
+      {/* {Array.from({ length: 7 }, (_, index) => ( */}
         <Box
-          key={index}
+          // key={index}
           component={m.img}
           variants={varFade('inDown', { distance: 40 })}
           alt="Brainstormers hero section image"
-          src={`${CONFIG.assetsDir}/assets/images/home/hero-${index + 1}.webp`}
+          // src={`${CONFIG.assetsDir}/assets/images/home/hero-${1}.webp`}
+          src="https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/e52776e1-3ee2-46f5-181b-5e1635e84900/public"
           sx={{
             top: 0,
             left: 0,
             m: 'auto',
             bottom: 0,
             width: 800,
-            maxWidth: 'unset',
-            zIndex: 9 - index,
+            // maxWidth: 'unset',
+            // zIndex: 9 - index,
             position: 'absolute',
           }}
         />
-      ))}
+      {/* // ))} */}
     </Box>
   );
 

@@ -16,23 +16,33 @@ const SUMMARY = [
   {
     title: 'Professional tour guides',
     description: 'Nunc nonummy metus. Donec elit libero',
-    icon: iconPath('ic-popularity.svg'),
+    icon: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/fa7c1cfa-7909-419a-5216-f64e540b0f00/public',
   },
   {
     title: 'Customer satisfaction',
     description: 'Nunc nonummy metus. Donec elit libero',
-    icon: iconPath('ic-satisfaction.svg'),
+    icon: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/28db379b-87a0-4402-810f-406d372f4600/public',
   },
   {
     title: 'Secure payment',
     description: 'Nunc nonummy metus. Donec elit libero',
-    icon: iconPath('ic-secure-payment.svg'),
+    icon: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/a757338f-a37a-4f68-ae31-0c048f824700/public',
+  },
+  {
+    title: 'Secure payment',
+    description: 'Nunc nonummy metus. Donec elit libero',
+    icon: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/e4797241-f6a6-4741-81e9-a901023c9600/public',
+  },
+  {
+    title: 'Secure payment',
+    description: 'Nunc nonummy metus. Donec elit libero',
+    icon: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/8d094d94-5000-4f3f-0147-562704343000/public',
   },
 ];
 
 // ----------------------------------------------------------------------
 
-export function TravelLandingIntroduce({ sx, ...other }) {
+export function HomeTravelLandingIntroduce({ sx, ...other }) {
   const containerOffset = 'calc((100vw - 1200px) / 2)';
 
   const renderList = () => (
@@ -41,7 +51,7 @@ export function TravelLandingIntroduce({ sx, ...other }) {
         sx={{
           display: 'grid',
           gap: { xs: 5, md: 3 },
-          gridTemplateColumns: { xs: 'repeat(1, 1fr)', md: 'repeat(3, 1fr)' },
+          gridTemplateColumns: { xs: 'repeat(1, 1fr)', md: 'repeat(5, 1fr)' },
         }}
       >
         {SUMMARY.map((value) => (
@@ -49,9 +59,10 @@ export function TravelLandingIntroduce({ sx, ...other }) {
             <SvgColor
               src={value.icon}
               sx={(theme) => ({
-                background: `linear-gradient(to bottom, ${theme.vars.palette.primary.light}, ${theme.vars.palette.primary.main})`,
-                width: 64,
-                height: 64,
+                // background: `linear-gradient(to bottom, ${theme.vars.palette.primary.light}, ${theme.vars.palette.primary.main})`,
+                background: '#c400d0',
+                width: 130,
+                height: 130,
               })}
             />
 
@@ -176,8 +187,8 @@ export function TravelLandingIntroduce({ sx, ...other }) {
       ]}
       {...other}
     >
-      {renderTexts()}
-      {renderImage()}
+      {/* {renderTexts()} */}
+      {/* {renderImage()} */}
       {renderList()}
     </Box>
   );

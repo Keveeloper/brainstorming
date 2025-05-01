@@ -3,6 +3,8 @@ import { _pricingHome } from 'src/_mock';
 import { BackToTopButton } from 'src/components/animate/back-to-top-button';
 import { ScrollProgress, useScrollProgress } from 'src/components/animate/scroll-progress';
 
+import { HomeTravelLandingIntroduce } from 'src/sections/_travel/landing/travel-landing-introduce';
+
 import { HomeHero } from '../home-hero';
 import { HomeFAQs } from '../home-faqs';
 import { HomePricing } from '../home-pricing';
@@ -32,8 +34,10 @@ export function HomeView() {
       <HomeHero />
 
       <HomeNewStart />
-      
+
       <HomePanelistas />
+      
+      <HomeTravelLandingIntroduce />
 
       <HomeFlexibleComponents />
 

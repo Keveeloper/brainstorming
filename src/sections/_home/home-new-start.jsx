@@ -40,7 +40,7 @@ export function HomeNewStart({ sx, ...other }) {
           sx={(theme) => ({
             p: 4,
             gap: 3,
-            height: '600px',
+            height: 'auto',
             display: 'flex',
             borderRadius: 3,
             textAlign: 'center',
@@ -48,12 +48,12 @@ export function HomeNewStart({ sx, ...other }) {
             flexDirection: 'column-reverse',
             bgcolor: 'background.neutral',
             [theme.breakpoints.up('md')]: { 
-              height: '500px',
+              height: '700px',
               flexDirection: 'row'
              },
           })}
         >
-           <m.div variants={variants}>
+           <m.div variants={variants} sx={{width: '50%'}}>
             <Box>
                 <Typography variant="h3" 
                 sx={(theme) => ({
@@ -63,7 +63,7 @@ export function HomeNewStart({ sx, ...other }) {
                    },
                 })}>
                   Más que un evento,
-                  <Box
+                  {/* <Box
                     component="span"
                     sx={(theme) => ({
                       ...theme.mixins.textGradient(
@@ -72,6 +72,10 @@ export function HomeNewStart({ sx, ...other }) {
                     })}
                   >
                     {` es una tormenta de oportunidades. `}
+                  </Box> */}
+                  <Box
+                  sx={{color: '#29e6ff'}}>
+                    es una tormenta de oportunidades.
                   </Box>
                 </Typography>
 
@@ -86,18 +90,21 @@ export function HomeNewStart({ sx, ...other }) {
                     },
                   })}
                 >
-                  Brainstormers es una experiencia en vivo para creativos, marketers, estrategas, emprendedores y 
+                  Brain5tormers es una experiencia en vivo para creativos, marketers, estrategas, emprendedores y 
                   líderes que buscan ampliar sus oportunidades haciendo mejores conexiones en Colombia y el exterior. 
                   Paneles honestos. Conexiones reales.
                 </Typography>
             </Box>
           </m.div>
-          <m.div variants={variants}>
+          <m.div variants={variants} sx={{width: '40%'}}>
             <Box
+            width={{width: '100%'}}
               component="img"
+              sx={{borderRadius: 2}}
               loading="lazy"
               alt="Cover"
-              src={`${CONFIG.assetsDir}/assets/images/home/desktop-mouse-keyboard.webp`}
+              // src={`${CONFIG.assetsDir}/assets/images/home/desktop-mouse-keyboard.webp`}
+              src="https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/7033e937-a2f2-4429-d954-bacd03287f00/public"
             />
           </m.div>
         </Box>

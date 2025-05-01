@@ -67,7 +67,8 @@ const ItemRoot = styled(ButtonBase, { shouldForwardProp })(({ theme }) => {
   };
 
   const activeStyles = {
-    color: theme.vars.palette.primary.main,
+    // color: theme.vars.palette.primary.main,
+    color: '#29e6ff',
     backgroundColor: varAlpha(theme.vars.palette.primary.mainChannel, 0.08),
     '&:hover': { backgroundColor: varAlpha(theme.vars.palette.primary.mainChannel, 0.16) },
   };

@@ -69,12 +69,14 @@ const ItemRoot = styled(ButtonBase, { shouldForwardProp })(({ active, open, them
     transition: theme.transitions.create(['opacity', 'scale'], {
       duration: theme.transitions.duration.shorter,
     }),
-    ...(active && { ...dotTransitions.out, backgroundColor: theme.vars.palette.primary.main }),
+    // ...(active && { ...dotTransitions.out, backgroundColor: theme.vars.palette.primary.main }),
+    ...(active && { ...dotTransitions.out, backgroundColor: '#29e6ff' }),
   };
 
   const rootItemStyles = {
     ...(open && { '&::before': { ...dotTransitions.out } }),
-    ...(active && { color: theme.vars.palette.primary.main }),
+    // ...(active && { color: theme.vars.palette.primary.main }),
+    ...(active && { color: '#29e6ff' }),
   };
 
   const subItemStyles = {
