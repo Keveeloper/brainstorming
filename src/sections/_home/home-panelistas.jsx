@@ -49,7 +49,7 @@ const penalist = [
         copy: `Álvaro es socio y Director Creativo en Alerta, donde une su pasión por contar historias con una 
                fuerte intuición estratégica. Con experiencia en medios, coaching y emprendimiento, disfruta acompañar 
                a marcas y personas a descubrir su voz. Siempre en movimiento, busca ideas que inspiren y generen impacto real.`,
-        photoUrl: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/42bb0ec0-ab70-4a30-c801-df4daf286800/public'
+        photoUrl: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/89a8ebd2-c803-4fbb-393a-8b4996c02800/public'
     }
 ]
 

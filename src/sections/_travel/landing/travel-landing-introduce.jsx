@@ -14,28 +14,28 @@ const iconPath = (name) => `${CONFIG.assetsDir}/assets/icons/solid-64/${name}`;
 
 const SUMMARY = [
   {
-    title: 'Professional tour guides',
-    description: 'Nunc nonummy metus. Donec elit libero',
+    title: ' Ideas crudas y reales',
+    description: 'Sin slides, sin paja. Historias que no encuentras en YouTube.',
     icon: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/fa7c1cfa-7909-419a-5216-f64e540b0f00/public',
   },
   {
-    title: 'Customer satisfaction',
-    description: 'Nunc nonummy metus. Donec elit libero',
+    title: 'Networking con propósito',
+    description: 'No vas a coleccionar tarjetas. Vas a hacer conexiones que importan.',
     icon: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/28db379b-87a0-4402-810f-406d372f4600/public',
   },
   {
-    title: 'Secure payment',
-    description: 'Nunc nonummy metus. Donec elit libero',
+    title: 'Conversaciones irreverentes',
+    description: 'De esas que te dan ganas de renunciar. O de empezar tu mejor proyecto.',
     icon: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/a757338f-a37a-4f68-ae31-0c048f824700/public',
   },
   {
-    title: 'Secure payment',
-    description: 'Nunc nonummy metus. Donec elit libero',
+    title: 'Inspiración aplicable',
+    description: 'Te vas con insights, no con frases cliché.',
     icon: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/e4797241-f6a6-4741-81e9-a901023c9600/public',
   },
   {
-    title: 'Secure payment',
-    description: 'Nunc nonummy metus. Donec elit libero',
+    title: 'Ambiente creativo',
+    description: 'Buena vibra, buena música y la oportunidad de hablar de negocios sin corbata.',
     icon: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/8d094d94-5000-4f3f-0147-562704343000/public',
   },
 ];

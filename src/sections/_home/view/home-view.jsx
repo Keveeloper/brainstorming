@@ -3,18 +3,12 @@ import { _pricingHome } from 'src/_mock';
 import { BackToTopButton } from 'src/components/animate/back-to-top-button';
 import { ScrollProgress, useScrollProgress } from 'src/components/animate/scroll-progress';
 
+import { HomeElearningNewsletter } from 'src/sections/_elearning/elearning-newsletter';
 import { HomeTravelLandingIntroduce } from 'src/sections/_travel/landing/travel-landing-introduce';
 
 import { HomeHero } from '../home-hero';
-import { HomeFAQs } from '../home-faqs';
-import { HomePricing } from '../home-pricing';
 import { HomeNewStart } from '../home-new-start';
 import { HomePanelistas } from '../home-panelistas';
-import { HomeMinimalUI } from '../home-combination';
-import { HomeForDesigner } from '../home-for-designer';
-import { HomeAdvertisement } from '../home-advertisement';
-import { HomeFeatureHighlights } from '../home-feature-highlights';
-import { HomeFlexibleComponents } from '../home-flexible-components';
 
 // ----------------------------------------------------------------------
 
@@ -39,19 +33,21 @@ export function HomeView() {
       
       <HomeTravelLandingIntroduce />
 
-      <HomeFlexibleComponents />
+      <HomeElearningNewsletter />
 
-      <HomeFeatureHighlights />
+      {/* <HomeFlexibleComponents /> */}
 
-      <HomeForDesigner />
+      {/* <HomeFeatureHighlights /> */}
 
-      <HomePricing plans={_pricingHome} />
+      {/* <HomeForDesigner /> */}
 
-      <HomeFAQs />
+      {/* <HomePricing plans={_pricingHome} /> */}
 
-      <HomeMinimalUI />
+      {/* <HomeFAQs /> */}
 
-      <HomeAdvertisement />
+      {/* <HomeMinimalUI /> */}
+
+      {/* <HomeAdvertisement /> */}
     </>
   );
 }

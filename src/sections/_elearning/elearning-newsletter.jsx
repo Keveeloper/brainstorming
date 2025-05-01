@@ -1,4 +1,6 @@
 import { m } from 'framer-motion';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -9,9 +11,112 @@ import InputAdornment from '@mui/material/InputAdornment';
 
 import { CONFIG } from 'src/global-config';
 
+import { Iconify } from 'src/components/iconify';
+import { Field, Form } from 'src/components/hook-form';
+
+import { ComponentBox } from '../_examples/layout';
+import { FieldsSchema } from '../_examples/form-validation-view/schema';
+import { FieldContainer, FormActions, componentBoxStyles } from '../_examples/form-validation-view/components';
+
 // ----------------------------------------------------------------------
 
-export function ElearningNewsletter({ sx, ...other }) {
+const defaultValues = {
+  email: '',
+  fullName: '',
+  // handle number with 0, null, undefined
+  age: null,
+  price: undefined,
+  quantity: 0,
+  // phone and code
+  code: '',
+  phoneNumber: '',
+  // password
+  password: '',
+  confirmPassword: '',
+  // date
+  endDate: null,
+  // country
+  singleCountry: '',
+  multiCountry: [],
+  // select
+  singleSelect: '',
+  multiSelect: [],
+  autocomplete: null,
+};
+
+export function HomeElearningNewsletter({ sx, ...other }) {
+
+  const methods = useForm({
+    resolver: zodResolver(FieldsSchema),
+    defaultValues,
+  });
+
+  const {
+    reset,
+    handleSubmit,
+    formState: { isSubmitting, errors },
+  } = methods;
+
+  const onSubmit = handleSubmit(async (data) => {
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 3000));
+      reset();
+      console.info('DATA', data);
+    } catch (error) {
+      console.error(error);
+    }
+  });
+
+  const renderBase = () => (
+    <>
+      <FieldContainer>
+        <Field.Text name="name" label="Nombre de pila" helperText="¿Cuál es tu nombre de pila (o cómo te gusta que te llamen)?" />
+      </FieldContainer>
+
+      <FieldContainer>
+        <Field.Text name="email" label="Email address" />
+      </FieldContainer>
+
+      <FieldContainer>
+        <Field.Text name="age" label="Age" type="number" />
+      </FieldContainer>
+
+      <FieldContainer>
+        <Field.Text
+          name="price"
+          label="Price"
+          placeholder="0.00"
+          type="number"
+          slotProps={{
+            inputLabel: { shrink: true },
+            input: {
+              startAdornment: (
+                <InputAdornment position="start" sx={{ mr: 0.75 }}>
+                  <Box component="span" sx={{ color: 'text.disabled' }}>
+                    $
+                  </Box>
+                </InputAdornment>
+              ),
+            },
+          }}
+        />
+      </FieldContainer>
+
+      <FieldContainer label="RHFNumberInput" sx={{ alignItems: 'flex-start' }}>
+        <Field.NumberInput
+          name="quantity"
+          helperText={
+            <>
+              <Iconify width={16} icon="solar:info-circle-bold" />
+              Helper text
+            </>
+          }
+          sx={{ maxWidth: 120 }}
+        />
+      </FieldContainer>
+    </>
+  );
+
   return (
     <Box
       component="section"
@@ -51,43 +156,25 @@ export function ElearningNewsletter({ sx, ...other }) {
 
       <Container>
         <Box sx={{ mx: 'auto', maxWidth: 480, textAlign: 'center', color: 'common.white' }}>
-          <Box sx={{ gap: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <Box component="span" sx={{ textAlign: 'right', typography: 'h4' }}>
-              Register now for get
-              <br /> discount every courses
-            </Box>
-
-            <Box
-              component="span"
-              sx={(theme) => ({
-                ...theme.mixins.textGradient(
-                  `90deg, ${theme.vars.palette.primary.main} 20%, ${theme.vars.palette.secondary.main} 100%`
-                ),
-                typography: 'h1',
-              })}
-            >
-              20%
-            </Box>
-          </Box>
-
-          <Typography sx={{ mt: 3, mb: 5, opacity: 0.64 }}>
-            Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus. Sed magna purus,
-            fermentum eu
+          <Typography variant='h3' sx={{ gap: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#29e6ff'}}>
+            Regístrate ahora y no te pierdas este evento
           </Typography>
 
-          <InputBase
-            fullWidth
-            placeholder="Enter your email"
-            endAdornment={
-              <InputAdornment position="end">
-                <Button color="primary" size="large" variant="contained">
-                  Register
-                </Button>
-              </InputAdornment>
-            }
-            inputProps={{ id: 'email-input' }}
-            sx={{ pr: 0.5, pl: 1.5, height: 56, borderRadius: 1, bgcolor: 'common.white' }}
-          />
+          <Typography sx={{ mt: 3, mb: 5, opacity: 0.64 }}>
+            Llena la información requerida en los siguientes campos.
+          </Typography>
+
+          <Form methods={methods} onSubmit={onSubmit}>
+            {/* {debug && <ValuesPreview onCloseDebug={onCloseDebug} />} */}
+            <FormActions
+              loading={isSubmitting}
+              disabled={Object.keys(errors).length === 0}
+              onReset={() => reset()}
+            />
+            <ComponentBox title="Base" sx={componentBoxStyles}>
+              {renderBase()}
+            </ComponentBox>
+          </Form>
         </Box>
       </Container>
     </Box>
