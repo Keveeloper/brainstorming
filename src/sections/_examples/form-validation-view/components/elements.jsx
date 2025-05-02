@@ -17,7 +17,7 @@ export function FormActions({ sx, disabled, onReset, loading, ...other }) {
     <Box
       sx={[
         () => ({
-          mb: 3,
+          mt: 3,
           gap: 2,
           display: 'flex',
           justifyContent: 'flex-end',
@@ -30,7 +30,7 @@ export function FormActions({ sx, disabled, onReset, loading, ...other }) {
         Reset
       </Button>
       <Button size="large" type="submit" variant="contained" loading={loading}>
-        Submit to check
+        Reservar mi lugar ahora
       </Button>
     </Box>
   );
@@ -80,10 +80,10 @@ export function FieldContainer({ sx, children, label = 'RHFTextField' }) {
         variant="caption"
         sx={[
           (theme) => ({
-            textAlign: 'right',
+            textAlign: 'left',
             fontStyle: 'italic',
             color: 'text.disabled',
-            fontSize: theme.typography.pxToRem(10),
+            fontSize: theme.typography.pxToRem(15),
           }),
         ]}
       >

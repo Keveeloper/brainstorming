@@ -7,21 +7,21 @@ import { schemaHelper } from 'src/components/hook-form';
 
 export const FieldsSchema = zod
   .object({
-    fullName: zod
+    name: zod
       .string()
-      .min(1, { message: 'Full name is required!' })
-      .min(6, { message: 'Mininum 6 characters!' })
-      .max(32, { message: 'Maximum 32 characters!' }),
+      .min(1, { message: 'Nombre requerido!' })
+      .min(6, { message: 'Mínimo 6 caracteres!' })
+      .max(32, { message: 'Máximo 32 caracteres!' }),
     email: zod
       .string()
-      .min(1, { message: 'Email is required!' })
-      .email({ message: 'Email must be a valid email address!' }),
+      .min(1, { message: 'Email requerido!' })
+      .email({ message: 'El Email debe ser válido!' }),
     age: schemaHelper.nullableInput(
       zod
         .number({ coerce: true })
         .int()
-        .min(1, { message: 'Age is required!' })
-        .max(80, { message: 'Age must be between 1 and 80' }), // message for null value
+        .min(1, { message: 'Age is required!' }),
+        // .max(80, { message: 'Age must be between 1 and 80' }), // message for null value
       { message: 'Age is required!' }
     ),
     price: schemaHelper.nullableInput(

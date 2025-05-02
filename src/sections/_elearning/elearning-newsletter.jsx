@@ -3,7 +3,8 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
+import Divider from '@mui/material/Divider';
+import MenuItem from '@mui/material/MenuItem';
 import Container from '@mui/material/Container';
 import InputBase from '@mui/material/InputBase';
 import Typography from '@mui/material/Typography';
@@ -44,6 +45,29 @@ const defaultValues = {
   autocomplete: null,
 };
 
+const OPTIONS_PROFESSION = [
+  { value: 'Soy emprendedor en modo ninja', label: 'Soy emprendedor en modo ninja' },
+  { value: 'Trabajo en una empresa pero quiero mi propio negocio', label: 'Trabajo en una empresa pero quiero mi propio negocio' },
+  { value: 'Soy ejecutivo/a de una empresa', label: 'Soy ejecutivo/a de una empresa' },
+  { value: 'Estoy en transición y buscando mi próximo gran movimiento', label: 'Estoy en transición y buscando mi próximo gran movimiento' },
+];
+
+const OPTIONS_AREA = [
+  { value: 'Marketing', label: 'Marketing' },
+  { value: 'Branding', label: 'Branding' },
+  { value: 'Ventas', label: 'Ventas' },
+  { value: 'Tecnología', label: 'Tecnología' },
+  { value: 'Producción', label: 'Producción' },
+];
+
+const OPTIONS_FIND = [
+  { value: 'Conectar con socios o aliados estratégicos', label: 'Conectar con socios o aliados estratégicos' },
+  { value: 'Conseguir nuevos clientes', label: 'Conseguir nuevos clientes' },
+  { value: 'Inspiración y nuevas ideas', label: 'Inspiración y nuevas ideas' },
+  { value: 'Aprender de personas valiosas', label: 'Aprender de personas valiosas' },
+  { value: 'Todo lo anterior, obvio', label: 'Todo lo anterior, obvio' },
+];
+
 export function HomeElearningNewsletter({ sx, ...other }) {
 
   const methods = useForm({
@@ -69,16 +93,40 @@ export function HomeElearningNewsletter({ sx, ...other }) {
 
   const renderBase = () => (
     <>
-      <FieldContainer>
-        <Field.Text name="name" label="Nombre de pila" helperText="¿Cuál es tu nombre de pila (o cómo te gusta que te llamen)?" />
+      <FieldContainer label="¿Cuál es tu nombre de pila (o cómo te gusta que te llamen)?">
+        <Field.Text name="name" label="Nombre de pila"/>
       </FieldContainer>
 
-      <FieldContainer>
-        <Field.Text name="email" label="Email address" />
+      <FieldContainer label="¿Y a qué correo debemos enviarte las coordenadas secretas del evento?">
+        <Field.Text name="email" label="Email address"/>
       </FieldContainer>
 
-      <FieldContainer>
-        <Field.Text name="age" label="Age" type="number" />
+      <FieldContainer label="Tu número de WhatsApp, por si necesitamos mandarte memes… digo, información importante">
+        <Field.Phone name="phoneNumber" label="Phone number" country="CO" />
+      </FieldContainer>
+
+      <FieldContainer label="¿A qué te dedicas actualmente?">
+        <Field.Select name="singleSelect" label="Profesión" >
+          <MenuItem value="">Vacío</MenuItem>
+          <Divider sx={{ borderStyle: 'dashed' }} />
+          {OPTIONS_PROFESSION.map((option) => (
+            <MenuItem key={option.value} value={option.label}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </Field.Select>
+      </FieldContainer>
+      
+      <FieldContainer label="¿En qué área te mueves como pez en el agua?">
+        <Field.Select name="singleSelect" label="Área" helperText="">
+          <MenuItem value="">Vacío</MenuItem>
+          <Divider sx={{ borderStyle: 'dashed' }} />
+          {OPTIONS_AREA.map((option) => (
+            <MenuItem key={option.value} value={option.label}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </Field.Select>
       </FieldContainer>
 
       <FieldContainer>
@@ -166,14 +214,14 @@ export function HomeElearningNewsletter({ sx, ...other }) {
 
           <Form methods={methods} onSubmit={onSubmit}>
             {/* {debug && <ValuesPreview onCloseDebug={onCloseDebug} />} */}
+            <ComponentBox title="Reserva tu lugar ahora" sx={componentBoxStyles}>
+              {renderBase()}
+            </ComponentBox>
             <FormActions
               loading={isSubmitting}
               disabled={Object.keys(errors).length === 0}
               onReset={() => reset()}
             />
-            <ComponentBox title="Base" sx={componentBoxStyles}>
-              {renderBase()}
-            </ComponentBox>
           </Form>
         </Box>
       </Container>

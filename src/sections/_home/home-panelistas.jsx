@@ -27,7 +27,7 @@ const transition = (theme) =>
 const penalist = [
     {
         id: 1,
-        role: 'Pendiente...',
+        role: 'Director Creativo',
         name: 'Danilo Álvarez',
         copy: 'Tras liderar grupos creativos en Walt Disney World, en Florida y DiscoveryCommunications en Washington, Danilo abrió su propia agencia de publicidad en Nueva York, donde ayuda a marcas americanas a conectarse con audiencias latinas.',
         photoUrl: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/da7951e1-0b3b-472d-e8ae-579cfd270800/public'
