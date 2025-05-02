@@ -25,13 +25,13 @@ export function HomeMinimalUI({ sx, ...other }) {
     <Box sx={{ p: { md: 10 }, textAlign: { xs: 'center', md: 'left' } }}>
       <m.div variants={variants}>
         <Typography variant="overline" sx={{ color: 'text.disabled' }}>
-          Looking For a
+          Alerta Creative
         </Typography>
       </m.div>
 
       <m.div variants={variants}>
         <Typography variant="h3" sx={{ my: 3 }}>
-          Dashboard template?
+          ¿Quién está detrás del caos creativo?
         </Typography>
       </m.div>
 
@@ -39,7 +39,9 @@ export function HomeMinimalUI({ sx, ...other }) {
         <Typography
           sx={{ maxWidth: 360, color: 'text.secondary', mx: { xs: 'auto', md: 'unset' } }}
         >
-          Minimal UI Kit is a professional dashboard used by many of our clients.
+          Alerta Creative es una agencia multicultural que produce ideas con coraje. 
+          Campañas, estrategias y conceptos que conectan marcas con emociones reales 
+          en toda Hispanoamérica
         </Typography>
       </m.div>
 
@@ -50,11 +52,11 @@ export function HomeMinimalUI({ sx, ...other }) {
           variant="outlined"
           target="_blank"
           rel="noopener"
-          href={paths.minimalStore}
+          href="https://wearealerta.com/"
           endIcon={<Iconify width={16} icon="carbon:chevron-right" />}
           sx={{ mt: 5, mb: { xs: 5, md: 0 } }}
         >
-          Visit Minimal UI
+          Visitar Alerta
         </Button>
       </m.div>
     </Box>
@@ -66,7 +68,8 @@ export function HomeMinimalUI({ sx, ...other }) {
         component="img"
         loading="lazy"
         alt="Minimal dashboard"
-        src={`${CONFIG.assetsDir}/assets/images/home/minimal-dashboard.webp`}
+        // src={`${CONFIG.assetsDir}/assets/images/home/minimal-dashboard.webp`}
+        src="https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/0e0f27c8-e533-4284-0186-4004a266be00/public"
         sx={(theme) => ({
           width: 480,
           borderRadius: 2,
@@ -76,11 +79,11 @@ export function HomeMinimalUI({ sx, ...other }) {
           }),
           [theme.breakpoints.up('md')]: {
             top: 0,
-            left: 0,
+            right: '10%',
             bottom: 0,
             my: 'auto',
-            width: '108%',
-            maxWidth: 'unset',
+            width: '100%',
+            // maxWidth: 'unset',
             position: 'absolute',
           },
         })}

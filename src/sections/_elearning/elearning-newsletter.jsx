@@ -68,6 +68,12 @@ const OPTIONS_FIND = [
   { value: 'Todo lo anterior, obvio', label: 'Todo lo anterior, obvio' },
 ];
 
+const OPTIONS_READY = [
+  { value: 'Sí, muéstrame cómo asegurar mi cupo', label: 'Sí, muéstrame cómo asegurar mi cupo' },
+  { value: 'Quiero saber más antes de pagar', label: 'Quiero saber más antes de pagar' },
+  { value: 'No lo sé, pero tengo FOMO', label: 'No lo sé, pero tengo FOMO' },
+];
+
 export function HomeElearningNewsletter({ sx, ...other }) {
 
   const methods = useForm({
@@ -106,7 +112,7 @@ export function HomeElearningNewsletter({ sx, ...other }) {
       </FieldContainer>
 
       <FieldContainer label="¿A qué te dedicas actualmente?">
-        <Field.Select name="singleSelect" label="Profesión" >
+        <Field.Select name="profession" label="Profesión" >
           <MenuItem value="">Vacío</MenuItem>
           <Divider sx={{ borderStyle: 'dashed' }} />
           {OPTIONS_PROFESSION.map((option) => (
@@ -118,7 +124,7 @@ export function HomeElearningNewsletter({ sx, ...other }) {
       </FieldContainer>
       
       <FieldContainer label="¿En qué área te mueves como pez en el agua?">
-        <Field.Select name="singleSelect" label="Área" helperText="">
+        <Field.Select name="area" label="Área" helperText="">
           <MenuItem value="">Vacío</MenuItem>
           <Divider sx={{ borderStyle: 'dashed' }} />
           {OPTIONS_AREA.map((option) => (
@@ -129,39 +135,47 @@ export function HomeElearningNewsletter({ sx, ...other }) {
         </Field.Select>
       </FieldContainer>
 
-      <FieldContainer>
+      <FieldContainer label="¿Qué te gustaría encontrar en este evento?">
+        <Field.Select name="goal" label="Qué te gustaría encontrar">
+          <MenuItem value="">Vacío</MenuItem>
+          <Divider sx={{ borderStyle: 'dashed' }} />
+          {OPTIONS_FIND.map((option) => (
+            <MenuItem key={option.value} value={option.label}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </Field.Select>
+      </FieldContainer>
+
+      <FieldContainer label="¿Cuál es tu súperpoder profesional?">
+        <Field.Text name="superpower" label="Súperpoder"/>
+      </FieldContainer>
+
+      <FieldContainer label="¿Qué te gustaría encontrar en este evento?">
+        <Field.Select name="goal" label="Qué te gustaría encontrar">
+          <MenuItem value="">Vacío</MenuItem>
+          <Divider sx={{ borderStyle: 'dashed' }} />
+          {OPTIONS_READY.map((option) => (
+            <MenuItem key={option.value} value={option.label}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </Field.Select>
+      </FieldContainer>
+
+      <FieldContainer label="Déjanos tu @ de instagram obviamente!">
+        <Field.Text name="instagram" label="@elfuck*n_amo"/>
+      </FieldContainer>
+
+      <FieldContainer label="Carga tu imagen de perfil">
         <Field.Text
-          name="price"
-          label="Price"
-          placeholder="0.00"
-          type="number"
-          slotProps={{
-            inputLabel: { shrink: true },
-            input: {
-              startAdornment: (
-                <InputAdornment position="start" sx={{ mr: 0.75 }}>
-                  <Box component="span" sx={{ color: 'text.disabled' }}>
-                    $
-                  </Box>
-                </InputAdornment>
-              ),
-            },
-          }}
+          name="image"
+          label="Imagen de perfil"
+          type="file"
+          inputProps={{ accept: 'image/*' }}
         />
       </FieldContainer>
 
-      <FieldContainer label="RHFNumberInput" sx={{ alignItems: 'flex-start' }}>
-        <Field.NumberInput
-          name="quantity"
-          helperText={
-            <>
-              <Iconify width={16} icon="solar:info-circle-bold" />
-              Helper text
-            </>
-          }
-          sx={{ maxWidth: 120 }}
-        />
-      </FieldContainer>
     </>
   );
 

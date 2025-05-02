@@ -9,6 +9,7 @@ import { HomeTravelLandingIntroduce } from 'src/sections/_travel/landing/travel-
 import { HomeHero } from '../home-hero';
 import { HomeNewStart } from '../home-new-start';
 import { HomePanelistas } from '../home-panelistas';
+import { HomeMinimalUI } from '../home-combination';
 
 // ----------------------------------------------------------------------
 
@@ -45,7 +46,7 @@ export function HomeView() {
 
       {/* <HomeFAQs /> */}
 
-      {/* <HomeMinimalUI /> */}
+      <HomeMinimalUI />
 
       {/* <HomeAdvertisement /> */}
     </>

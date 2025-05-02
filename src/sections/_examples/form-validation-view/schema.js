@@ -12,6 +12,15 @@ export const FieldsSchema = zod
       .min(1, { message: 'Nombre requerido!' })
       .min(6, { message: 'Mínimo 6 caracteres!' })
       .max(32, { message: 'Máximo 32 caracteres!' }),
+    superpower: zod
+      .string()
+      .min(1, { message: 'Superpoder requerido!' }),
+    instagram: zod
+      .string()
+      .min(1, { message: 'Instagram requerido!' }),
+    image: zod
+      .string()
+      .min(1, { message: 'Imagen requerida!' }),
     email: zod
       .string()
       .min(1, { message: 'Email requerido!' })
@@ -61,6 +70,9 @@ export const FieldsSchema = zod
     multiCountry: zod.string().array().min(2, { message: 'Must have at least 2 items!' }),
     // select
     singleSelect: zod.string().min(1, { message: 'Single select is required!' }),
+    profession: zod.string().min(1, { message: 'Profesión es requerida!' }),
+    area: zod.string().min(1, { message: 'Área es requerida!' }),
+    goal: zod.string().min(1, { message: 'El objetivo es requerida!' }),
     multiSelect: zod.string().array().min(2, { message: 'Must have at least 2 items!' }),
   })
   .refine((data) => data.password === data.confirmPassword, {
