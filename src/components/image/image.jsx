@@ -26,7 +26,7 @@ export function Image({
   className,
   viewportOptions,
   disablePlaceholder,
-  visibleByDefault = false,
+  visibleByDefault = true,
   delayTime = DEFAULT_DELAY,
   ...other
 }) {

@@ -53,6 +53,7 @@ const penalist = [
 export function HomePanelistas({ sx, ...other }) {
 
     const panelistsRef = useRef(null);
+    const panelistsMobileRef = useRef(null);
       
     const setRefs = useMenuRefsStore((state) => state.setRefs);
 
@@ -64,8 +65,9 @@ export function HomePanelistas({ sx, ...other }) {
     useEffect(() => {
     setRefs({
         panelistsRef,
+        panelistsMobileRef
     });
-    }, [setRefs]);
+    }, []);
 
     return(
         <>
@@ -108,75 +110,74 @@ export function HomePanelistas({ sx, ...other }) {
                     display="flex"
                     justifyContent="center"
                 >
-                    {/* Fila 1: 3 panelistas */}
                     {penalist.map((item, index) => (
-                    <Grid
-                        key={index}
-                        xs={12}
-                        sm={4}
-                        display="flex"
-                        flexDirection="column"
-                        justifyContent="space-between"
-                    >
-                        <Box
-                        sx={{
-                            borderRadius: 2,
-                            overflow: 'hidden',
-                            position: 'relative',
-                            width: 1,
-                            maxWidth: 320,
-                            '&:hover': {
-                            '& .content': { opacity: 1 },
-                            [`& .${imageClasses.root}`]: { transform: 'scale(1.06)' },
-                            [`& .${imageClasses.overlay}`]: { opacity: 1 },
-                            },
-                        }}
+                        <Grid
+                            key={index}
+                            xs={12}
+                            sm={4}
+                            display="flex"
+                            flexDirection="column"
+                            justifyContent="space-between"
                         >
                             <Box
-                                className="content"
                                 sx={{
-                                p:4,
-                                py: 3,
-                                left: 0,
-                                width: 1,
-                                zIndex: 9,
-                                bottom: 0,
-                                opacity: 0,
-                                transition,
-                                display: 'flex',
-                                position: 'absolute',
-                                justifyContent: 'center',
-                                textAlign: 'center',
+                                    borderRadius: 2,
+                                    overflow: 'hidden',
+                                    position: 'relative',
+                                    width: 1,
+                                    maxWidth: 320,
+                                    '&:hover': {
+                                    '& .content': { opacity: 1 },
+                                    [`& .${imageClasses.root}`]: { transform: 'scale(1.06)' },
+                                    [`& .${imageClasses.overlay}`]: { opacity: 1 },
+                                    },
                                 }}
                             >
-                                {item.copy}
-                            </Box>
-                            <Image
-                                alt='Nombre'
-                                // src={`${CONFIG.assetsDir}/assets/images/portrait/portrait-1.webp`}
-                                src={item.photoUrl}
-                                ratio="9/16"
-                                sx={{ transition }}
-                                slotProps={{
-                                overlay: {
-                                    sx: (theme) => ({
-                                    transition,
+                                <Box
+                                    className="content"
+                                    sx={{
+                                    p:4,
+                                    py: 3,
+                                    left: 0,
+                                    width: 1,
+                                    zIndex: 9,
+                                    bottom: 0,
                                     opacity: 0,
-                                    backgroundImage: `linear-gradient(to bottom, transparent 0%, ${
-                                        theme.vars.palette.common.black
-                                    } 75%)`,
-                                    }),
-                                },
-                                }}
-                            />
-                        </Box>
-                        <Typography variant="h6" sx={{ mt: 2.5, mb: 0.5, textAlign: 'center' }}>
-                            {item.name}
-                        </Typography>
-                        <Typography variant="body2" sx={{ color: 'text.disabled', textAlign: 'center' }}>
-                            {item.role}
-                        </Typography>
-                    </Grid>
+                                    transition,
+                                    display: 'flex',
+                                    position: 'absolute',
+                                    justifyContent: 'center',
+                                    textAlign: 'center',
+                                    }}
+                                >
+                                    {item.copy}
+                                </Box>
+                                <Image
+                                    alt='Nombre'
+                                    // src={`${CONFIG.assetsDir}/assets/images/portrait/portrait-1.webp`}
+                                    src={item.photoUrl}
+                                    ratio="9/16" 
+                                    sx={{ transition }}
+                                    slotProps={{
+                                        overlay: {
+                                            sx: (theme) => ({
+                                            transition,
+                                            opacity: 0,
+                                            backgroundImage: `linear-gradient(to bottom, transparent 0%, ${
+                                                theme.vars.palette.common.black
+                                            } 75%)`,
+                                            }),
+                                        },
+                                    }}
+                                />
+                            </Box>
+                            <Typography variant="h6" sx={{ mt: 2.5, mb: 0.5, textAlign: 'center' }}>
+                                {item.name}
+                            </Typography>
+                            <Typography variant="body2" sx={{ color: 'text.disabled', textAlign: 'center' }}>
+                                {item.role}
+                            </Typography>
+                        </Grid>
                     ))}
 
                     {/* Fila 2: 2 panelistas centrados */}
@@ -328,6 +329,7 @@ export function HomePanelistas({ sx, ...other }) {
                 </Container>
             </Box>
             <Box
+                ref={panelistsMobileRef}
                 component="section"
                 sx={[
                 (theme) => ({
@@ -369,7 +371,7 @@ export function HomePanelistas({ sx, ...other }) {
                         ),
                         })}
                     >
-                        ¿Y quiénes agitan la tormenta?
+                        ¿Y quiénes agitan la tormenta???????
                     </Typography>
         
                     <CarouselArrowBasicButtons

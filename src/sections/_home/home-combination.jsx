@@ -28,7 +28,7 @@ export function HomeMinimalUI({ sx, ...other }) {
     setRefs({
       aboutAlertaRef,
     });
-  }, [setRefs]);
+  }, []);
 
   const renderContent = () => (
     <Box sx={{ p: { md: 10 }, textAlign: { xs: 'center', md: 'left' } }}>
@@ -125,77 +125,14 @@ export function HomeMinimalUI({ sx, ...other }) {
             ]}
           >
             <Grid size={{ xs: 12, md: 6, lg: 5 }}>
-              {/* {renderContent()} */}
-              <Box sx={{ p: { md: 10 }, textAlign: { xs: 'center', md: 'left' } }}>
-                <m.div variants={variants}>
-                  {/* <Typography variant="overline" sx={{ color: 'text.disabled' }}>
-                    Alerta Creative
-                  </Typography> */}
-                </m.div>
-
-                <m.div variants={variants}>
-                  <Typography variant="h3" sx={{ my: 3, color: '#29e6ff' }}>
-                    ¿Quién está detrás del caos creativo?
-                  </Typography>
-                </m.div>
-
-                <m.div variants={variants}>
-                  <Typography
-                    sx={{ maxWidth: 360, color: 'white', mx: { xs: 'auto', md: 'unset' } }}
-                  >
-                    Alerta Creative es una agencia multicultural que produce ideas con coraje. 
-                    Campañas, estrategias y conceptos que conectan marcas con emociones reales 
-                    en toda Hispanoamérica
-                  </Typography>
-                </m.div>
-
-                <m.div variants={variants}>
-                  <Button
-                    size="large"
-                    color="inherit"
-                    variant="outlined"
-                    target="_blank"
-                    rel="noopener"
-                    href="https://wearealerta.com/"
-                    endIcon={<Iconify width={16} icon="carbon:chevron-right" />}
-                    sx={{ mt: 5, mb: { xs: 5, md: 0 } }}
-                  >
-                    Visitar Alerta
-                  </Button>
-                </m.div>
-              </Box>
+              {renderContent()}
             </Grid>
 
             <Grid
               sx={{ position: 'relative', textAlign: { xs: 'center', md: 'unset' } }}
               size={{ xs: 12, md: 6, lg: 6 }}
             >
-              {/* {renderImage()} */}
-              <m.div variants={varFade('in')}>
-                <Box
-                  component="img"
-                  // loading="lazy"
-                  alt="Minimal dashboard"
-                  // src={`${CONFIG.assetsDir}/assets/images/home/minimal-dashboard.webp`}
-                  src="https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/0e0f27c8-e533-4284-0186-4004a266be00/public"
-                  sx={(theme) => ({
-                    width: 480,
-                    borderRadius: 2,
-                    filter: `drop-shadow(0px 48px 80px ${varAlpha(theme.vars.palette.grey['500Channel'], 0.24)})`,
-                    ...theme.applyStyles('dark', {
-                      filter: `drop-shadow(0px 48px 80px ${varAlpha(theme.vars.palette.common.blackChannel, 0.48)})`,
-                    }),
-                    [theme.breakpoints.up('md')]: {
-                      top: 0,
-                      right: '10%',
-                      bottom: 0,
-                      my: 'auto',
-                      width: '100%',
-                      position: 'absolute',
-                    },
-                  })}
-                />
-              </m.div>
+              {renderImage()}
             </Grid>
           </Grid>
         </Container>

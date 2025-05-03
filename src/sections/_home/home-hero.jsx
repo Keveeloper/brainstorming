@@ -10,6 +10,7 @@ import Typography from '@mui/material/Typography';
 import { paths } from 'src/routes/paths';
 
 import { CONFIG } from 'src/global-config';
+import { useMenuRefsStore } from 'src/store/MenuRefsStore';
 
 import { Iconify } from 'src/components/iconify';
 import { varFade, AnimateBorder, MotionViewport } from 'src/components/animate';
@@ -22,11 +23,7 @@ const variants = varFade('inUp', { distance: 24 });
 
 export function HomeHero({ sx, ...other }) {
 
-  const homeRef = useRef(null);
-
-  useEffect(() => {
-    homeRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [homeRef]);
+  const { whatIsItRef, panelistsRef, whyComeRef, aboutAlertaRef, bookingRef } = useMenuRefsStore();
 
   const slotsProps = {
     button: {
@@ -35,6 +32,10 @@ export function HomeHero({ sx, ...other }) {
     },
   }
 
+  const handleClick = (e) => {
+    e.preventDefault();
+    bookingRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
   const renderTexts = () => (
     <>
       <m.div variants={variants}>
@@ -182,7 +183,8 @@ export function HomeHero({ sx, ...other }) {
           target="_blank"
           endIcon={<Iconify icon="carbon:launch" />}
           rel="noopener"
-          href={paths.zoneStore}
+          onClick={handleClick}
+          // href={paths.zoneStore}
           {...slotsProps?.button}
           sx={[
             { px: 2, borderRadius: 'inherit' },

@@ -31,8 +31,8 @@ export function NavList({ data, sx, ...other }) {
   }, [data.children, onOpen]);
 
   const handleClick = (e) => {
-    e.preventDefault();
-    console.log(navItemRef.current?.getAttribute('aria-label'));
+    // e.preventDefault();
+    // console.log(navItemRef.current?.getAttribute('aria-label'));
     
     switch (navItemRef.current?.getAttribute('aria-label')) {
       case '¿Qué es?':  
@@ -42,12 +42,10 @@ export function NavList({ data, sx, ...other }) {
         panelistsRef.current?.scrollIntoView({behavior: 'smooth', block: 'start'});
         break;
       case '¿Por qué venir?':
-        console.log('whyComeRef', whyComeRef.current);
-        
         whyComeRef.current?.scrollIntoView({behavior: 'smooth', block: 'center'});
         break;
       case 'Sobre Alerta':
-        aboutAlertaRef.current?.scrollIntoView({behavior: 'smooth', block: 'center'});
+        aboutAlertaRef.current?.scrollIntoView({behavior: 'smooth', block: 'start'});
         break;
       default:
         break;

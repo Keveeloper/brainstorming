@@ -25,7 +25,7 @@ export function HomeNewStart({ sx, ...other }) {
     setRefs({
       whatIsItRef,
     });
-  }, [setRefs]);
+  }, []);
 
   return (
     <Box

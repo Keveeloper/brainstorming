@@ -47,11 +47,12 @@ export function HomeTravelLandingIntroduce({ sx, ...other }) {
   const setRefs = useMenuRefsStore((state) => state.setRefs);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // window.scrollTo({ top: 0, behavior: 'smooth' });
+    // whyComeRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     setRefs({
         whyComeRef,
     });
-  }, [setRefs, whyComeRef]);
+  }, []);
 
   const renderList = () => (
     <Container sx={{ textAlign: 'center' }}>

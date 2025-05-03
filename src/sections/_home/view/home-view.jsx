@@ -29,10 +29,12 @@ export function HomeView() {
       <HomeNewStart />
 
       <HomePanelistas />
-      
+
       <HomeTravelLandingIntroduce />
 
       <HomeElearningNewsletter />
+
+      <HomeMinimalUI />
 
       {/* <HomeFlexibleComponents /> */}
 
@@ -43,8 +45,6 @@ export function HomeView() {
       {/* <HomePricing plans={_pricingHome} /> */}
 
       {/* <HomeFAQs /> */}
-
-      <HomeMinimalUI />
 
       {/* <HomeAdvertisement /> */}
     </>

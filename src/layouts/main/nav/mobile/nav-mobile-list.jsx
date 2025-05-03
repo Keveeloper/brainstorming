@@ -28,9 +28,10 @@ export function NavList({ data, sx, onClose, ...other }) {
 
   const { value: open } = useBoolean(isOpenPath);
 
-  const { whatIsItRef, panelistsRef, whyComeRef, aboutAlertaRef } = useMenuRefsStore();
+  const { whatIsItRef, panelistsMobileRef, whyComeRef, aboutAlertaRef } = useMenuRefsStore();
 
-  const handleClick = () => {    
+  const handleClick = (e) => {    
+    e.preventDefault();
     switch (navItemRef.current?.getAttribute('aria-label')) {
       case '¿Qué es?':
         onClose();
@@ -38,7 +39,7 @@ export function NavList({ data, sx, onClose, ...other }) {
         break;
       case 'Panelistas':
         onClose();
-        panelistsRef.current?.scrollIntoView({ behavior: 'smooth' });
+        panelistsMobileRef.current?.scrollIntoView({ behavior: 'smooth' });
         break;
       case '¿Por qué venir?':
         onClose();

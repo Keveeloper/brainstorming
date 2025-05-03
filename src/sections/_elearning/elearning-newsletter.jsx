@@ -1,4 +1,5 @@
 import { m } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
@@ -9,6 +10,7 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
 import { CONFIG } from 'src/global-config';
+import { useMenuRefsStore } from 'src/store/MenuRefsStore';
 
 import { Form, Field } from 'src/components/hook-form';
 
@@ -72,6 +74,14 @@ const OPTIONS_READY = [
 ];
 
 export function HomeElearningNewsletter({ sx, ...other }) {
+
+  const bookingRef = useRef(null);
+  const setRefs = useMenuRefsStore((state) => state.setRefs);
+  useEffect(() => {
+    setRefs({
+      bookingRef,
+    });
+  }, []);
 
   const methods = useForm({
     resolver: zodResolver(FieldsSchema),
@@ -178,6 +188,7 @@ export function HomeElearningNewsletter({ sx, ...other }) {
 
   return (
     <Box
+      ref={bookingRef}
       component="section"
       sx={[
         {
