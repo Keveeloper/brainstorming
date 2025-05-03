@@ -52,11 +52,11 @@ export function FormValidationView() {
       }}
       containerProps={{ maxWidth: 'lg' }}
     >
-      <Typography variant="h4" sx={{ mb: 3 }}>
+      {/* <Typography variant="h4" sx={{ mb: 3 }}>
         React hook form + Zod
-      </Typography>
+      </Typography> */}
 
-      <Box
+      {/* <Box
         sx={{
           display: 'flex',
           alignItems: 'center',
@@ -96,15 +96,15 @@ export function FormValidationView() {
             }),
           ]}
         />
-      </Box>
+      </Box> */}
 
-      <Divider sx={{ my: 3 }} />
+      {/* <Divider sx={{ my: 3 }} /> */}
 
       {selectedCategory === '' && <FieldsDemo debug={debug} onCloseDebug={() => setDebug(false)} />}
 
-      {selectedCategory === 'controls' && (
+      {/* {selectedCategory === 'controls' && (
         <ControlsDemo debug={debug} onClose={() => setDebug(false)} />
-      )}
+      )} */}
     </ComponentLayout>
   );
 }

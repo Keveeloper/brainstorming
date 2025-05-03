@@ -123,14 +123,14 @@ export function ComponentLayout({
 
   return (
     <>
-      {heroProps?.topNode}
-      {renderHero()}
-      {heroProps?.bottomNode}
+      {/* {heroProps?.topNode} */}
+      {/* {renderHero()} */}
+      {/* {heroProps?.bottomNode} */}
 
       <LayoutRoot sx={[cssVars, ...(Array.isArray(sx) ? sx : [sx])]} {...other}>
-        {renderPrimaryNav()}
+        {/* {renderPrimaryNav()} */}
         {renderContent()}
-        {renderSecondaryNav()}
+        {/* {renderSecondaryNav()} */}
       </LayoutRoot>
     </>
   );

@@ -1,13 +1,15 @@
 import { m } from 'framer-motion';
-import { useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
+import { useEffect, useRef, useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import MenuItem from '@mui/material/MenuItem';
+import Backdrop from '@mui/material/Backdrop';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
+import CircularProgress from '@mui/material/CircularProgress';
 
 import { CONFIG } from 'src/global-config';
 import { useMenuRefsStore } from 'src/store/MenuRefsStore';
@@ -15,7 +17,9 @@ import { useMenuRefsStore } from 'src/store/MenuRefsStore';
 import { Form, Field } from 'src/components/hook-form';
 
 import { ComponentBox } from '../_examples/layout';
+import { FormValidationView } from '../_examples/form-validation-view';
 import { FieldsSchema } from '../_examples/form-validation-view/schema';
+import { ValuesPreview } from '../_examples/form-validation-view/components/values-preview';
 import { FormActions, FieldContainer, componentBoxStyles } from '../_examples/form-validation-view/components';
 
 // ----------------------------------------------------------------------
@@ -39,7 +43,14 @@ const defaultValues = {
   singleCountry: '',
   multiCountry: [],
   // select
-  singleSelect: '',
+  // singleSelect: '',
+  profession: '',
+  area: '',
+  goal: '',
+  superpower: '',
+  find: '',
+  instagram: '',
+  image: '',
   multiSelect: [],
   autocomplete: null,
 };
@@ -94,7 +105,7 @@ export function HomeElearningNewsletter({ sx, ...other }) {
     formState: { isSubmitting, errors },
   } = methods;
 
-  const onSubmit = handleSubmit(async (data) => {
+  const onSubmit = handleSubmit(async (data) => {    
     try {
       await new Promise((resolve) => setTimeout(resolve, 3000));
       reset();
@@ -107,7 +118,7 @@ export function HomeElearningNewsletter({ sx, ...other }) {
   const renderBase = () => (
     <>
       <FieldContainer label="¿Cuál es tu nombre de pila (o cómo te gusta que te llamen)?">
-        <Field.Text name="name" label="Nombre de pila"/>
+        <Field.Text name="fullName" label="Nombre completo"/>
       </FieldContainer>
 
       <FieldContainer label="¿Y a qué correo debemos enviarte las coordenadas secretas del evento?">
@@ -119,8 +130,8 @@ export function HomeElearningNewsletter({ sx, ...other }) {
       </FieldContainer>
 
       <FieldContainer label="¿A qué te dedicas actualmente?">
-        <Field.Select name="profession" label="Profesión" >
-          <MenuItem value="">Vacío</MenuItem>
+        <Field.Select name="profession" label="Seleccione una opción">
+          <MenuItem value="">None</MenuItem>
           <Divider sx={{ borderStyle: 'dashed' }} />
           {OPTIONS_PROFESSION.map((option) => (
             <MenuItem key={option.value} value={option.label}>
@@ -132,7 +143,7 @@ export function HomeElearningNewsletter({ sx, ...other }) {
       
       <FieldContainer label="¿En qué área te mueves como pez en el agua?">
         <Field.Select name="area" label="Área" helperText="">
-          <MenuItem value="">Vacío</MenuItem>
+          <MenuItem value="">None</MenuItem>
           <Divider sx={{ borderStyle: 'dashed' }} />
           {OPTIONS_AREA.map((option) => (
             <MenuItem key={option.value} value={option.label}>
@@ -144,7 +155,7 @@ export function HomeElearningNewsletter({ sx, ...other }) {
 
       <FieldContainer label="¿Qué te gustaría encontrar en este evento?">
         <Field.Select name="goal" label="Qué te gustaría encontrar">
-          <MenuItem value="">Vacío</MenuItem>
+          <MenuItem value="">None</MenuItem>
           <Divider sx={{ borderStyle: 'dashed' }} />
           {OPTIONS_FIND.map((option) => (
             <MenuItem key={option.value} value={option.label}>
@@ -159,8 +170,8 @@ export function HomeElearningNewsletter({ sx, ...other }) {
       </FieldContainer>
 
       <FieldContainer label="¿Qué te gustaría encontrar en este evento?">
-        <Field.Select name="goal" label="Qué te gustaría encontrar">
-          <MenuItem value="">Vacío</MenuItem>
+        <Field.Select name="find" label="Qué te gustaría encontrar">
+          <MenuItem value="">None</MenuItem>
           <Divider sx={{ borderStyle: 'dashed' }} />
           {OPTIONS_READY.map((option) => (
             <MenuItem key={option.value} value={option.label}>
@@ -232,8 +243,12 @@ export function HomeElearningNewsletter({ sx, ...other }) {
             Llena la información requerida en los siguientes campos.
           </Typography>
 
+          {isSubmitting && (
+            <Backdrop open sx={[(theme) => ({ zIndex: theme.zIndex.modal + 1 })]}>
+              <CircularProgress color="warning" />
+            </Backdrop>
+          )}
           <Form methods={methods} onSubmit={onSubmit}>
-            {/* {debug && <ValuesPreview onCloseDebug={onCloseDebug} />} */}
             <ComponentBox title="Reserva tu lugar ahora" sx={componentBoxStyles}>
               {renderBase()}
             </ComponentBox>
@@ -243,6 +258,7 @@ export function HomeElearningNewsletter({ sx, ...other }) {
               onReset={() => reset()}
             />
           </Form>
+          {/* <FormValidationView/> */}
         </Box>
       </Container>
     </Box>

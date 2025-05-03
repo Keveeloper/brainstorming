@@ -12,11 +12,11 @@ export const schemaHelper = {
     zod
       .string({
         required_error: props?.message?.required ?? 'Phone number is required!',
-        invalid_type_error: props?.message?.invalid_type ?? 'Invalid phone number!',
+        invalid_type_error: props?.message?.invalid_type ?? 'Número de teléfono no válido!',
       })
       .min(1, { message: props?.message?.required ?? 'Phone number is required!' })
       .refine((data) => props?.isValid?.(data), {
-        message: props?.message?.invalid_type ?? 'Invalid phone number!',
+        message: props?.message?.invalid_type ?? 'Número de teléfono no válido!',
       }),
   /**
    * Date
