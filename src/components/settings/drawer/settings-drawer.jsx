@@ -1,4 +1,4 @@
-import { useEffect, useCallback } from 'react';
+import { useCallback } from 'react';
 import { hasKeys, varAlpha } from 'minimal-shared/utils';
 
 import Box from '@mui/material/Box';
@@ -28,7 +28,7 @@ import { useSettingsContext } from '../context/use-settings-context';
 export function SettingsDrawer({ sx, defaultSettings }) {
   const settings = useSettingsContext();
 
-  const { mode, setMode, systemMode } = useColorScheme();
+  const { mode, setMode } = useColorScheme();
 
   // useEffect(() => {
   //   if (mode === 'system' && systemMode) {

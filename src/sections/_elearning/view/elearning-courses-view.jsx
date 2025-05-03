@@ -10,7 +10,7 @@ import { _tags } from 'src/_mock';
 import { Iconify } from 'src/components/iconify';
 
 import { ElearningFilters } from '../elearning-filters';
-import { ElearningNewsletter } from '../elearning-newsletter';
+import { HomeElearningNewsletter } from '../elearning-newsletter';
 import { ElearningCourseList } from '../list/elearning-course-list';
 
 // ----------------------------------------------------------------------
@@ -75,7 +75,7 @@ export function ElearningCoursesView({ courses }) {
           </Box>
         </Box>
       </Container>
-      <ElearningNewsletter />
+      <HomeElearningNewsletter />
     </>
   );
 }

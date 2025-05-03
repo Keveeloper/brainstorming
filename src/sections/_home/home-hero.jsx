@@ -11,7 +11,7 @@ import { paths } from 'src/routes/paths';
 import { CONFIG } from 'src/global-config';
 
 import { Iconify } from 'src/components/iconify';
-import { varFade, MotionViewport, AnimateBorder } from 'src/components/animate';
+import { varFade, AnimateBorder, MotionViewport } from 'src/components/animate';
 
 // ----------------------------------------------------------------------
 

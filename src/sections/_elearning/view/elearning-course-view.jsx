@@ -14,7 +14,7 @@ import { Iconify } from 'src/components/iconify';
 import { Advertisement } from '../../advertisement';
 import { ReviewSummary } from '../../review/review-summary';
 import { ReviewNewForm } from '../../review/review-new-form';
-import { ElearningNewsletter } from '../elearning-newsletter';
+import { HomeElearningNewsletter } from '../elearning-newsletter';
 import { ElearningReviewList } from '../review/elearning-review-list';
 import { ElearningReviewToolbar } from '../review/elearning-review-toolbar';
 import { ElearningCourseListSimilar } from '../list/elearning-course-list-similar';
@@ -151,7 +151,7 @@ export function ElearningCourseView({ course, relatedCourses }) {
 
       {!!relatedCourses?.length && <ElearningCourseListSimilar courses={relatedCourses} />}
 
-      <ElearningNewsletter />
+      <HomeElearningNewsletter />
     </>
   );
 }

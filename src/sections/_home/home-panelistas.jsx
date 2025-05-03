@@ -1,14 +1,11 @@
-import { useEffect, useRef } from "react";
+import { useRef, useEffect } from "react";
 import { varAlpha } from 'minimal-shared/utils';
 
-import IconButton from '@mui/material/IconButton';
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, Grid, Container, Typography } from "@mui/material";
 
 import { CONFIG } from "src/global-config";
-import { _members, _socials } from "src/_mock";
 import { useMenuRefsStore } from "src/store/MenuRefsStore";
 
-import { Iconify } from 'src/components/iconify';
 import { MotionViewport } from "src/components/animate";
 import { Image, imageClasses } from 'src/components/image';
 import {
@@ -68,7 +65,7 @@ export function HomePanelistas({ sx, ...other }) {
     setRefs({
         panelistsRef,
     });
-    }, []);
+    }, [setRefs]);
 
     return(
         <>
@@ -417,25 +414,7 @@ export function HomePanelistas({ sx, ...other }) {
     );
 }
 
-export function MemberItem({ item, sx, ...other }) {
-    const renderSocials = () => (
-      <>
-        {_socials.map((social) => (
-          <IconButton key={social.label}>
-            {social.value === 'twitter' && (
-              <Iconify
-                icon="socials:twitter"
-                sx={(theme) => ({ '--color': theme.vars.palette.common.white })}
-              />
-            )}
-            {social.value === 'facebook' && <Iconify icon="socials:facebook" />}
-            {social.value === 'instagram' && <Iconify icon="socials:instagram" />}
-            {social.value === 'linkedin' && <Iconify icon="socials:linkedin" />}
-          </IconButton>
-        ))}
-      </>
-    );
-  
+export function MemberItem({ item, sx, ...other }) {  
     return (
       <Box sx={sx} {...other}>
         <Box

@@ -7,8 +7,8 @@ import { _tags, _mock, _coursePosts } from 'src/_mock';
 import { Advertisement } from '../../advertisement';
 import { PostSidebar } from '../../blog/post-sidebar';
 import { ElearningPosts } from '../posts/elearning-posts';
-import { ElearningNewsletter } from '../elearning-newsletter';
 import { PostSearchMobile } from '../../blog/post-search-mobile';
+import { HomeElearningNewsletter } from '../elearning-newsletter';
 import { ElearningFeaturedPost } from '../posts/elearning-featured-post';
 
 // ----------------------------------------------------------------------
@@ -59,7 +59,7 @@ export function ElearningPostsView() {
           </Grid>
         </Grid>
       </Container>
-      <ElearningNewsletter />
+      <HomeElearningNewsletter />
     </>
   );
 }

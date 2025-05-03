@@ -1,11 +1,10 @@
 import { m } from 'framer-motion';
-import { useEffect, useRef } from 'react';
+import { useRef, useEffect } from 'react';
 
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
-import { CONFIG } from 'src/global-config';
 import { useMenuRefsStore } from 'src/store/MenuRefsStore';
 
 import { varFade, MotionViewport } from 'src/components/animate';
@@ -26,7 +25,7 @@ export function HomeNewStart({ sx, ...other }) {
     setRefs({
       whatIsItRef,
     });
-  }, []);
+  }, [setRefs]);
 
   return (
     <Box

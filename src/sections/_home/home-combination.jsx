@@ -7,10 +7,6 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
-import { paths } from 'src/routes/paths';
-
-import { CONFIG } from 'src/global-config';
-
 import { Iconify } from 'src/components/iconify';
 import { varFade, MotionViewport } from 'src/components/animate';
 
@@ -83,7 +79,6 @@ export function HomeMinimalUI({ sx, ...other }) {
             bottom: 0,
             my: 'auto',
             width: '100%',
-            // maxWidth: 'unset',
             position: 'absolute',
           },
         })}

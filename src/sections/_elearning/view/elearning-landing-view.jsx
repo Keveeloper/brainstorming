@@ -8,10 +8,10 @@ import {
 } from 'src/_mock';
 
 import { ElearningTeam } from '../elearning-team';
-import { ElearningNewsletter } from '../elearning-newsletter';
 import { ElearningOurClients } from '../elearning-our-clients';
 import { ElearningTestimonial } from '../elearning-testimonial';
 import { ElearningDownloadApp } from '../elearning-download-app';
+import { HomeElearningNewsletter } from '../elearning-newsletter';
 import { ElearningLatestPosts } from '../posts/elearning-latest-posts';
 import { ElearningLandingHero } from '../landing/elearning-landing-hero';
 import { ElearningLandingIntroduce } from '../landing/elearning-landing-introduce';
@@ -45,7 +45,7 @@ export function ElearningLandingView() {
 
       <ElearningDownloadApp />
 
-      <ElearningNewsletter />
+      <HomeElearningNewsletter />
     </>
   );
 }

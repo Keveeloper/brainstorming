@@ -12,7 +12,7 @@ import { TravelTestimonial } from '../travel-testimonial';
 import { TravelLandingHero } from '../landing/travel-landing-hero';
 import { TravelLandingPosts } from '../posts/travel-landing-posts';
 import { TravelLandingSummary } from '../landing/travel-landing-summary';
-import { TravelLandingIntroduce } from '../landing/travel-landing-introduce';
+import { HomeTravelLandingIntroduce } from '../landing/travel-landing-introduce';
 import { TravelLandingToursByCity } from '../landing/travel-landing-tours-by-city';
 import { TravelLandingTourFeatured } from '../landing/travel-landing-tour-featured';
 import { TravelLandingFavoriteDestinations } from '../landing/travel-landing-favorite-destinations';
@@ -60,7 +60,7 @@ export function TravelLandingView() {
         </Container>
       </Box>
 
-      <TravelLandingIntroduce />
+      <HomeTravelLandingIntroduce />
 
       <TravelLandingSummary />
 

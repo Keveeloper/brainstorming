@@ -1,4 +1,4 @@
-import { useRef, useCallback } from 'react';
+import { useRef } from 'react';
 import { useBoolean } from 'minimal-shared/hooks';
 import { isActiveLink, isExternalLink } from 'minimal-shared/utils';
 
@@ -26,15 +26,9 @@ export function NavList({ data, sx, onClose, ...other }) {
 
   const isActive = isActiveLink(pathname, data.path, !!data.children);
 
-  const { value: open, onToggle } = useBoolean(isOpenPath);
+  const { value: open } = useBoolean(isOpenPath);
 
   const { whatIsItRef, panelistsRef } = useMenuRefsStore();
-
-  const handleToggleMenu = useCallback(() => {
-    if (data.children) {
-      onToggle();
-    }
-  }, [data.children, onToggle]);
 
   const handleClick = () => {    
     switch (navItemRef.current?.getAttribute('aria-label')) {

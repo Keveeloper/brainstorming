@@ -1,5 +1,3 @@
-import { _pricingHome } from 'src/_mock';
-
 import { BackToTopButton } from 'src/components/animate/back-to-top-button';
 import { ScrollProgress, useScrollProgress } from 'src/components/animate/scroll-progress';
 

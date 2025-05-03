@@ -8,19 +8,16 @@ import { usePathname } from 'src/routes/hooks';
 import { Logo } from 'src/components/logo';
 
 import { Footer } from './footer';
-import { langs } from '../langs-config';
 import { NavMobile } from './nav/mobile';
 import { NavDesktop } from './nav/desktop';
 import { HomeFooter } from './home-footer';
 import { navData } from '../nav-config-main';
 import { MainSection } from '../core/main-section';
-import { Searchbar } from '../components/searchbar';
 import { MenuButton } from '../components/menu-button';
 import { LayoutSection } from '../core/layout-section';
 import { HeaderSection } from '../core/header-section';
 import { PurchaseButton } from '../components/purchase-button';
 import { SettingsButton } from '../components/settings-button';
-import { LanguagePopover } from '../components/language-popover';
 
 // ----------------------------------------------------------------------
 

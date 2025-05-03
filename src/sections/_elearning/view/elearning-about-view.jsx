@@ -2,9 +2,9 @@ import { _brands, _members, _coursePosts, _testimonials } from 'src/_mock';
 
 import { ElearningAbout } from '../about/elearning-about';
 import { ElearningTeamAbout } from '../elearning-team-about';
-import { ElearningNewsletter } from '../elearning-newsletter';
 import { ElearningOurClients } from '../elearning-our-clients';
 import { ElearningTestimonial } from '../elearning-testimonial';
+import { HomeElearningNewsletter } from '../elearning-newsletter';
 import { ElearningAboutHero } from '../about/elearning-about-hero';
 import { ElearningLatestPosts } from '../posts/elearning-latest-posts';
 import { ElearningAboutCoreValues } from '../about/elearning-about-core-values';
@@ -32,7 +32,7 @@ export function ElearningAboutView() {
 
       <ElearningLatestPosts posts={latestPosts} />
 
-      <ElearningNewsletter />
+      <HomeElearningNewsletter />
     </>
   );
 }

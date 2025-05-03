@@ -6,18 +6,15 @@ import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import MenuItem from '@mui/material/MenuItem';
 import Container from '@mui/material/Container';
-import InputBase from '@mui/material/InputBase';
 import Typography from '@mui/material/Typography';
-import InputAdornment from '@mui/material/InputAdornment';
 
 import { CONFIG } from 'src/global-config';
 
-import { Iconify } from 'src/components/iconify';
-import { Field, Form } from 'src/components/hook-form';
+import { Form, Field } from 'src/components/hook-form';
 
 import { ComponentBox } from '../_examples/layout';
 import { FieldsSchema } from '../_examples/form-validation-view/schema';
-import { FieldContainer, FormActions, componentBoxStyles } from '../_examples/form-validation-view/components';
+import { FormActions, FieldContainer, componentBoxStyles } from '../_examples/form-validation-view/components';
 
 // ----------------------------------------------------------------------
 

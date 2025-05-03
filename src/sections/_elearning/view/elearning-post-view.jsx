@@ -27,8 +27,8 @@ import { CustomBreadcrumbs } from 'src/components/custom-breadcrumbs';
 
 import { PostTags } from '../../blog/post-tags';
 import { PostAuthor } from '../../blog/post-author';
-import { ElearningNewsletter } from '../elearning-newsletter';
 import { PrevNextButton } from '../../blog/post-prev-and-next';
+import { HomeElearningNewsletter } from '../elearning-newsletter';
 import { ElearningLatestPosts } from '../posts/elearning-latest-posts';
 
 // ----------------------------------------------------------------------
@@ -241,7 +241,7 @@ export function ElearningPostView() {
 
       <ElearningLatestPosts posts={latestPosts} />
 
-      <ElearningNewsletter />
+      <HomeElearningNewsletter />
 
       {renderMenuSocials()}
     </>
