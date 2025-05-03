@@ -71,11 +71,11 @@ export function HomeHero({ sx, ...other }) {
           justifyContent: { xs: 'center', md: 'flex-start' },
         }}
       >
-        <Box component="span" sx={{ opacity: 0.48, typography: 'overline' }}>
+        {/* <Box component="span" sx={{ opacity: 0.48, typography: 'overline' }}>
           Información del evento
-        </Box>
+        </Box> */}
 
-        <Box
+        {/* <Box
           component="span"
           sx={(theme) => ({
             px: '5px',
@@ -88,7 +88,7 @@ export function HomeHero({ sx, ...other }) {
           })}
         >
           Miércoles 25 de mayo del 2025
-        </Box>
+        </Box> */}
       </Box>
     </m.div>
   );
@@ -196,7 +196,7 @@ export function HomeHero({ sx, ...other }) {
 
       <div>
         {renderLabel()}
-        {renderPlatformIcons()}
+        {/* {renderPlatformIcons()} */}
       </div>
     </MotionViewport>
     

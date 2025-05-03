@@ -1,6 +1,10 @@
+import { useEffect, useRef } from 'react';
+
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
+
+import { useMenuRefsStore } from 'src/store/MenuRefsStore';
 
 import { SvgColor } from 'src/components/svg-color';
 
@@ -37,6 +41,17 @@ const SUMMARY = [
 // ----------------------------------------------------------------------
 
 export function HomeTravelLandingIntroduce({ sx, ...other }) {
+
+  const whyComeRef = useRef(null);
+      
+  const setRefs = useMenuRefsStore((state) => state.setRefs);
+
+  useEffect(() => {
+    setRefs({
+        whyComeRef,
+    });
+  }, [setRefs]);
+
   const renderList = () => (
     <Container sx={{ textAlign: 'center' }}>
       <Box
@@ -172,6 +187,7 @@ export function HomeTravelLandingIntroduce({ sx, ...other }) {
 
   return (
     <Box
+      ref={whyComeRef}
       component="section"
       sx={[
         { overflow: 'hidden', pt: { xs: 10, md: 15 }, pb: { xs: 5, md: 10 } },

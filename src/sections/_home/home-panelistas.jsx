@@ -85,7 +85,7 @@ export function HomePanelistas({ sx, ...other }) {
                         }),
                         overflow: 'hidden',
                         position: 'relative',
-                        py: { xs: 10, md: 20 },
+                        py: { xs: 10, md: 12 },
                     }),
                     ...(Array.isArray(sx) ? sx : [sx]),
                     {display: { xs: 'none', md: 'flex' },}
@@ -180,9 +180,8 @@ export function HomePanelistas({ sx, ...other }) {
                     ))}
 
                     {/* Fila 2: 2 panelistas centrados */}
-                    <Grid item xs={12}>
+                    {/* <Grid item xs={12}>
                     <Grid container justifyContent="center" spacing={4}>
-                        {/* {[3, 4].map((index) => ( */}
                         <Grid
                             item
                             // key={index}
@@ -323,9 +322,8 @@ export function HomePanelistas({ sx, ...other }) {
                                 Role
                             </Typography>
                         </Grid>
-                        {/* ))} */}
                     </Grid>
-                    </Grid>
+                    </Grid> */}
                 </Grid>
                 </Container>
             </Box>

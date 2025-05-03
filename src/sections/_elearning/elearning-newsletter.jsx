@@ -161,13 +161,13 @@ export function HomeElearningNewsletter({ sx, ...other }) {
       </FieldContainer>
 
       <FieldContainer label="Déjanos tu @ de instagram obviamente!">
-        <Field.Text name="instagram" label="@elfuck*n_amo"/>
+        <Field.Text name="instagram" label="@john_doe"/>
       </FieldContainer>
 
       <FieldContainer label="Carga tu imagen de perfil">
         <Field.Text
           name="image"
-          label="Imagen de perfil"
+          // label="Imagen de perfil"
           type="file"
           inputProps={{ accept: 'image/*' }}
         />

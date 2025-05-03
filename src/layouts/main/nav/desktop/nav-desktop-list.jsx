@@ -22,7 +22,7 @@ export function NavList({ data, sx, ...other }) {
   const mainList = data?.children?.filter((list) => list.subheader !== 'Common');
   const commonList = data?.children?.find((list) => list.subheader === 'Common');
 
-  const { whatIsItRef, panelistsRef } = useMenuRefsStore();
+  const { whatIsItRef, panelistsRef, whyComeRef, aboutAlertaRef } = useMenuRefsStore();
 
   const handleOpenMenu = useCallback(() => {
     if (data.children) {
@@ -36,10 +36,16 @@ export function NavList({ data, sx, ...other }) {
     
     switch (navItemRef.current?.getAttribute('aria-label')) {
       case '¿Qué es?':  
-        whatIsItRef.current?.scrollIntoView({ behavior: 'smooth'});
+        whatIsItRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
         break;
       case 'Panelistas':
-        panelistsRef.current?.scrollIntoView({behavior: 'smooth'});
+        panelistsRef.current?.scrollIntoView({behavior: 'smooth', block: 'start'});
+        break;
+      case '¿Por qué venir?':
+        whyComeRef.current?.scrollIntoView({behavior: 'smooth', block: 'center'});
+        break;
+      case 'Sobre Alerta':
+        aboutAlertaRef.current?.scrollIntoView({behavior: 'smooth', block: 'center'});
         break;
       default:
         break;

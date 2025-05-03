@@ -28,7 +28,7 @@ export function NavList({ data, sx, onClose, ...other }) {
 
   const { value: open } = useBoolean(isOpenPath);
 
-  const { whatIsItRef, panelistsRef } = useMenuRefsStore();
+  const { whatIsItRef, panelistsRef, whyComeRef, aboutAlertaRef } = useMenuRefsStore();
 
   const handleClick = () => {    
     switch (navItemRef.current?.getAttribute('aria-label')) {
@@ -41,10 +41,12 @@ export function NavList({ data, sx, onClose, ...other }) {
         panelistsRef.current?.scrollIntoView({ behavior: 'smooth' });
         break;
       case '¿Por qué venir?':
-        // whyComeRef.current?.scrollIntoView({ behavior: 'smooth' });
+        onClose();
+        whyComeRef.current?.scrollIntoView({behavior: 'smooth', block: 'start'});
         break;
       case 'Sobre Alerta':
-        // aboutAlertaRef.current?.scrollIntoView({ behavior: 'smooth' });
+        onClose();
+        aboutAlertaRef.current?.scrollIntoView({behavior: 'smooth', block: 'start'});
         break;
       default:
         break;
