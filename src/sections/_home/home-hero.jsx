@@ -1,4 +1,5 @@
 import { m } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 import { varAlpha } from 'minimal-shared/utils';
 
 import Box from '@mui/material/Box';
@@ -20,6 +21,12 @@ const variants = varFade('inUp', { distance: 24 });
 // ----------------------------------------------------------------------
 
 export function HomeHero({ sx, ...other }) {
+
+  const homeRef = useRef(null);
+
+  useEffect(() => {
+    homeRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [homeRef]);
 
   const slotsProps = {
     button: {
@@ -147,8 +154,8 @@ export function HomeHero({ sx, ...other }) {
           {
             borderRadius: 1,
             position: 'relative',
-            bgcolor: 'text.primary',
-            color: 'background.paper',
+            bgcolor: '#c400d0',
+            color: 'white',
           },
           ...(Array.isArray(sx) ? sx : [sx]),
         ]}

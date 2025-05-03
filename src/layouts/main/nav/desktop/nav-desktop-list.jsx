@@ -42,6 +42,8 @@ export function NavList({ data, sx, ...other }) {
         panelistsRef.current?.scrollIntoView({behavior: 'smooth', block: 'start'});
         break;
       case '¿Por qué venir?':
+        console.log('whyComeRef', whyComeRef.current);
+        
         whyComeRef.current?.scrollIntoView({behavior: 'smooth', block: 'center'});
         break;
       case 'Sobre Alerta':

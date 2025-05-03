@@ -215,9 +215,7 @@ export function HomeElearningNewsletter({ sx, ...other }) {
 
       <Container>
         <Box sx={{ mx: 'auto', maxWidth: 480, textAlign: 'center', color: 'common.white' }}>
-          <Typography variant='h3' sx={{ gap: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#29e6ff'}}>
-            Regístrate ahora y no te pierdas este evento
-          </Typography>
+          <Typography variant='h3' sx={{ gap: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#29e6ff'}} dangerouslySetInnerHTML={{ __html: 'Regístrate ahora <br/>y no te pierdas este evento' }} />
 
           <Typography sx={{ mt: 3, mb: 5, opacity: 0.64 }}>
             Llena la información requerida en los siguientes campos.

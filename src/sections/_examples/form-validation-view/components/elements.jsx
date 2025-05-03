@@ -26,10 +26,10 @@ export function FormActions({ sx, disabled, onReset, loading, ...other }) {
       ]}
       {...other}
     >
-      <Button color="error" size="large" variant="soft" disabled={disabled} onClick={onReset}>
+      {/* <Button color="error" size="large" variant="soft" disabled={disabled} onClick={onReset}>
         Reset
-      </Button>
-      <Button size="large" type="submit" variant="contained" loading={loading}>
+      </Button> */}
+      <Button style={{backgroundColor: '#c400d0', color: 'white'}} size="large" type="submit" variant="contained" loading={loading}>
         Reservar mi lugar ahora
       </Button>
     </Box>
@@ -82,7 +82,7 @@ export function FieldContainer({ sx, children, label = 'RHFTextField' }) {
           (theme) => ({
             textAlign: 'left',
             fontStyle: 'italic',
-            color: 'text.disabled',
+            color: 'white',
             fontSize: theme.typography.pxToRem(15),
           }),
         ]}

@@ -12,28 +12,28 @@ import { SvgColor } from 'src/components/svg-color';
 
 const SUMMARY = [
   {
-    title: ' Ideas crudas y reales',
+    title: ' Ideas crudas <br/> y reales',
     description: 'Sin slides, sin paja. Historias que no encuentras en YouTube.',
     icon: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/fa7c1cfa-7909-419a-5216-f64e540b0f00/public',
   },
   {
-    title: 'Networking con propósito',
-    description: 'No vas a coleccionar tarjetas. Vas a hacer conexiones que importan.',
+    title: 'Networking <br/>con propósito',
+    description: 'No vas a coleccionar tarjetas. <br/>Vas a hacer <br/>conexiones que importan.',
     icon: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/28db379b-87a0-4402-810f-406d372f4600/public',
   },
   {
-    title: 'Conversaciones irreverentes',
-    description: 'De esas que te dan ganas de renunciar. O de empezar tu mejor proyecto.',
+    title: 'Conversaciones <br/>irreverentes',
+    description: 'De esas que te dan ganas de <br/>renunciar. O de empezar <br/>tu mejor proyecto.',
     icon: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/a757338f-a37a-4f68-ae31-0c048f824700/public',
   },
   {
-    title: 'Inspiración aplicable',
-    description: 'Te vas con insights, no con frases cliché.',
+    title: 'Inspiración <br/>aplicable',
+    description: 'Te vas con insights, <br/>no con frases cliché.',
     icon: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/e4797241-f6a6-4741-81e9-a901023c9600/public',
   },
   {
-    title: 'Ambiente creativo',
-    description: 'Buena vibra, buena música y la oportunidad de hablar de negocios sin corbata.',
+    title: 'Ambiente <br/>creativo',
+    description: 'Buena vibra, buena música <br/>y la oportunidad de hablar <br/>de negocios sin corbata.',
     icon: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/8d094d94-5000-4f3f-0147-562704343000/public',
   },
 ];
@@ -43,14 +43,15 @@ const SUMMARY = [
 export function HomeTravelLandingIntroduce({ sx, ...other }) {
 
   const whyComeRef = useRef(null);
-      
+  
   const setRefs = useMenuRefsStore((state) => state.setRefs);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     setRefs({
         whyComeRef,
     });
-  }, [setRefs]);
+  }, [setRefs, whyComeRef]);
 
   const renderList = () => (
     <Container sx={{ textAlign: 'center' }}>
@@ -73,13 +74,9 @@ export function HomeTravelLandingIntroduce({ sx, ...other }) {
               })}
             />
 
-            <Typography component="h6" variant="h5" sx={{ mt: 3, mb: 1 }}>
-              {value.title}
-            </Typography>
+            <Typography component="h6" variant="h5" sx={{ mt: 3, mb: 1 }} dangerouslySetInnerHTML={{ __html: value.title }} />
 
-            <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-              {value.description}
-            </Typography>
+            <Typography variant="body2" sx={{ color: 'text.secondary' }} dangerouslySetInnerHTML={{ __html: value.description }} />
           </div>
         ))}
       </Box>
@@ -186,18 +183,22 @@ export function HomeTravelLandingIntroduce({ sx, ...other }) {
   // );
 
   return (
-    <Box
+    <div
       ref={whyComeRef}
-      component="section"
-      sx={[
-        { overflow: 'hidden', pt: { xs: 10, md: 15 }, pb: { xs: 5, md: 10 } },
-        ...(Array.isArray(sx) ? sx : [sx]),
-      ]}
-      {...other}
     >
-      {/* {renderTexts()} */}
-      {/* {renderImage()} */}
-      {renderList()}
-    </Box>
+      <Box
+        
+        component="section"
+        sx={[
+          { overflow: 'hidden', pt: { xs: 10, md: 15 }, pb: { xs: 5, md: 10 } },
+          ...(Array.isArray(sx) ? sx : [sx]),
+        ]}
+        {...other}
+      >
+        {/* {renderTexts()} */}
+        {/* {renderImage()} */}
+        {renderList()}
+      </Box>
+    </div>
   );
 }

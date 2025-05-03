@@ -26,7 +26,7 @@ const penalist = [
         id: 1,
         role: 'Director Creativo',
         name: 'Danilo Álvarez',
-        copy: 'Tras liderar grupos creativos en Walt Disney World, en Florida y DiscoveryCommunications en Washington, Danilo abrió su propia agencia de publicidad en Nueva York, donde ayuda a marcas americanas a conectarse con audiencias latinas.',
+        copy: 'Tras liderar grupos creativos en Walt Disney World, en Florida y Discovery Communications en Washington, Danilo abrió su propia agencia de publicidad en Nueva York, donde ayuda a marcas americanas a conectarse con audiencias latinas.',
         photoUrl: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/da7951e1-0b3b-472d-e8ae-579cfd270800/public'
     },
     {
@@ -43,7 +43,7 @@ const penalist = [
         id: 3,
         name: 'Álvaro',
         role: 'Director Comercial',
-        copy: `Álvaro es socio y Director Creativo en Alerta, donde une su pasión por contar historias con una 
+        copy: `Álvaro es socio y Director Comercial en Alerta, donde une su pasión por contar historias con una 
                fuerte intuición estratégica. Con experiencia en medios, coaching y emprendimiento, disfruta acompañar 
                a marcas y personas a descubrir su voz. Siempre en movimiento, busca ideas que inspiren y generen impacto real.`,
         photoUrl: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/89a8ebd2-c803-4fbb-393a-8b4996c02800/public'

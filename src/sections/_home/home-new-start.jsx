@@ -82,7 +82,7 @@ export function HomeNewStart({ sx, ...other }) {
                   sx={(theme) => ({
                     mt: 3,
                     textAlign: 'center',
-                    color: 'text.secondary', 
+                    color: 'white', 
                     maxWidth: 480,
                     [theme.breakpoints.up('md')]: { 
                       textAlign: 'start',
