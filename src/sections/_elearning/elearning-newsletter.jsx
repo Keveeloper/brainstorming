@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { m } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { useEffect, useRef, useState } from 'react';
@@ -17,9 +18,7 @@ import { useMenuRefsStore } from 'src/store/MenuRefsStore';
 import { Form, Field } from 'src/components/hook-form';
 
 import { ComponentBox } from '../_examples/layout';
-import { FormValidationView } from '../_examples/form-validation-view';
 import { FieldsSchema } from '../_examples/form-validation-view/schema';
-import { ValuesPreview } from '../_examples/form-validation-view/components/values-preview';
 import { FormActions, FieldContainer, componentBoxStyles } from '../_examples/form-validation-view/components';
 
 // ----------------------------------------------------------------------
@@ -108,8 +107,30 @@ export function HomeElearningNewsletter({ sx, ...other }) {
   const onSubmit = handleSubmit(async (data) => {    
     try {
       await new Promise((resolve) => setTimeout(resolve, 3000));
-      reset();
-      console.info('DATA', data);
+      try {
+        const response = await axios.post('https://brainstormersapi.com/register-user', {
+          name: "Kevind swagger",
+          email: "kevind@swagger.com",
+          number: "3136060560",
+          ocuppation: "Programmer swagger",
+          instagram: "@kevind_swagger",
+          best_area: "Programador swagger",
+          purpose: "Purpose swagger",
+          professional_power: "UX / UI swagger",
+          event_type: "Bogota",
+          event_status: "Registered"
+        }, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          }
+        });
+        console.log('Respuesta:', response.data);
+        console.info('DATA', data);
+        reset();
+      } catch (error) {
+        console.error('Error al enviar el formulario:', error);
+      }
     } catch (error) {
       console.error(error);
     }
