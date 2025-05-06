@@ -101,7 +101,7 @@ const modalStyle = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 400,
-  maxSize: '80%',
+  maxWidth: '90%',
   bgcolor: 'background.paper',
   // border: '2px solid #000',
   borderRadius: 2,
@@ -116,7 +116,8 @@ export function HomeElearningNewsletter({ sx, ...other }) {
       size: 'large',
     },
   }
-  const { file } = useImageFileStore();
+  const [apiErrors, setApiErrors] = useState('');
+  const { file, imageRef } = useImageFileStore();
   const [open, setOpen] = useState(false);
   const [successMessage, setSuccessMessage] = useState(false);
   const bookingRef = useRef(null);
@@ -212,9 +213,18 @@ const {
           }
         });
         console.log('Respuesta:', response.data);
-        console.info('DATA', data);        
+        console.info('DATA', data);  
+        console.info('Image ref', imageRef);  
+        // const formData = new FormData();
+        // formData.append('file', file);
+
+        // const resImage = await axios.post(`https://brainstormersapi.com/upload-image/${response.data}`, formData, {
+        //   headers: {
+        //     'Content-Type': 'multipart/form-data'
+        //   }
+        // });   
         const resImage = await axios.post(`https://brainstormersapi.com/upload-image/${response.data}`, {
-          file: file
+          file: imageRef?.current?.files?.[0]
         }, {
           headers: {
             'Content-Type': 'multipart/form-data'
@@ -228,11 +238,13 @@ const {
         console.error('Error al enviar el formulario:', error);
         setOpen(true);
         setSuccessMessage(false);
+        setApiErrors(error.message);
         reset();
       }
     } catch (error) {
       setOpen(true);
       setSuccessMessage(false);
+      setApiErrors(error.message);
       reset();
       console.error(error);
     }
@@ -422,8 +434,8 @@ const {
                   {successMessage ? 'Ya estás dentro 🤘' : 'Algo salió mal 🫨'}
                 </Typography>
                 <Typography id="modal-modal-description" sx={{ mt: 2, mb: 2 }}>
-                  {/* {successMessage ? 'Tu formulario fue enviado con éxito. Te esperamos en el evento 🙌' : 'Lo sentimos, tu formulario no se pudo enviar, revisa que tu email esté correcto e intenta de nuevo más tarde.'} */}
-                  {successMessage ? 'Tu formulario fue enviado con éxito. Te esperamos en el evento 🙌' : file}
+                  {successMessage ? 'Tu formulario fue enviado con éxito. Te esperamos en el evento 🙌' : 'Lo sentimos, tu formulario no se pudo enviar, revisa que tu email esté correcto e intenta de nuevo más tarde.'}
+                  {/* {successMessage ? apiErrors : apiErrors} */}
                 </Typography>
                 {/* <Button 
                   onClick={handleClose}

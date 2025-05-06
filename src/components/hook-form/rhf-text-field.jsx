@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
 import { transformValue, transformValueOnBlur, transformValueOnChange } from 'minimal-shared/utils';
 
@@ -14,12 +15,23 @@ export function RHFTextField({ name, helperText, slotProps, type = 'text', ...ot
   const isNumberType = type === 'number';
   const isFileType = type === 'file';
 
+  const imageRef = useRef(null);
+
+  const setRefs = useImageFileStore((state) => state.setRefs);
+  
+  useEffect(() => {
+    setRefs({
+      imageRef,
+    });
+  }, []);
+
   return (
     <Controller
       name={name}
       control={control}
       render={({ field, fieldState: { error } }) => (
         <TextField
+          inputRef={imageRef}
           {...field}
           fullWidth
           value={isNumberType ? transformValue(field.value) : field.value}
