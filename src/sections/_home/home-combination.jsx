@@ -50,7 +50,7 @@ export function HomeMinimalUI({ sx, ...other }) {
         >
           Alerta Creative es una agencia multicultural que produce ideas con coraje. 
           Campañas, estrategias y conceptos que conectan marcas con emociones reales 
-          en toda Hispanoamérica
+          en toda Hispanoamérica.
         </Typography>
       </m.div>
 
