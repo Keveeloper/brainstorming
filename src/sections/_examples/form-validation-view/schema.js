@@ -14,23 +14,23 @@ export const FieldsSchema = zod
       .max(32, { message: 'Maximum 32 characters!' }),
     TalkToUs: zod
       .string()
-      .min(1, { message: 'Full name is required!' })
+      .min(1, { message: 'Háblanos más es requerido' })
       .min(6, { message: 'Mininum 6 characters!' })
-      .max(32, { message: 'Maximum 32 characters!' }),
+      .max(255, { message: 'Maximum 255 characters!' }),
     superpower: zod
       .string()
-      .min(1, { message: 'Full name is required!' })
+      .min(1, { message: 'Superpoder es requerido' })
       .min(6, { message: 'Mininum 6 characters!' })
       .max(150, { message: 'Maximum 32 characters!' }),
     instagram: zod
       .string()
-      .min(1, { message: 'Full name is required!' })
+      .min(1, { message: 'Instagram es requerido' })
       .min(6, { message: 'Mininum 6 characters!' })
       .max(32, { message: 'Maximum 32 characters!' }),
-    // image: zod
-    //   .string()
-    //   .min(1, { message: 'Full name is required!' })
-    //   .min(6, { message: 'Mininum 6 characters!' }),
+    image: zod
+      .string()
+      .min(1, { message: 'La imagen es requerida' })
+      .min(6, { message: 'Mininum 6 characters!' }),
     email: zod
       .string()
       .min(1, { message: 'Email is required!' })

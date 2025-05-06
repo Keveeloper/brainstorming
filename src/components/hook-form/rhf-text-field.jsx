@@ -3,12 +3,16 @@ import { transformValue, transformValueOnBlur, transformValueOnChange } from 'mi
 
 import TextField from '@mui/material/TextField';
 
+import useImageFileStore from 'src/store/ImageFileStore';
+
 // ----------------------------------------------------------------------
 
 export function RHFTextField({ name, helperText, slotProps, type = 'text', ...other }) {
   const { control } = useFormContext();
+  const { setFile } = useImageFileStore();
 
   const isNumberType = type === 'number';
+  const isFileType = type === 'file';
 
   return (
     <Controller
@@ -20,11 +24,14 @@ export function RHFTextField({ name, helperText, slotProps, type = 'text', ...ot
           fullWidth
           value={isNumberType ? transformValue(field.value) : field.value}
           onChange={(event) => {
-            const transformedValue = isNumberType
-              ? transformValueOnChange(event.target.value)
-              : event.target.value;
+            if (isFileType) {
+              setFile(event.target.files[0]);
+            }
+              const transformedValue = isNumberType
+                ? transformValueOnChange(event.target.value)
+                : event.target.value;
+                field.onChange(transformedValue);
 
-            field.onChange(transformedValue);
           }}
           onBlur={(event) => {
             const transformedValue = isNumberType

@@ -1,10 +1,13 @@
 import axios from 'axios';
 import { m } from 'framer-motion';
 import { useForm } from 'react-hook-form';
+import { varAlpha } from 'minimal-shared/utils';
 import { useEffect, useRef, useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
+import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import MenuItem from '@mui/material/MenuItem';
 import Backdrop from '@mui/material/Backdrop';
@@ -13,9 +16,12 @@ import Typography from '@mui/material/Typography';
 import CircularProgress from '@mui/material/CircularProgress';
 
 import { CONFIG } from 'src/global-config';
+import useImageFileStore from 'src/store/ImageFileStore';
 import { useMenuRefsStore } from 'src/store/MenuRefsStore';
 
+import { Iconify } from 'src/components/iconify';
 import { Form, Field } from 'src/components/hook-form';
+import { varFade, AnimateBorder, MotionViewport } from 'src/components/animate';
 
 import { ComponentBox } from '../_examples/layout';
 import { FieldsSchema } from '../_examples/form-validation-view/schema';
@@ -50,14 +56,14 @@ const defaultValues = {
   superpower: '',
   find: '',
   instagram: '',
-  // image: '',
+  image: '',
   multiSelect: [],
   autocomplete: null,
 };
 
 const OPTIONS_CITY = [
-  { value: 'Medellin', label: 'MEDELLIN' },
-  { value: 'Bogota', label: 'BOGOTA' },
+  { value: 'Medellin', label: 'Medellin' },
+  { value: 'Bogota', label: 'Bogota' },
 ];
 
 const OPTIONS_PROFESSION = [
@@ -89,10 +95,33 @@ const OPTIONS_READY = [
   { value: 'No lo sé, pero tengo FOMO', label: 'No lo sé, pero tengo FOMO' },
 ];
 
+const modalStyle = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  // border: '2px solid #000',
+  borderRadius: 2,
+  boxShadow: 24,
+  p: 4,
+};
+
 export function HomeElearningNewsletter({ sx, ...other }) {
-  const [value, setValue] = useState();
+  const slotsProps = {
+    button: {
+      fullWidth: true,
+      size: 'large',
+    },
+  }
+  const { file } = useImageFileStore();
+  const [open, setOpen] = useState(false);
+  const [successMessage, setSuccessMessage] = useState(false);
   const bookingRef = useRef(null);
   const setRefs = useMenuRefsStore((state) => state.setRefs);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   useEffect(() => {
     setRefs({
       bookingRef,
@@ -104,11 +133,11 @@ export function HomeElearningNewsletter({ sx, ...other }) {
     defaultValues,
   });
 
-  const {
-    reset,
-    handleSubmit,
-    formState: { isSubmitting, errors },
-  } = methods;
+const {
+  reset,
+  handleSubmit,
+  formState: { isSubmitting, errors },
+} = methods;
 
   // const onSubmit = handleSubmit(async (data) => {
   //   try {
@@ -157,10 +186,10 @@ export function HomeElearningNewsletter({ sx, ...other }) {
   //   }
   // });
 
-  const onSubmit = handleSubmit(async (data) => {    
+  const onSubmit = handleSubmit(async (data) => { 
+    console.log('File: ', file);
+    
     try {
-      console.log('image: ', value);
-      
       await new Promise((resolve) => setTimeout(resolve, 3000));
       try {
         const response = await axios.post('https://brainstormersapi.com/register-user', {
@@ -173,7 +202,6 @@ export function HomeElearningNewsletter({ sx, ...other }) {
           best_area: data.area,
           purpose: data.find,
           professional_power: data.superpower,
-          // event_type: data.city.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
           event_type: "Bogota",
           event_status: "Registered"
         }, {
@@ -183,40 +211,31 @@ export function HomeElearningNewsletter({ sx, ...other }) {
           }
         });
         console.log('Respuesta:', response.data);
-        console.info('DATA', data);
-        const formData = new FormData();
-        // formData.append("file", value, "Foto de perfil");
-        // console.log('formData: ', formData);
-        
+        console.info('DATA', data);        
         const resImage = await axios.post(`https://brainstormersapi.com/upload-image/${response.data}`, {
-          file: value
+          file: file
         }, {
           headers: {
-            // 'Content-Type': 'application/json',
             'Content-Type': 'multipart/form-data'
           }
         });
         console.log('Respuesta API image:', resImage.data);
+        setOpen(true);
+        setSuccessMessage(true);
         reset();
       } catch (error) {
         console.error('Error al enviar el formulario:', error);
+        setOpen(true);
+        setSuccessMessage(false);
+        reset();
       }
     } catch (error) {
+      setOpen(true);
+      setSuccessMessage(false);
+      reset();
       console.error(error);
     }
   });
-
-  const imagePathToIFormFile = async (imagePath, fileName) => {
-    try {
-      const response = await fetch(imagePath);
-      const blob = await response.blob();
-      const file = new File([blob], fileName);
-      return file;
-    } catch (error) {
-      console.error("Error converting to IFormFile:", error);
-      return null;
-    }
-  }
 
   const renderBase = () => (
     <>
@@ -280,7 +299,7 @@ export function HomeElearningNewsletter({ sx, ...other }) {
         <Field.Select name="find" label="Qué te gustaría encontrar">
           <MenuItem value="">None</MenuItem>
           <Divider sx={{ borderStyle: 'dashed' }} />
-          {OPTIONS_READY.map((option) => (
+          {OPTIONS_FIND.map((option) => (
             <MenuItem key={option.value} value={option.label}>
               {option.label}
             </MenuItem>
@@ -292,34 +311,44 @@ export function HomeElearningNewsletter({ sx, ...other }) {
         <Field.Text name="instagram" label="@john_doe"/>
       </FieldContainer>
 
-      {/* <FieldContainer label="Carga tu imagen de perfil">
+      <FieldContainer label="Carga tu imagen de perfil">
         <Field.Text
           name="image"
-          // label="Imagen de perfil"
           type="file"
-          // value={value}
           inputProps={{ accept: 'image/*' }}
-          onChange={(e) => {
-            if (e.target.files && e.target.files[0]) {
-              setValue('image', e.target.files[0]); // guardar el objeto File
-            }
-          }}
         />
-      </FieldContainer> */}
-      <input
+      </FieldContainer>
+      {/* <input
+        required
         type="file"
         accept="image/*"
         onChange={(e) => {
           if (e.target.files && e.target.files[0]) {
-            setValue(e.target.files[0]); // guardar el objeto File
+            setValue(e.target.files[0]);
           }
         }}
-      />
-
-      
-
+      /> */}
     </>
   );
+
+  const rederModal = () => {
+    <Modal
+      open={open}
+      onClose={handleClose}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+    >
+      <Box sx={modalStyle}>
+        <Typography id="modal-modal-title" variant="h6" component="h2">
+          Text in a modal
+        </Typography>
+        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+          Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+        </Typography>
+      </Box>
+      <Button onClick={handleClose}>Aceptar</Button>
+    </Modal>
+  }
 
   return (
     <Box
@@ -376,12 +405,91 @@ export function HomeElearningNewsletter({ sx, ...other }) {
             <ComponentBox title="Reserva tu lugar ahora" sx={componentBoxStyles}>
               {renderBase()}
             </ComponentBox>
+            <Modal
+              open={open}
+              onClose={handleClose}
+              aria-labelledby="modal-modal-title"
+              aria-describedby="modal-modal-description"
+            >
+              <Box sx={modalStyle}>
+                <Typography 
+                  id="modal-modal-title" 
+                  variant="h6" 
+                  component="h2"
+                  sx={{color: successMessage ? '#29e6ff' : '#c400d0'}}
+                >
+                  {successMessage ? 'Ya estás dentro 🤘' : 'Algo salió mal 🫨'}
+                </Typography>
+                <Typography id="modal-modal-description" sx={{ mt: 2, mb: 2 }}>
+                  {successMessage ? 'Tu formulario fue enviado con éxito. Te esperamos en el evento 🙌' : 'Lo sentimos, tu formulario no se pudo enviar, revisa que tu email esté correcto e intenta de nuevo más tarde.'}
+                </Typography>
+                {/* <Button 
+                  onClick={handleClose}
+                  sx={{
+                    bgcolor: 'c400d0',
+                    color: 'white'
+                  }}
+                >Aceptar</Button> */}
+                <AnimateBorder
+                  sx={[
+                    {
+                      borderRadius: 1,
+                      position: 'relative',
+                      bgcolor: '#c400d0',
+                      color: 'white',
+                    },
+                    ...(Array.isArray(sx) ? sx : [sx]),
+                  ]}
+                  duration={6}
+                  slotProps={{
+                    outlineColor: (theme) =>
+                      `linear-gradient(135deg, ${varAlpha(theme.vars.palette.primary.mainChannel, 0.04)}, ${varAlpha(theme.vars.palette.warning.mainChannel, 0.04)})`,
+                    primaryBorder: {
+                      size: 32,
+                      width: '2px',
+                      sx: (theme) => ({
+                        color: theme.vars.palette.primary.main,
+                      }),
+                    },
+                    secondaryBorder: {
+                      sx: (theme) => ({
+                        color: theme.vars.palette.warning.main,
+                      }),
+                    },
+                  }}
+                >
+                  <Button
+                    variant="text"
+                    target="_blank"
+                    // endIcon={<Iconify icon="carbon:launch" />}
+                    rel="noopener"
+                    onClick={handleClose}
+                    // href={paths.zoneStore}
+                    {...slotsProps?.button}
+                    sx={[
+                      { px: 2, borderRadius: 'inherit' },
+                      ...(Array.isArray(slotsProps?.button?.sx)
+                        ? ({
+                        button: {
+                          fullWidth: true,
+                          size: 'large',
+                        },
+                      }?.button?.sx ?? [])
+                        : [slotsProps?.button?.sx]),
+                    ]}
+                  >
+                    Aceptar
+                  </Button>
+                </AnimateBorder>
+              </Box>
+            </Modal>
             <FormActions
               loading={isSubmitting}
               disabled={Object.keys(errors).length === 0}
               onReset={() => reset()}
             />
           </Form>
+          
           {/* <FormValidationView/> */}
         </Box>
       </Container>

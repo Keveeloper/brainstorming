@@ -371,7 +371,7 @@ export function HomePanelistas({ sx, ...other }) {
                         ),
                         })}
                     >
-                        ¿Y quiénes agitan la tormenta???????
+                        ¿Y quiénes agitan la tormenta?
                     </Typography>
         
                     <CarouselArrowBasicButtons
