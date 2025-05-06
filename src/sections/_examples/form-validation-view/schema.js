@@ -12,6 +12,11 @@ export const FieldsSchema = zod
       .min(1, { message: 'Full name is required!' })
       .min(6, { message: 'Mininum 6 characters!' })
       .max(32, { message: 'Maximum 32 characters!' }),
+    TalkToUs: zod
+      .string()
+      .min(1, { message: 'Full name is required!' })
+      .min(6, { message: 'Mininum 6 characters!' })
+      .max(32, { message: 'Maximum 32 characters!' }),
     superpower: zod
       .string()
       .min(1, { message: 'Full name is required!' })
@@ -33,7 +38,6 @@ export const FieldsSchema = zod
     phoneNumber: schemaHelper.phoneNumber({ isValid: isValidPhoneNumber }),
     profession: zod.string().min(1, { message: 'Single select is required!' }),
     area: zod.string().min(1, { message: 'Single select is required!' }),
-    goal: zod.string().min(1, { message: 'Single select is required!' }),
     find: zod.string().min(1, { message: 'Single select is required!' }),
     // age: schemaHelper.nullableInput(
     //   zod

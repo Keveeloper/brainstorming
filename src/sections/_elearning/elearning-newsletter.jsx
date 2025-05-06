@@ -31,6 +31,7 @@ const defaultValues = {
   price: undefined,
   quantity: 0,
   // phone and code
+  TalkToUs: '',
   code: '',
   phoneNumber: '',
   // password
@@ -45,7 +46,6 @@ const defaultValues = {
   // singleSelect: '',
   profession: '',
   area: '',
-  goal: '',
   superpower: '',
   find: '',
   instagram: '',
@@ -174,16 +174,8 @@ export function HomeElearningNewsletter({ sx, ...other }) {
         </Field.Select>
       </FieldContainer>
 
-      <FieldContainer label="¿Qué te gustaría encontrar en este evento?">
-        <Field.Select name="goal" label="Qué te gustaría encontrar">
-          <MenuItem value="">None</MenuItem>
-          <Divider sx={{ borderStyle: 'dashed' }} />
-          {OPTIONS_FIND.map((option) => (
-            <MenuItem key={option.value} value={option.label}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </Field.Select>
+      <FieldContainer label="Háblanos más al respecto">
+        <Field.Text name="TalkToUs" label="Háblanos más"/>
       </FieldContainer>
 
       <FieldContainer label="¿Cuál es tu súperpoder profesional?">

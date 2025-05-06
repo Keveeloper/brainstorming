@@ -27,7 +27,7 @@ const penalist = [
         role: 'Director Creativo',
         name: 'Danilo Álvarez',
         copy: 'Tras liderar grupos creativos en Walt Disney World, en Florida y Discovery Communications en Washington, Danilo abrió su propia agencia de publicidad en Nueva York, donde ayuda a marcas americanas a conectarse con audiencias latinas.',
-        photoUrl: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/da7951e1-0b3b-472d-e8ae-579cfd270800/public'
+        photoUrl: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/7c39693a-14bb-4ac5-52e7-7c4e6579b500/public'
     },
     {
         id: 2,
@@ -37,7 +37,7 @@ const penalist = [
                Le apasiona hacer que las cosas funcionen, liderando equipos y proyectos con precisión y compromiso. 
                Su enfoque detallista y mirada a futuro lo convierten en un motor clave del crecimiento dentro de 
                un entorno siempre cambiante.`,
-        photoUrl: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/76371cce-d8e6-43ea-d46f-0ceb64236100/public'
+        photoUrl: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/9b18d231-6577-4128-c666-0a4a9f4cb100/public'
     },
     {
         id: 3,
