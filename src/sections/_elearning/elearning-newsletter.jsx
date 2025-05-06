@@ -24,6 +24,7 @@ import { FormActions, FieldContainer, componentBoxStyles } from '../_examples/fo
 // ----------------------------------------------------------------------
 
 const defaultValues = {
+  city: '',
   email: '',
   fullName: '',
   // handle number with 0, null, undefined
@@ -49,10 +50,15 @@ const defaultValues = {
   superpower: '',
   find: '',
   instagram: '',
-  image: '',
+  // image: '',
   multiSelect: [],
   autocomplete: null,
 };
+
+const OPTIONS_CITY = [
+  { value: 'Medellin', label: 'MEDELLIN' },
+  { value: 'Bogota', label: 'BOGOTA' },
+];
 
 const OPTIONS_PROFESSION = [
   { value: 'Soy emprendedor en modo ninja', label: 'Soy emprendedor en modo ninja' },
@@ -84,7 +90,7 @@ const OPTIONS_READY = [
 ];
 
 export function HomeElearningNewsletter({ sx, ...other }) {
-
+  const [value, setValue] = useState();
   const bookingRef = useRef(null);
   const setRefs = useMenuRefsStore((state) => state.setRefs);
   useEffect(() => {
@@ -104,19 +110,70 @@ export function HomeElearningNewsletter({ sx, ...other }) {
     formState: { isSubmitting, errors },
   } = methods;
 
+  // const onSubmit = handleSubmit(async (data) => {
+  //   try {
+  //     await new Promise((resolve) => setTimeout(resolve, 3000));
+  
+  //     try {
+  //       const response = await axios.post('https://brainstormersapi.com/register-user', {
+  //         name: data.fullName,
+  //         email: data.email,
+  //         number: data.phoneNumber,
+  //         ocuppation: data.profession,
+  //         talk_about: data.TalkToUs,
+  //         instagram: data.instagram,
+  //         best_area: data.area,
+  //         purpose: data.find,
+  //         professional_power: data.superpower,
+  //         event_type: data.city.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+  //         event_status: "Registered"
+  //       }, {
+  //         headers: {
+  //           'Content-Type': 'application/json',
+  //           'Accept': 'application/json'
+  //         }
+  //       });
+  
+  //       console.log('Respuesta:', response.data);
+  //       console.info('DATA', data);
+  
+  //       // Subir imagen con FormData
+  //       // const formData = new FormData();
+  //       // formData.append("file", data.image, "Foto de perfil");
+  
+  //       // const resImage = await axios.post(`https://brainstormersapi.com/upload-image/${response.data}`, formData, {
+  //       //   headers: {
+  //       //     'Content-Type': 'multipart/form-data'
+  //       //   }
+  //       // });
+  
+  //       // console.log('Respuesta API image:', resImage.data);
+  //       reset();
+  //     } catch (error) {
+  //       console.error('Error al enviar el formulario:', error);
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // });
+
   const onSubmit = handleSubmit(async (data) => {    
     try {
+      console.log('image: ', value);
+      
       await new Promise((resolve) => setTimeout(resolve, 3000));
       try {
         const response = await axios.post('https://brainstormersapi.com/register-user', {
-          name: "Kevind swagger",
-          email: "kevind@swagger.com",
-          number: "3136060560",
-          ocuppation: "Programmer swagger",
-          instagram: "@kevind_swagger",
-          best_area: "Programador swagger",
-          purpose: "Purpose swagger",
-          professional_power: "UX / UI swagger",
+          name: data.fullName,
+          email: data.email,
+          number: data.phoneNumber,
+          ocuppation: data.profession,
+          talk_about: data.TalkToUs,
+          instagram: data.instagram,
+          best_area: data.area,
+          purpose: data.find,
+          professional_power: data.superpower,
+          // event_type: data.city.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
           event_type: "Bogota",
           event_status: "Registered"
         }, {
@@ -127,6 +184,19 @@ export function HomeElearningNewsletter({ sx, ...other }) {
         });
         console.log('Respuesta:', response.data);
         console.info('DATA', data);
+        const formData = new FormData();
+        // formData.append("file", value, "Foto de perfil");
+        // console.log('formData: ', formData);
+        
+        const resImage = await axios.post(`https://brainstormersapi.com/upload-image/${response.data}`, {
+          file: value
+        }, {
+          headers: {
+            // 'Content-Type': 'application/json',
+            'Content-Type': 'multipart/form-data'
+          }
+        });
+        console.log('Respuesta API image:', resImage.data);
         reset();
       } catch (error) {
         console.error('Error al enviar el formulario:', error);
@@ -136,8 +206,32 @@ export function HomeElearningNewsletter({ sx, ...other }) {
     }
   });
 
+  const imagePathToIFormFile = async (imagePath, fileName) => {
+    try {
+      const response = await fetch(imagePath);
+      const blob = await response.blob();
+      const file = new File([blob], fileName);
+      return file;
+    } catch (error) {
+      console.error("Error converting to IFormFile:", error);
+      return null;
+    }
+  }
+
   const renderBase = () => (
     <>
+      <FieldContainer label="¿A qué ciudad quieres ir?">
+        <Field.Select name="city" label="Seleccione una ciudad">
+          <MenuItem value="">None</MenuItem>
+          <Divider sx={{ borderStyle: 'dashed' }} />
+          {OPTIONS_CITY.map((option) => (
+            <MenuItem key={option.value} value={option.label}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </Field.Select>
+      </FieldContainer>
+
       <FieldContainer label="¿Cuál es tu nombre de pila (o cómo te gusta que te llamen)?">
         <Field.Text name="fullName" label="Nombre completo"/>
       </FieldContainer>
@@ -198,14 +292,31 @@ export function HomeElearningNewsletter({ sx, ...other }) {
         <Field.Text name="instagram" label="@john_doe"/>
       </FieldContainer>
 
-      <FieldContainer label="Carga tu imagen de perfil">
+      {/* <FieldContainer label="Carga tu imagen de perfil">
         <Field.Text
           name="image"
           // label="Imagen de perfil"
           type="file"
+          // value={value}
           inputProps={{ accept: 'image/*' }}
+          onChange={(e) => {
+            if (e.target.files && e.target.files[0]) {
+              setValue('image', e.target.files[0]); // guardar el objeto File
+            }
+          }}
         />
-      </FieldContainer>
+      </FieldContainer> */}
+      <input
+        type="file"
+        accept="image/*"
+        onChange={(e) => {
+          if (e.target.files && e.target.files[0]) {
+            setValue(e.target.files[0]); // guardar el objeto File
+          }
+        }}
+      />
+
+      
 
     </>
   );

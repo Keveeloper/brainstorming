@@ -63,10 +63,10 @@ export function HomePanelistas({ sx, ...other }) {
     });
 
     useEffect(() => {
-    setRefs({
-        panelistsRef,
-        panelistsMobileRef
-    });
+        setRefs({
+            panelistsRef,
+            panelistsMobileRef
+        });
     }, []);
 
     return(

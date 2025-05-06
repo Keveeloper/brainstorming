@@ -27,18 +27,19 @@ export const FieldsSchema = zod
       .min(1, { message: 'Full name is required!' })
       .min(6, { message: 'Mininum 6 characters!' })
       .max(32, { message: 'Maximum 32 characters!' }),
-    image: zod
-      .string()
-      .min(1, { message: 'Full name is required!' })
-      .min(6, { message: 'Mininum 6 characters!' }),
+    // image: zod
+    //   .string()
+    //   .min(1, { message: 'Full name is required!' })
+    //   .min(6, { message: 'Mininum 6 characters!' }),
     email: zod
       .string()
       .min(1, { message: 'Email is required!' })
       .email({ message: 'Email must be a valid email address!' }),
     phoneNumber: schemaHelper.phoneNumber({ isValid: isValidPhoneNumber }),
-    profession: zod.string().min(1, { message: 'Single select is required!' }),
-    area: zod.string().min(1, { message: 'Single select is required!' }),
-    find: zod.string().min(1, { message: 'Single select is required!' }),
+    profession: zod.string().min(1, { message: 'Este campo es requerido' }),
+    city: zod.string().min(1, { message: 'Este campo es requerido' }),
+    area: zod.string().min(1, { message: 'Este campo es requerido' }),
+    find: zod.string().min(1, { message: 'Este campo es requerido' }),
     // age: schemaHelper.nullableInput(
     //   zod
     //     .number({ coerce: true })
