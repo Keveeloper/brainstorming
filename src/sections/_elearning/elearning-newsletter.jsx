@@ -101,6 +101,7 @@ const modalStyle = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 400,
+  maxSize: '80%',
   bgcolor: 'background.paper',
   // border: '2px solid #000',
   borderRadius: 2,
@@ -421,7 +422,8 @@ const {
                   {successMessage ? 'Ya estás dentro 🤘' : 'Algo salió mal 🫨'}
                 </Typography>
                 <Typography id="modal-modal-description" sx={{ mt: 2, mb: 2 }}>
-                  {successMessage ? 'Tu formulario fue enviado con éxito. Te esperamos en el evento 🙌' : 'Lo sentimos, tu formulario no se pudo enviar, revisa que tu email esté correcto e intenta de nuevo más tarde.'}
+                  {/* {successMessage ? 'Tu formulario fue enviado con éxito. Te esperamos en el evento 🙌' : 'Lo sentimos, tu formulario no se pudo enviar, revisa que tu email esté correcto e intenta de nuevo más tarde.'} */}
+                  {successMessage ? 'Tu formulario fue enviado con éxito. Te esperamos en el evento 🙌' : file}
                 </Typography>
                 {/* <Button 
                   onClick={handleClose}

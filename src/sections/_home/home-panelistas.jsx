@@ -470,7 +470,7 @@ export function MemberItem({ item, sx, ...other }) {
         </Box>
   
         <Typography variant="h6" sx={{ mt: 2.5, mb: 0.5, textAlign: 'center' }}>
-          {item.name} Holaaaa
+          {item.name}
         </Typography>
         <Typography variant="body2" sx={{ color: 'text.disabled', textAlign: 'center' }}>
           {item.role}

@@ -18,7 +18,7 @@ const SUMMARY = [
   },
   {
     title: ' Ideas crudas <br/> y reales',
-    description: 'Sin slides, sin paja. Historias que no encuentras en YouTube.',
+    description: 'Sin slides, sin paja. Historias <br/>que no encuentras en YouTube.',
     icon: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/28db379b-87a0-4402-810f-406d372f4600/public',
   },
   {
