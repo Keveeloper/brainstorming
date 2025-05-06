@@ -223,17 +223,23 @@ const {
         //     'Content-Type': 'multipart/form-data'
         //   }
         // });   
-        const resImage = await axios.post(`https://brainstormersapi.com/upload-image/${response.data}`, {
-          file: imageRef?.current?.files?.[0]
-        }, {
-          headers: {
-            'Content-Type': 'multipart/form-data'
-          }
-        });
-        console.log('Respuesta API image:', resImage.data);
-        setOpen(true);
-        setSuccessMessage(true);
-        reset();
+        if (imageRef?.current?.files?.[0]) {
+          convertToPng(imageRef?.current?.files?.[0]).then((pngFile) => {
+            console.log('Archivo convertido a PNG:', pngFile);
+            const resImage = axios.post(`https://brainstormersapi.com/upload-image/${response.data}`, {
+              file: imageRef?.current?.files?.[0]
+            }, {
+              headers: {
+                'Content-Type': 'multipart/form-data'
+              }
+            });
+            console.log('Respuesta API image:', resImage.data);
+            setOpen(true);
+            setSuccessMessage(true);
+            reset();
+          }).catch(console.error);
+        }
+        
       } catch (error) {
         console.error('Error al enviar el formulario:', error);
         setOpen(true);
@@ -328,7 +334,7 @@ const {
         <Field.Text
           name="image"
           type="file"
-          inputProps={{ accept: 'image/*' }}
+          inputProps={{ accept: 'image/png' }}
         />
       </FieldContainer>
       {/* <input
@@ -344,23 +350,41 @@ const {
     </>
   );
 
-  const rederModal = () => {
-    <Modal
-      open={open}
-      onClose={handleClose}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
-    >
-      <Box sx={modalStyle}>
-        <Typography id="modal-modal-title" variant="h6" component="h2">
-          Text in a modal
-        </Typography>
-        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-          Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-        </Typography>
-      </Box>
-      <Button onClick={handleClose}>Aceptar</Button>
-    </Modal>
+  async function convertToPng(fileImage) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+  
+      reader.onload = () => {
+        const img = new Image();
+        img.onload = () => {
+          // Crear canvas con las dimensiones de la imagen original
+          const canvas = document.createElement('canvas');
+          canvas.width = img.width;
+          canvas.height = img.height;
+  
+          // Dibujar la imagen en el canvas
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0);
+  
+          // Convertir canvas a blob en formato PNG
+          canvas.toBlob((blob) => {
+            if (blob) {
+              const pngFile = new File([blob], `${file.name.split('.')[0]}.png`, {
+                type: 'image/png',
+              });
+              resolve(pngFile);
+            } else {
+              reject(new Error('Error al convertir la imagen a PNG'));
+            }
+          }, 'image/png');
+        };
+        img.onerror = reject;
+        img.src = reader.result;
+      };
+  
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
   }
 
   return (
@@ -434,7 +458,7 @@ const {
                   {successMessage ? 'Ya estás dentro 🤘' : 'Algo salió mal 🫨'}
                 </Typography>
                 <Typography id="modal-modal-description" sx={{ mt: 2, mb: 2 }}>
-                  {successMessage ? 'Tu formulario fue enviado con éxito. Te esperamos en el evento 🙌' : 'Lo sentimos, tu formulario no se pudo enviar, revisa que tu email esté correcto e intenta de nuevo más tarde.'}
+                  {successMessage ? 'Tu formulario fue enviado con éxito. Te esperamos en el evento 🙌' : `Lo sentimos, tu formulario no se pudo enviar, revisa que tu email esté correcto e intenta de nuevo más tarde. Error: ${apiErrors}`}
                   {/* {successMessage ? apiErrors : apiErrors} */}
                 </Typography>
                 {/* <Button 
