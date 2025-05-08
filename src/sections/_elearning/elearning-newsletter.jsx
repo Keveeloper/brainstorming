@@ -52,6 +52,7 @@ const defaultValues = {
   // select
   // singleSelect: '',
   profession: '',
+  company: '',
   area: '',
   superpower: '',
   find: '',
@@ -189,8 +190,6 @@ const {
   // });
 
   const onSubmit = handleSubmit(async (data) => { 
-    console.log('File: ', file);
-    
     try {
       await new Promise((resolve) => setTimeout(resolve, 3000));
       try {
@@ -203,8 +202,9 @@ const {
           instagram: data.instagram,
           best_area: data.area,
           purpose: data.find,
+          company: data.company,
           professional_power: data.superpower,
-          event_type: "Bogota",
+          event_type: data.city,
           event_status: "Registered"
         }, {
           headers: {
@@ -292,6 +292,10 @@ const {
             </MenuItem>
           ))}
         </Field.Select>
+      </FieldContainer>
+
+      <FieldContainer label="¿En qué compañía trabajas?">
+        <Field.Text name="company" label="Nombre de la empresa"/>
       </FieldContainer>
       
       <FieldContainer label="¿En qué área te mueves como pez en el agua?">
@@ -426,12 +430,14 @@ const {
       </Box>
 
       <Container>
-        <Box sx={{ mx: 'auto', maxWidth: 480, textAlign: 'center', color: 'common.white' }}>
-          <Typography variant='h3' sx={{ gap: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#29e6ff'}} dangerouslySetInnerHTML={{ __html: 'Regístrate ahora <br/>y no te pierdas este evento' }} />
+        <Box sx={{ mx: 'auto', maxWidth: 800, textAlign: 'center', color: 'common.white' }}>
+          <Box sx={{background: '#29e6ff', borderRadius: '10px'}}>
+            <Typography variant='h3' sx={{ gap: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'black'}} dangerouslySetInnerHTML={{ __html: 'Regístrate ahora <br/>y no te pierdas este evento' }} />
 
-          <Typography sx={{ mt: 3, mb: 5, opacity: 0.64 }}>
-            Llena la información requerida en los siguientes campos.
-          </Typography>
+            <Typography sx={{ mt: 3, mb: 5, color: 'black' }}>
+              Llena la información requerida en los siguientes campos.
+            </Typography>
+          </Box>
 
           {isSubmitting && (
             <Backdrop open sx={[(theme) => ({ zIndex: theme.zIndex.modal + 1 })]}>

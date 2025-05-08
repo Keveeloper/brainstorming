@@ -9,7 +9,7 @@ export const defaultSettings = {
   colorScheme: themeConfig.defaultMode,
   direction: themeConfig.direction,
   primaryColor: 'default',
-  fontSize: 16,
+  fontSize: 19,
   fontFamily: themeConfig.fontFamily.primary,
   version: CONFIG.appVersion,
 };

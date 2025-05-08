@@ -9,28 +9,33 @@ export const FieldsSchema = zod
   .object({
     fullName: zod
       .string()
-      .min(1, { message: 'Full name is required!' })
-      .min(6, { message: 'Mininum 6 characters!' })
-      .max(16, { message: 'Maximum 16 characters!' }),
+      .min(1, { message: 'El nombre es requerido' })
+      .min(6, { message: 'Mínimo 6 caracteres!' })
+      .max(16, { message: 'Máximo 16 caracteres!' }),
+    company: zod
+      .string()
+      .min(1, { message: 'La compañía es requerida!' })
+      .min(6, { message: 'Mínimo 6 caracteres!' })
+      .max(32, { message: 'Máximo 32 caracteres!' }),
     TalkToUs: zod
       .string()
       .min(1, { message: 'Háblanos más es requerido' })
-      .min(6, { message: 'Mininum 6 characters!' })
+      .min(6, { message: 'Mínimo 6 caracteres!' })
       .max(255, { message: 'Maximum 255 characters!' }),
     superpower: zod
       .string()
       .min(1, { message: 'Superpoder es requerido' })
-      .min(6, { message: 'Mininum 6 characters!' })
+      .min(6, { message: 'Mínimo 6 caracteres!' })
       .max(25, { message: 'Maximum 25 characters!' }),
     instagram: zod
       .string()
       .min(1, { message: 'Instagram es requerido' })
-      .min(6, { message: 'Mininum 6 characters!' })
-      .max(16, { message: 'Maximum 16 characters!' }),
+      .min(6, { message: 'Mínimo 6 caracteres!' })
+      .max(16, { message: 'Máximo 16 caracteres!' }),
     image: zod
       .string()
       .min(1, { message: 'La imagen es requerida' })
-      .min(6, { message: 'Mininum 6 characters!' }),
+      .min(6, { message: 'Mínimo 6 caracteres!' }),
     email: zod
       .string()
       .min(1, { message: 'Email is required!' })

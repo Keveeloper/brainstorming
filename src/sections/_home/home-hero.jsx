@@ -128,7 +128,7 @@ export function HomeHero({ sx, ...other }) {
     <MotionViewport
       sx={{
         gap: 5,
-        maxWidth: 480,
+        maxWidth: 550,
         display: 'flex',
         flexDirection: 'column',
         alignItems: { xs: 'center', md: 'flex-start' },

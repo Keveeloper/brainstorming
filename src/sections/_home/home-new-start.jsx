@@ -47,7 +47,7 @@ export function HomeNewStart({ sx, ...other }) {
             flexDirection: 'column-reverse',
             bgcolor: 'background.neutral',
             [theme.breakpoints.up('md')]: { 
-              height: '700px',
+              // height: '700px',
               flexDirection: 'row'
              },
           })}
