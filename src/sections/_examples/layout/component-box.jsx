@@ -32,18 +32,20 @@ const ComponentBoxRoot = styled('div')(({ theme }) => ({
 
 const ComponentBoxLabel = styled('span')(({ theme }) => ({
   top: 0,
-  left: 0,
+  left: '45%',
+  // transform: 'translate(-50%, 18px)',
   position: 'absolute',
   marginLeft: theme.spacing(2.5),
   padding: theme.spacing(0.25, 1),
   color: theme.vars.palette.text.primary,
   borderRadius: theme.shape.borderRadius * 2,
   backgroundColor: theme.vars.palette.common.white,
-  transform: 'translateY(-50%)',
+  transform: 'translate(-50%, -50%)',
   fontSize: theme.typography.caption.fontSize,
   fontWeight: theme.typography.fontWeightSemiBold,
   border: `solid 1px ${varAlpha(theme.vars.palette.grey['500Channel'], 0.24)}`,
   ...theme.applyStyles('dark', {
-    backgroundColor: theme.vars.palette.background.neutral,
+    // backgroundColor: theme.vars.palette.background.neutral,
+    backgroundColor: '#c400d0',
   }),
 }));
