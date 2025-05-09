@@ -1,13 +1,15 @@
 import { varAlpha } from 'minimal-shared/utils';
 
+import { useMediaQuery } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 // ----------------------------------------------------------------------
 
 export function ComponentBox({ title, sx, children, ...other }) {
+  const isMobile = useMediaQuery('(max-width: 640px)');
   return (
     <ComponentBoxRoot sx={sx} {...other}>
-      {title && <ComponentBoxLabel>{title}</ComponentBoxLabel>}
+      {title && <ComponentBoxLabel isMobile={isMobile}>{title}</ComponentBoxLabel>}
       {children}
     </ComponentBoxRoot>
   );
@@ -30,18 +32,18 @@ const ComponentBoxRoot = styled('div')(({ theme }) => ({
   boxShadow: `0 0 0 1px ${varAlpha(theme.vars.palette.grey['500Channel'], 0.16)}`,
 }));
 
-const ComponentBoxLabel = styled('span')(({ theme }) => ({
+const ComponentBoxLabel = styled('span')(({ theme, isMobile }) => ({
+  width: isMobile && '250px',
   top: 0,
-  left: '45%',
+  left: '50%',
   // transform: 'translate(-50%, 18px)',
   position: 'absolute',
-  marginLeft: theme.spacing(2.5),
   padding: '8px 16px',
   color: theme.vars.palette.text.primary,
   borderRadius: theme.shape.borderRadius * 2,
   backgroundColor: theme.vars.palette.common.white,
   transform: 'translate(-50%, -50%)',
-  fontSize: '1.1rem',
+  fontSize: isMobile ? '1.rem' : '1.1rem',
   fontWeight: theme.typography.fontWeightSemiBold,
   border: `solid 1px ${varAlpha(theme.vars.palette.grey['500Channel'], 0.24)}`,
   ...theme.applyStyles('dark', {

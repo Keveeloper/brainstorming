@@ -27,7 +27,7 @@ const penalist = [
         role: 'Director Creativo',
         name: 'Danilo Álvarez',
         copy: 'Tras liderar grupos creativos en Walt Disney World en Florida y Discovery Communications en Washington DC, Danilo hoy comparte el liderazgo de Alerta con sus socios Johann y Álvaro, ayudando a marcas Estadounidenses a conectarse de manera relevante y auténtica con audiencias hispanohablantes en Latinoamérica y Estados Unidos.',
-        photoUrl: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/7c39693a-14bb-4ac5-52e7-7c4e6579b500/public'
+        photoUrl: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/df366b71-dc2b-4766-7bad-cff832e0b700/public'
     },
     {
         id: 2,
@@ -37,7 +37,7 @@ const penalist = [
                Le apasiona hacer que las cosas funcionen, liderando equipos y proyectos con precisión y compromiso. 
                Su enfoque detallista y mirada a futuro lo convierten en un motor clave del crecimiento dentro de 
                un entorno siempre cambiante.`,
-        photoUrl: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/9b18d231-6577-4128-c666-0a4a9f4cb100/public'
+        photoUrl: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/3595a8fd-5eb7-406f-5b9f-f0b0699be500/public'
     },
     {
         id: 3,
@@ -46,7 +46,7 @@ const penalist = [
         copy: `Álvaro es socio y Director Comercial en Alerta, donde une su pasión por contar historias con una 
                fuerte intuición estratégica. Con experiencia en medios, coaching y emprendimiento, disfruta acompañar 
                a marcas y personas a descubrir su voz. Siempre en movimiento, busca ideas que inspiren y generen impacto real.`,
-        photoUrl: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/89a8ebd2-c803-4fbb-393a-8b4996c02800/public'
+        photoUrl: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/938d72ab-61dd-4dc9-df86-e65f89237300/public'
     }
 ]
 
@@ -359,13 +359,14 @@ export function HomePanelistas({ sx, ...other }) {
                         textAlign: { xs: 'center', md: 'unset' },
                     }}
                     >
-                    <Typography variant="overline" sx={{ color: 'grey.600' }}>
+                    <Typography variant="overline" sx={{ color: '#8299ae', fontSize: '1.3rem' }}>
                         Panelistas
                     </Typography>
         
                     <Typography
                         variant="h2"
                         sx={(theme) => ({
+                            fontSize: '2.2rem',
                         ...theme.mixins.textGradient(
                             `90deg, ${'#00fff2'} 20%, ${'#00fff2'} 100%`
                         ),

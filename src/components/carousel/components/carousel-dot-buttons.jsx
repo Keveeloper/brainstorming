@@ -89,7 +89,7 @@ const DotItem = styled(ButtonBase, {
     content: '""',
     opacity: 0.24,
     borderRadius: '50%',
-    backgroundColor: 'currentColor',
+    backgroundColor: '#00ff00',
     transition: theme.transitions.create(['width', 'opacity'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.short,

@@ -12,6 +12,11 @@ export const FieldsSchema = zod
       .min(1, { message: 'El nombre es requerido' })
       .min(6, { message: 'Mínimo 6 caracteres!' })
       .max(16, { message: 'Máximo 16 caracteres!' }),
+    profession: zod
+      .string()
+      .min(1, { message: 'La profesión es requerida' })
+      .min(6, { message: 'Mínimo 6 caracteres!' })
+      .max(16, { message: 'Máximo 100 caracteres!' }),
     company: zod
       .string()
       .min(1, { message: 'La compañía es requerida!' })
@@ -41,7 +46,7 @@ export const FieldsSchema = zod
       .min(1, { message: 'Email is required!' })
       .email({ message: 'Email must be a valid email address!' }),
     phoneNumber: schemaHelper.phoneNumber({ isValid: isValidPhoneNumber }),
-    profession: zod.string().min(1, { message: 'Este campo es requerido' }),
+    // profession: zod.string().min(1, { message: 'Este campo es requerido' }),
     city: zod.string().min(1, { message: 'Este campo es requerido' }),
     area: zod.string().min(1, { message: 'Este campo es requerido' }),
     find: zod.string().min(1, { message: 'Este campo es requerido' }),

@@ -283,6 +283,10 @@ const {
       </FieldContainer>
 
       <FieldContainer label="¿A qué te dedicas actualmente?">
+        <Field.Text name="profession" label="Tu profesión"/>
+      </FieldContainer>
+
+      {/* <FieldContainer label="¿A qué te dedicas actualmente?">
         <Field.Select name="profession" label="Seleccione una opción">
           <MenuItem value="">None</MenuItem>
           <Divider sx={{ borderStyle: 'dashed' }} />
@@ -292,7 +296,7 @@ const {
             </MenuItem>
           ))}
         </Field.Select>
-      </FieldContainer>
+      </FieldContainer> */}
 
       <FieldContainer label="¿En qué compañía trabajas?">
         <Field.Text name="company" label="Nombre de la empresa"/>
@@ -400,7 +404,7 @@ const {
           overflow: 'hidden',
           position: 'relative',
           bgcolor: 'common.black',
-          py: { xs: 10, md: 15 },
+          py: { xs: 5, md: 15 },
         },
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}
@@ -430,8 +434,30 @@ const {
       </Box>
 
       <Box sx={{mb: 5, pt: 3, pb: 3, background: '#00fff2'}}>
-        <Typography variant='h3' sx={{ gap: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'black'}} dangerouslySetInnerHTML={{ __html: 'Regístrate ahora y no te pierdas este evento' }} />
-        <Typography sx={{ color: 'black', textAlign: 'center' }}>
+        <Typography 
+          variant='h3' 
+          sx={(theme) => ({
+            gap: 2, 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center', 
+            color: 'black',
+            fontSize: '2rem',
+            textAlign: 'center',
+            lineHeight: 'normal',
+            mb: 2,
+            [theme.breakpoints.up('md')]: { 
+              gap: 2, 
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'center', 
+              color: 'black',
+            },
+          })}
+          // sx={{ gap: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'black'}} 
+          dangerouslySetInnerHTML={{ __html: 'Regístrate ahora y no te pierdas este evento' }} 
+        />
+        <Typography sx={{ color: 'black', textAlign: 'center', lineHeight: 'normal' }}>
           Llena la información requerida en los siguientes campos.
         </Typography>
       </Box>

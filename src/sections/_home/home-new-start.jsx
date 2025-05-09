@@ -2,6 +2,7 @@ import { m } from 'framer-motion';
 import { useRef, useEffect } from 'react';
 
 import Box from '@mui/material/Box';
+import { useMediaQuery } from '@mui/material';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
@@ -15,7 +16,9 @@ const variants = varFade('inUp', { distance: 24 });
 
 // ----------------------------------------------------------------------
 
-export function HomeNewStart({ sx, ...other }) {  
+export function HomeNewStart({ sx, ...other }) { 
+  
+  const isMobile = useMediaQuery('(max-width: 640px)');
 
   const whatIsItRef = useRef(null);
   
@@ -52,18 +55,21 @@ export function HomeNewStart({ sx, ...other }) {
              },
           })}
         >
-          <m.div variants={variants} style={{width: '40%'}}>
+          <m.div variants={variants} style={{width: !isMobile && '40%'}}>
             <Box>
-                <Typography variant="h3" 
-                sx={(theme) => ({
-                  textAlign: 'center',
-                  // fontSize: '2.5rem',
-                  [theme.breakpoints.up('md')]: { 
-                    textAlign: 'start',
-                    fontSize: '2.5rem',
-                    lineHeight: 'normal'
-                   },
-                })}>
+                <Typography 
+                  variant="h3" 
+                  sx={(theme) => ({
+                    textAlign: 'center',
+                    fontSize: '1.8rem',
+                    lineHeight: 'normal',
+                    [theme.breakpoints.up('md')]: { 
+                      textAlign: 'start',
+                      fontSize: '2.5rem',
+                      lineHeight: 'normal'
+                    },
+                  })}
+                >
                   Más que un evento,
                   <Box
                     sx={{color: '#00fff2'}}>
@@ -77,6 +83,7 @@ export function HomeNewStart({ sx, ...other }) {
                     textAlign: 'center',
                     color: 'white', 
                     maxWidth: 480,
+                    fontSize: '1.2rem',
                     [theme.breakpoints.up('md')]: { 
                       textAlign: 'start',
                       fontSize: '1rem'
@@ -89,7 +96,7 @@ export function HomeNewStart({ sx, ...other }) {
                 </Typography>
             </Box>
           </m.div>
-          <m.div variants={variants} style={{width: '60%'}}>
+          <m.div variants={variants} style={{width: !isMobile && '60%'}}>
             <Box
             width={{width: '100%'}}
               component="img"

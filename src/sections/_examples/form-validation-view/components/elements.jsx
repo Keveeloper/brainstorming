@@ -83,7 +83,8 @@ export function FieldContainer({ sx, children, label = 'RHFTextField' }) {
             textAlign: 'center',
             fontStyle: 'italic',
             color: 'white',
-            fontSize: theme.typography.pxToRem(15),
+            // fontSize: theme.typography.pxToRem(15),
+            fontSize: '1.1rem',
           }),
         ]}
       >

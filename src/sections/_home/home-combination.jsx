@@ -39,14 +39,14 @@ export function HomeMinimalUI({ sx, ...other }) {
       </m.div>
 
       <m.div variants={variants}>
-        <Typography variant="h3" sx={{ my: 3, color: '#00fff2' }}>
+        <Typography variant="h3" sx={{ my: 3, color: '#00fff2', fontSize: '2rem' }}>
           ¿Quién está detrás del caos creativo?
         </Typography>
       </m.div>
 
       <m.div variants={variants}>
         <Typography
-          sx={{ maxWidth: 360, color: 'white', mx: { xs: 'auto', md: 'unset' } }}
+          sx={{ maxWidth: 360, color: 'white', fontSize: '1.2rem', mx: { xs: 'auto', md: 'unset' } }}
         >
           Alerta Creative es una agencia multicultural que produce ideas con coraje. 
           Campañas, estrategias y conceptos que conectan marcas con emociones reales 

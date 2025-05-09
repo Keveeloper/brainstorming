@@ -75,123 +75,49 @@ export function HomeTravelLandingIntroduce({ sx, ...other }) {
               })}
             />
 
-            <Typography component="h6" variant="h5" sx={{ mt: 3, mb: 1 }} dangerouslySetInnerHTML={{ __html: value.title }} />
+            <Typography 
+              component="h6" 
+              variant="h5" 
+              sx={(theme) => ({
+                mt: 3, 
+                mb: 1,
+                fontSize: '2rem',
+                [theme.breakpoints.up('md')]: { 
+                  mt: 3, 
+                  mb: 1,
+                 },
+              })}
+              // sx={{ mt: 3, mb: 1, fontSize: '2rem' }} 
+              dangerouslySetInnerHTML={{ __html: value.title }} 
+            />
 
-            <Typography variant="body2" sx={{ color: 'text.secondary' }} dangerouslySetInnerHTML={{ __html: value.description }} />
+            <Typography 
+              variant="body2" 
+              sx={(theme) => ({
+                fontSize: '1.2rem',
+                color: 'text.secondary',
+                [theme.breakpoints.up('md')]: { 
+                  fontSize: '0.875rem',
+                  color: 'text.secondary',
+                 },
+              })}
+              // sx={{ color: 'text.secondary', fontSize: '1.2rem' }} 
+              dangerouslySetInnerHTML={{ __html: value.description }} 
+            />
           </div>
         ))}
       </Box>
     </Container>
   );
 
-  // const renderTexts = () => (
-  //   <Container>
-  //     <Box
-  //       sx={{
-  //         maxWidth: 480,
-  //         mx: { xs: 'auto', md: 'unset' },
-  //         textAlign: { xs: 'center', md: 'unset' },
-  //       }}
-  //     >
-  //       <Typography variant="h2" sx={{ mb: 3 }}>
-  //         Explore a different way to travel
-  //       </Typography>
-  //       <Typography sx={{ color: 'text.secondary' }}>
-  //         Cras ultricies mi eu turpis hendrerit fringilla. Nulla consequat massa quis enim.
-  //       </Typography>
-  //     </Box>
-  //   </Container>
-  // );
-
-  // const renderCard = () => (
-  //   <Card
-  //     sx={(theme) => ({
-  //       p: 5,
-  //       top: 24,
-  //       left: 24,
-  //       zIndex: 9,
-  //       right: 24,
-  //       bottom: 24,
-  //       display: 'flex',
-  //       textAlign: 'center',
-  //       position: 'absolute',
-  //       alignItems: 'center',
-  //       flexDirection: 'column',
-  //       justifyContent: 'center',
-  //       [theme.breakpoints.up('sm')]: {
-  //         right: 'auto',
-  //         bottom: 'auto',
-  //         textAlign: 'unset',
-  //         alignItems: 'unset',
-  //         justifyContent: 'unset',
-  //       },
-  //       [theme.breakpoints.up('md')]: { top: 40, left: 40, maxWidth: 360 },
-  //       [theme.breakpoints.up('lg')]: { top: 64, left: 64 },
-  //     })}
-  //   >
-  //     <Typography variant="overline" sx={{ color: 'text.disabled' }}>
-  //       Device
-  //     </Typography>
-
-  //     <Typography component="h6" variant="h4" sx={{ my: 3 }}>
-  //       The more important the work
-  //     </Typography>
-
-  //     <Box
-  //       sx={{
-  //         gap: 1,
-  //         display: 'flex',
-  //         alignItems: 'center',
-  //         cursor: 'pointer',
-  //         color: 'primary.main',
-  //         typography: 'subtitle1',
-  //         '&:hover': { opacity: 0.72 },
-  //       }}
-  //     >
-  //       <Iconify width={22} icon="solar:play-outline" /> Watch video
-  //     </Box>
-  //   </Card>
-  // );
-
-  // const renderImage = () => (
-  //   <Container
-  //     sx={(theme) => ({
-  //       px: 0,
-  //       my: { xs: 5, md: 10 },
-  //       position: 'relative',
-  //       [theme.breakpoints.up('sm')]: { px: 0 },
-  //       [theme.breakpoints.up('md')]: { my: 10 },
-  //       [theme.breakpoints.up('lg')]: { px: 3 },
-  //     })}
-  //   >
-  //     {renderCard()}
-
-  //     <Box
-  //       component="img"
-  //       loading="lazy"
-  //       alt="Travel cover"
-  //       src={`${CONFIG.assetsDir}/assets/images/travel/travel-large-1.webp`}
-  //       sx={(theme) => ({
-  //         minHeight: 320,
-  //         objectFit: 'cover',
-  //         [theme.breakpoints.up('lg')]: {
-  //           maxWidth: 'unset',
-  //           width: `calc(100vw - ${containerOffset})`,
-  //         },
-  //       })}
-  //     />
-  //   </Container>
-  // );
-
   return (
     <div
       ref={whyComeRef}
     >
       <Box
-        
         component="section"
         sx={[
-          { overflow: 'hidden', pt: { xs: 10, md: 10 }, pb: { xs: 5, md: 10 } },
+          { overflow: 'hidden', pt: { xs: 5, md: 10 }, pb: { xs: 5, md: 10 } },
           ...(Array.isArray(sx) ? sx : [sx]),
         ]}
         {...other}
