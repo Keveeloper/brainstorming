@@ -51,7 +51,7 @@ export function HomeHero({ sx, ...other }) {
             {`Brain5tormers `}
           </Box> */}
           <Box
-          sx={{color: '#c400d0'}}
+          sx={{color: '#c106ff'}}
           >
           Brain5tormers
           </Box>
@@ -60,7 +60,7 @@ export function HomeHero({ sx, ...other }) {
       </m.div>
 
       <m.div variants={variants}>
-        <Typography sx={{ maxWidth: 480 }}>
+        <Typography sx={{ fontSize: '1.3rem' }}>
           Un encuentro para creadores, marketers y mentes que no se apagan.
           Conecta con quienes están reescribiendo las reglas del juego.
         </Typography>
@@ -155,7 +155,7 @@ export function HomeHero({ sx, ...other }) {
           {
             borderRadius: 1,
             position: 'relative',
-            bgcolor: '#c400d0',
+            bgcolor: '#c106ff',
             color: 'white',
           },
           ...(Array.isArray(sx) ? sx : [sx]),
@@ -254,9 +254,10 @@ export function HomeHero({ sx, ...other }) {
           overflow: 'hidden',
           position: 'relative',
           [theme.breakpoints.up('md')]: {
-            py: 15,
+            // py: 15,
+            pb: 0,
             minHeight: 760,
-            height: '100vh',
+            // height: '100vh',
             maxHeight: 1440,
             display: 'flex',
             alignItems: 'center',

@@ -40,6 +40,11 @@ export function RHFSelect({ name, children, helperText, slotProps = {}, ...other
       control={control}
       render={({ field, fieldState: { error } }) => (
         <TextField
+          sx={{
+            '& .MuiInputLabel-root': {
+              color: '#8c8c8c'
+            }
+          }}
           {...field}
           select
           fullWidth

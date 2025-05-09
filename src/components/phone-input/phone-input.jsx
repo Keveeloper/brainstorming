@@ -102,7 +102,7 @@ export function PhoneInput({
         inputComponent={CustomInput}
         placeholder={placeholder ?? 'Enter phone number'}
         slotProps={{
-          inputLabel: { shrink: true },
+          inputLabel: { shrink: true, color: '8c8c8c' },
           input: {
             endAdornment: cleanValue && (
               <InputAdornment position="end">

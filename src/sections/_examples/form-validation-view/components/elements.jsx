@@ -20,7 +20,7 @@ export function FormActions({ sx, disabled, onReset, loading, ...other }) {
           mt: 3,
           gap: 2,
           display: 'flex',
-          justifyContent: 'flex-end',
+          justifyContent: 'center',
         }),
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}
@@ -29,7 +29,7 @@ export function FormActions({ sx, disabled, onReset, loading, ...other }) {
       {/* <Button color="error" size="large" variant="soft" disabled={disabled} onClick={onReset}>
         Reset
       </Button> */}
-      <Button style={{backgroundColor: '#c400d0', color: 'white'}} size="large" type="submit" variant="contained" loading={loading}>
+      <Button style={{backgroundColor: '#c106ff', color: 'white'}} size="large" type="submit" variant="contained" loading={loading}>
         Reservar mi lugar ahora
       </Button>
     </Box>
@@ -80,7 +80,7 @@ export function FieldContainer({ sx, children, label = 'RHFTextField' }) {
         variant="caption"
         sx={[
           (theme) => ({
-            textAlign: 'left',
+            textAlign: 'center',
             fontStyle: 'italic',
             color: 'white',
             fontSize: theme.typography.pxToRem(15),

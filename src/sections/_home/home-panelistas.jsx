@@ -26,7 +26,7 @@ const penalist = [
         id: 1,
         role: 'Director Creativo',
         name: 'Danilo Álvarez',
-        copy: 'Tras liderar grupos creativos en Walt Disney World, en Florida y Discovery Communications en Washington, Danilo abrió su propia agencia de publicidad en Nueva York, donde ayuda a marcas americanas a conectarse con audiencias latinas.',
+        copy: 'Tras liderar grupos creativos en Walt Disney World en Florida y Discovery Communications en Washington DC, Danilo hoy comparte el liderazgo de Alerta con sus socios Johann y Álvaro, ayudando a marcas Estadounidenses a conectarse de manera relevante y auténtica con audiencias hispanohablantes en Latinoamérica y Estados Unidos.',
         photoUrl: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/7c39693a-14bb-4ac5-52e7-7c4e6579b500/public'
     },
     {
@@ -41,7 +41,7 @@ const penalist = [
     },
     {
         id: 3,
-        name: 'Álvaro',
+        name: 'Alvaro Pérez-Kattar',
         role: 'Director Comercial',
         copy: `Álvaro es socio y Director Comercial en Alerta, donde une su pasión por contar historias con una 
                fuerte intuición estratégica. Con experiencia en medios, coaching y emprendimiento, disfruta acompañar 
@@ -95,12 +95,12 @@ export function HomePanelistas({ sx, ...other }) {
                 {...other}
             >
                 <Container component={MotionViewport}>
-                <Typography variant="h5" sx={{ color: 'grey.600', textAlign: 'center' }}>
+                <Typography variant="h5" sx={{ color: '#8299ae', fontSize: '1.5rem', textAlign: 'center' }}>
                     Panelistas
                 </Typography>
                 <Typography
                     variant="h3"
-                    sx={{mb: 4, color: '#29e6ff', textAlign: 'center'}}
+                    sx={{mb: 4, color: '#00fff2', textAlign: 'center'}}
                 >
                     ¿Y quiénes agitan la tormenta?
                 </Typography>
@@ -171,12 +171,12 @@ export function HomePanelistas({ sx, ...other }) {
                                     }}
                                 />
                             </Box>
-                            <Typography variant="h6" sx={{ mt: 2.5, mb: 0.5, textAlign: 'center' }}>
+                            <Typography variant="h6" sx={{ mt: 2.5, mb: 0.5, fontSize: '1.3rem !important', textAlign: 'center' }}>
                                 {item.name}
                             </Typography>
-                            <Typography variant="body2" sx={{ color: 'text.disabled', textAlign: 'center' }}>
+                            {/* <Typography variant="body2" sx={{ color: 'text.disabled', textAlign: 'center' }}>
                                 {item.role}
-                            </Typography>
+                            </Typography> */}
                         </Grid>
                     ))}
 
@@ -367,7 +367,7 @@ export function HomePanelistas({ sx, ...other }) {
                         variant="h2"
                         sx={(theme) => ({
                         ...theme.mixins.textGradient(
-                            `90deg, ${'#29e6ff'} 20%, ${'#29e6ff'} 100%`
+                            `90deg, ${'#00fff2'} 20%, ${'#00fff2'} 100%`
                         ),
                         })}
                     >
@@ -402,10 +402,10 @@ export function HomePanelistas({ sx, ...other }) {
                     selectedIndex={carousel.dots.selectedIndex}
                     onClickDot={carousel.dots.onClickDot}
                     sx={{
-                    mt: 5,
-                    color: 'primary.main',
-                    justifyContent: 'center',
-                    display: { xs: 'flex', md: 'none' },
+                        // mt: 5,
+                        color: 'primary.main',
+                        justifyContent: 'center',
+                        display: { xs: 'flex', md: 'none' },
                     }}
                 />
                 </Container>
@@ -472,9 +472,9 @@ export function MemberItem({ item, sx, ...other }) {
         <Typography variant="h6" sx={{ mt: 2.5, mb: 0.5, textAlign: 'center' }}>
           {item.name}
         </Typography>
-        <Typography variant="body2" sx={{ color: 'text.disabled', textAlign: 'center' }}>
+        {/* <Typography variant="body2" sx={{ color: 'text.disabled', textAlign: 'center' }}>
           {item.role}
-        </Typography>
+        </Typography> */}
       </Box>
     );
   }

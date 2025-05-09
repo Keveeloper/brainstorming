@@ -31,6 +31,11 @@ export function RHFTextField({ name, helperText, slotProps, type = 'text', ...ot
       control={control}
       render={({ field, fieldState: { error } }) => (
         <TextField
+          sx={{
+            '& .MuiInputLabel-root': {
+              color: '#8c8c8c'
+            }
+          }}
           inputRef={imageRef}
           {...field}
           fullWidth

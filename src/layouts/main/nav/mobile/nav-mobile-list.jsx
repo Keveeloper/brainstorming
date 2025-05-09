@@ -39,7 +39,7 @@ export function NavList({ data, sx, onClose, ...other }) {
         break;
       case 'Panelistas':
         onClose();
-        panelistsMobileRef.current?.scrollIntoView({ behavior: 'smooth' });
+        panelistsMobileRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
         break;
       case '¿Por qué venir?':
         onClose();

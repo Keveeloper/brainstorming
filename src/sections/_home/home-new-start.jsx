@@ -31,7 +31,7 @@ export function HomeNewStart({ sx, ...other }) {
     <Box
       ref={whatIsItRef}
       component="section"
-      sx={[{ pt: { xs: 10, md: 15 }, pb: { xs: 5, md: 10 } }, ...(Array.isArray(sx) ? sx : [sx])]}
+      sx={[{ pt: { xs: 10, md: 10 }, pb: { xs: 5, md: 10 } }, ...(Array.isArray(sx) ? sx : [sx])]}
       {...other}
     >
       <Container component={MotionViewport}>
@@ -52,28 +52,21 @@ export function HomeNewStart({ sx, ...other }) {
              },
           })}
         >
-           <m.div variants={variants} sx={{width: '50%'}}>
+          <m.div variants={variants} style={{width: '40%'}}>
             <Box>
                 <Typography variant="h3" 
                 sx={(theme) => ({
                   textAlign: 'center',
+                  // fontSize: '2.5rem',
                   [theme.breakpoints.up('md')]: { 
                     textAlign: 'start',
+                    fontSize: '2.5rem',
+                    lineHeight: 'normal'
                    },
                 })}>
                   Más que un evento,
-                  {/* <Box
-                    component="span"
-                    sx={(theme) => ({
-                      ...theme.mixins.textGradient(
-                        `90deg, ${theme.vars.palette.primary.main} 20%, ${theme.vars.palette.secondary.main} 100%`
-                      ),
-                    })}
-                  >
-                    {` es una tormenta de oportunidades. `}
-                  </Box> */}
                   <Box
-                  sx={{color: '#29e6ff'}}>
+                    sx={{color: '#00fff2'}}>
                     es una tormenta de oportunidades.
                   </Box>
                 </Typography>
@@ -86,6 +79,7 @@ export function HomeNewStart({ sx, ...other }) {
                     maxWidth: 480,
                     [theme.breakpoints.up('md')]: { 
                       textAlign: 'start',
+                      fontSize: '1rem'
                     },
                   })}
                 >
@@ -95,7 +89,7 @@ export function HomeNewStart({ sx, ...other }) {
                 </Typography>
             </Box>
           </m.div>
-          <m.div variants={variants} sx={{width: '40%'}}>
+          <m.div variants={variants} style={{width: '60%'}}>
             <Box
             width={{width: '100%'}}
               component="img"

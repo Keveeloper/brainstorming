@@ -39,7 +39,7 @@ export function HomeMinimalUI({ sx, ...other }) {
       </m.div>
 
       <m.div variants={variants}>
-        <Typography variant="h3" sx={{ my: 3, color: '#29e6ff' }}>
+        <Typography variant="h3" sx={{ my: 3, color: '#00fff2' }}>
           ¿Quién está detrás del caos creativo?
         </Typography>
       </m.div>
@@ -106,7 +106,7 @@ export function HomeMinimalUI({ sx, ...other }) {
       <Box
         component="section"
         sx={[
-          { pt: { xs: 5, md: 10 }, pb: { xs: 10, md: 15 }, overflow: 'hidden' },
+          { pt: { xs: 5, md: 10 }, pb: { xs: 10, md: 10 }, overflow: 'hidden' },
           ...(Array.isArray(sx) ? sx : [sx]),
         ]}
         {...other}

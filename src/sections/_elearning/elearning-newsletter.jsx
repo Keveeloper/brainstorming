@@ -429,15 +429,14 @@ const {
         />
       </Box>
 
+      <Box sx={{mb: 5, pt: 3, pb: 3, background: '#00fff2'}}>
+        <Typography variant='h3' sx={{ gap: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'black'}} dangerouslySetInnerHTML={{ __html: 'Regístrate ahora y no te pierdas este evento' }} />
+        <Typography sx={{ color: 'black', textAlign: 'center' }}>
+          Llena la información requerida en los siguientes campos.
+        </Typography>
+      </Box>
       <Container>
         <Box sx={{ mx: 'auto', maxWidth: 800, textAlign: 'center', color: 'common.white' }}>
-          <Box sx={{background: '#29e6ff', borderRadius: '10px'}}>
-            <Typography variant='h3' sx={{ gap: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'black'}} dangerouslySetInnerHTML={{ __html: 'Regístrate ahora <br/>y no te pierdas este evento' }} />
-
-            <Typography sx={{ mt: 3, mb: 5, color: 'black' }}>
-              Llena la información requerida en los siguientes campos.
-            </Typography>
-          </Box>
 
           {isSubmitting && (
             <Backdrop open sx={[(theme) => ({ zIndex: theme.zIndex.modal + 1 })]}>
@@ -459,7 +458,7 @@ const {
                   id="modal-modal-title" 
                   variant="h6" 
                   component="h2"
-                  sx={{color: successMessage ? '#29e6ff' : '#c400d0'}}
+                  sx={{color: successMessage ? '#00fff2' : '#c106ff'}}
                 >
                   {successMessage ? 'Ya estás dentro 🤘' : 'Algo salió mal 🫨'}
                 </Typography>
@@ -467,19 +466,12 @@ const {
                   {successMessage ? 'Tu formulario fue enviado con éxito. Te esperamos en el evento 🙌' : `Lo sentimos, tu formulario no se pudo enviar, revisa que tu email esté correcto e intenta de nuevo más tarde. Error: ${apiErrors}`}
                   {/* {successMessage ? apiErrors : apiErrors} */}
                 </Typography>
-                {/* <Button 
-                  onClick={handleClose}
-                  sx={{
-                    bgcolor: 'c400d0',
-                    color: 'white'
-                  }}
-                >Aceptar</Button> */}
                 <AnimateBorder
                   sx={[
                     {
                       borderRadius: 1,
                       position: 'relative',
-                      bgcolor: '#c400d0',
+                      bgcolor: '#c106ff',
                       color: 'white',
                     },
                     ...(Array.isArray(sx) ? sx : [sx]),

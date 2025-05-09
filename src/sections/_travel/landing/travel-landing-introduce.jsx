@@ -69,7 +69,7 @@ export function HomeTravelLandingIntroduce({ sx, ...other }) {
               src={value.icon}
               sx={(theme) => ({
                 // background: `linear-gradient(to bottom, ${theme.vars.palette.primary.light}, ${theme.vars.palette.primary.main})`,
-                background: '#c400d0',
+                background: '#c106ff',
                 width: 130,
                 height: 130,
               })}
@@ -191,7 +191,7 @@ export function HomeTravelLandingIntroduce({ sx, ...other }) {
         
         component="section"
         sx={[
-          { overflow: 'hidden', pt: { xs: 10, md: 15 }, pb: { xs: 5, md: 10 } },
+          { overflow: 'hidden', pt: { xs: 10, md: 10 }, pb: { xs: 5, md: 10 } },
           ...(Array.isArray(sx) ? sx : [sx]),
         ]}
         {...other}

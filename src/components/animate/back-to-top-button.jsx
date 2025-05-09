@@ -35,7 +35,7 @@ export function BackToTopButton({
           right: { xs: 24, md: 32 },
           bottom: { xs: 24, md: 32 },
           zIndex: theme.zIndex.speedDial,
-          bgcolor: '#c400d0',
+          bgcolor: '#c106ff',
           transition: theme.transitions.create(['transform']),
           ...(isVisible && { transform: 'scale(1)' }),
         }),
