@@ -33,8 +33,11 @@ export function RHFTextField({ name, helperText, slotProps, type = 'text', ...ot
         <TextField
           sx={{
             '& .MuiInputLabel-root': {
-              color: '#8c8c8c'
-            }
+              color: 'white'
+            },
+            '& .MuiInputBase-root': {
+              backgroundColor: '#394047', // fondo del input
+            },
           }}
           inputRef={imageRef}
           {...field}
@@ -61,6 +64,7 @@ export function RHFTextField({ name, helperText, slotProps, type = 'text', ...ot
           error={!!error}
           helperText={error?.message ?? helperText}
           slotProps={{
+            sx: {bgColor: 'red'},
             ...slotProps,
             htmlInput: {
               autoComplete: 'off',

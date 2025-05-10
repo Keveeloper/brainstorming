@@ -80,7 +80,7 @@ export function HomeMinimalUI({ sx, ...other }) {
         // src={`${CONFIG.assetsDir}/assets/images/home/minimal-dashboard.webp`}
         src="https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/0e0f27c8-e533-4284-0186-4004a266be00/public"
         sx={(theme) => ({
-          width: 480,
+          width: '80%',
           borderRadius: 2,
           filter: `drop-shadow(0px 48px 80px ${varAlpha(theme.vars.palette.grey['500Channel'], 0.24)})`,
           ...theme.applyStyles('dark', {

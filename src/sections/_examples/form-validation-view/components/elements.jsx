@@ -80,7 +80,7 @@ export function FieldContainer({ sx, children, label = 'RHFTextField' }) {
         variant="caption"
         sx={[
           (theme) => ({
-            textAlign: 'center',
+            textAlign: 'start',
             fontStyle: 'italic',
             color: 'white',
             // fontSize: theme.typography.pxToRem(15),

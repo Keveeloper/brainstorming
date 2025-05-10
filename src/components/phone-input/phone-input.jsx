@@ -102,8 +102,16 @@ export function PhoneInput({
         inputComponent={CustomInput}
         placeholder={placeholder ?? 'Enter phone number'}
         slotProps={{
-          inputLabel: { shrink: true, color: '8c8c8c' },
+          inputLabel: { shrink: true, style: {
+            color: 'white',
+          }, },
           input: {
+            style: {
+              backgroundColor: '#394047', 
+              ':placeholder': {
+                color: 'yellow',
+              },
+            },
             endAdornment: cleanValue && (
               <InputAdornment position="end">
                 <IconButton size="small" edge="end" onClick={handleClear}>
@@ -122,7 +130,18 @@ export function PhoneInput({
 // ----------------------------------------------------------------------
 
 function CustomInput({ ref, ...other }) {
-  return <TextField inputRef={ref} {...other} />;
+  return <TextField 
+          sx={{
+            '& .MuiInputLabel-root': {
+              color: 'white',
+            },
+            '& .MuiInputBase-input::placeholder': {
+              color: 'white',
+            },
+          }}
+          inputRef={ref} 
+          {...other} 
+         />;
 }
 
 // ----------------------------------------------------------------------

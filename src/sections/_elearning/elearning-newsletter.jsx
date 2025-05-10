@@ -437,12 +437,14 @@ const {
         <Typography 
           variant='h3' 
           sx={(theme) => ({
+            margin: '0 auto',
+            width: '90%',
             gap: 2, 
             display: 'flex', 
             alignItems: 'center', 
             justifyContent: 'center', 
             color: 'black',
-            fontSize: '2rem',
+            fontSize: '1.8rem',
             textAlign: 'center',
             lineHeight: 'normal',
             mb: 2,

@@ -42,8 +42,15 @@ export function RHFSelect({ name, children, helperText, slotProps = {}, ...other
         <TextField
           sx={{
             '& .MuiInputLabel-root': {
-              color: '#8c8c8c'
-            }
+              color: 'white'
+            },
+            '& .MuiInputBase-root': {
+              backgroundColor: '#394047', // o el color que necesites
+            },
+            '& .MuiSelect-select': {
+              color: 'white',
+              textAlign: 'left', // 👈 esta clase sí afecta el valor mostrado
+            },
           }}
           {...field}
           select
