@@ -27,7 +27,7 @@ const penalist = [
         role: 'Director Creativo',
         name: 'Danilo Álvarez',
         copy: 'Tras liderar grupos creativos en Walt Disney World en Florida y Discovery Communications en Washington DC, Danilo hoy comparte el liderazgo de Alerta con sus socios Johann y Álvaro, ayudando a marcas Estadounidenses a conectarse de manera relevante y auténtica con audiencias hispanohablantes en Latinoamérica y Estados Unidos.',
-        photoUrl: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/df366b71-dc2b-4766-7bad-cff832e0b700/public'
+        photoUrl: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/1e9c4e80-b034-4271-0eb1-58a90ec2c700/public'
     },
     {
         id: 2,

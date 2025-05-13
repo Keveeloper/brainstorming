@@ -62,7 +62,8 @@ export function HomeHero({ sx, ...other }) {
       <m.div variants={variants}>
         <Typography sx={{ fontSize: '1.3rem' }}>
           Un encuentro para creadores, marketers y mentes que no se apagan.
-          Conecta con quienes están reescribiendo las reglas del juego.
+          Conecta con quienes están reescribiendo las reglas del juego, sin
+          costo para asistentes.
         </Typography>
       </m.div>
     </>
@@ -198,7 +199,7 @@ export function HomeHero({ sx, ...other }) {
               : [slotsProps?.button?.sx]),
           ]}
         >
-          Quiero mi entrada
+          Quiero mi entrada gratis
         </Button>
       </AnimateBorder>
       

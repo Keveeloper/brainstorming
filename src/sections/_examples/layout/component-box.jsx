@@ -34,20 +34,20 @@ const ComponentBoxRoot = styled('div')(({ theme }) => ({
 
 const ComponentBoxLabel = styled('span')(({ theme, isMobile }) => ({
   width: isMobile && '250px',
-  top: 0,
+  top: -40,
   left: '50%',
   // transform: 'translate(-50%, 18px)',
   position: 'absolute',
   padding: '8px 16px',
   color: theme.vars.palette.text.primary,
   borderRadius: theme.shape.borderRadius * 2,
-  backgroundColor: theme.vars.palette.common.white,
+  // backgroundColor: theme.vars.palette.common.white,
   transform: 'translate(-50%, -50%)',
   fontSize: isMobile ? '1.rem' : '1.1rem',
   fontWeight: theme.typography.fontWeightSemiBold,
-  border: `solid 1px ${varAlpha(theme.vars.palette.grey['500Channel'], 0.24)}`,
+  // border: `solid 1px ${varAlpha(theme.vars.palette.grey['500Channel'], 0.24)}`,
   ...theme.applyStyles('dark', {
     // backgroundColor: theme.vars.palette.background.neutral,
-    backgroundColor: '#c106ff',
+    // backgroundColor: '#c106ff',
   }),
 }));
