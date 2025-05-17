@@ -60,10 +60,19 @@ export function HomeHero({ sx, ...other }) {
       </m.div>
 
       <m.div variants={variants}>
-        <Typography sx={{ fontSize: '1.3rem' }}>
-          Un encuentro para creadores, marketers y mentes que no se apagan.
-          Conecta con quienes están reescribiendo las reglas del juego, sin
-          costo para asistentes.
+        <Typography sx={{ mb: 2, fontSize: '1.3rem' }}>
+          Un encuentro para creadores, marketers y mentes que no se apagan. Conecta con quienes están reescribiendo las reglas del juego.
+        </Typography>
+        <Typography 
+          sx={{ fontSize: '1.3rem', fontWeight: 'bold' }}>
+          Bogotá 28 de Mayo
+        </Typography>
+        <Typography 
+          sx={{ fontSize: '1.3rem', fontWeight: 'bold' }}>
+          Medellín 4 de Junio
+        </Typography>
+        <Typography sx={{ fontSize: '1.3rem', fontWeight: 'bold' }}>
+          Sin costo, cupos limitados.
         </Typography>
       </m.div>
     </>
