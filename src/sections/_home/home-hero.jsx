@@ -65,11 +65,11 @@ export function HomeHero({ sx, ...other }) {
         </Typography>
         <Typography 
           sx={{ fontSize: '1.3rem', fontWeight: 'bold' }}>
-          Bogotá 17 de Junio
+          Bogotá: lunes 17 de junio – 7:00 PM
         </Typography>
         <Typography 
           sx={{ fontSize: '1.3rem', fontWeight: 'bold' }}>
-          Medellín 18 de Junio
+          Medellín: miércoles 19 de junio – 7:00 PM
         </Typography>
         <Typography sx={{ fontSize: '1.3rem', fontWeight: 'bold' }}>
           Sin costo, cupos limitados.
