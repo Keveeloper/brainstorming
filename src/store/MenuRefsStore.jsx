@@ -5,7 +5,7 @@ export const useMenuRefsStore = create((set) => ({
   panelistsRef: null,
   panelistsMobileRef: null,
   whyComeRef: null,
-  bookingRef: null,
+  bookingRef: null, 
   aboutAlertaRef: null,
   setRefs: (refs) => set(() => ({ ...refs })),
 }));
