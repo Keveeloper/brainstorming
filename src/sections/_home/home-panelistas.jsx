@@ -50,6 +50,33 @@ const penalist = [
     }
 ]
 
+const guests = [
+    {
+        id: 1,
+        copy: 'Jeff Monroy es director y productor ejecutivo enfocado en storytelling. Ha trabajado con Netflix, Nike, Eiza González y Demi Moore. Ganó el premio PRODU 2022 y sus cortos Brave Children y HOPE fueron premiados en Mumbai IFF. Actualmente está en postproducción de Survivors y distribuye 1973: Asalto a la Casa de la Moneda.',
+        photoUrl: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/ab59b88e-d724-48f2-abbf-6f3656781e00/public',
+        label: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/501219c7-386b-467e-c052-c26a6f22a900/public',
+    },
+    {
+        id: 2,
+        copy: 'Jeff Monroy es director y productor ejecutivo enfocado en storytelling. Ha trabajado con Netflix, Nike, Eiza González y Demi Moore. Ganó el premio PRODU 2022 y sus cortos Brave Children y HOPE fueron premiados en Mumbai IFF. Actualmente está en postproducción de Survivors y distribuye 1973: Asalto a la Casa de la Moneda.',
+        photoUrl: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/ab59b88e-d724-48f2-abbf-6f3656781e00/public',
+        label: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/501219c7-386b-467e-c052-c26a6f22a900/public',
+    },
+    {
+        id: 3,
+        copy: 'Daniel Velásquez es un emprendedor colombiano experto en marketing digital e inteligencia artificial. Con más de nueve años de experiencia, es conferencista internacional y mentor en Meta Ads, ventas, métricas y embudos de conversión. Es usuario Black de Hotmart.',
+        photoUrl: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/cc7b78a5-ff95-4e25-6828-9dea953cc300/public',
+        label: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/c6ac9190-8250-4028-80e3-bc8ee11c5e00/public',
+    },
+    {
+        id: 4,
+        copy: 'Tin Castro es un destacado deportista colombiano, seis veces campeón mundial de BMX y finalista olímpico. Tras retirarse, se dedicó al crossfit, fundó una cadena de gimnasios y fue finalista del reality "Desafío". Hoy es empresario y conferencista, promoviendo el bienestar integral.',
+        photoUrl: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/e0c1b25b-2fde-4cf4-204a-8453c27aa500/public',
+        label: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/c6ac9190-8250-4028-80e3-bc8ee11c5e00/public',
+    },
+]
+
 export function HomePanelistas({ sx, ...other }) {
 
     const panelistsRef = useRef(null);
@@ -181,151 +208,87 @@ export function HomePanelistas({ sx, ...other }) {
                     ))}
 
                     {/* Fila 2: 2 panelistas centrados */}
-                    {/* <Grid item xs={12}>
-                    <Grid container justifyContent="center" spacing={4}>
-                        <Grid
-                            item
-                            // key={index}
-                            xs={12}
-                            sm={4}
-                            md={3}
-                            display="flex"
-                            flexDirection="column"
-                            justifyContent="center"
-                        >
-                            <Box
-                            sx={{
-                                borderRadius: 2,
-                                overflow: 'hidden',
-                                position: 'relative',
-                                width: 1,
-                                maxWidth: 320,
-                                '&:hover': {
-                                '& .content': { opacity: 1 },
-                                [`& .${imageClasses.root}`]: { transform: 'scale(1.06)' },
-                                [`& .${imageClasses.overlay}`]: { opacity: 1 },
-                                },
-                            }}
-                            >
-                            <Box
-                                className="content"
-                                sx={{
-                                    p:4,
-                                py: 3,
-                                left: 0,
-                                width: 1,
-                                zIndex: 9,
-                                bottom: 0,
-                                opacity: 0,
-                                transition,
-                                display: 'flex',
-                                position: 'absolute',
-                                justifyContent: 'center',
-                                textAlign: 'center',
-                                }}
-                            >
-                                Tras liderar grupos creativos en Walt Disney World, en Florida y DiscoveryCommunications en Washington, Danilo abrió su propia agencia de publicidad en Nueva York, donde ayuda a marcas americanas a conectarse con audiencias latinas.
-                            </Box>
+                    
+                </Grid>
+                <Typography
+                        variant="h3"
+                        sx={{mb: 4, color: 'white', textAlign: 'center'}}
+                    >
+                        Invitados
+                    </Typography>
+                    <Grid xs={12}>
+                        <Grid container justifyContent="center" spacing={4} sx={{display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)'}}>
+                            {guests.map((guest) => (
+                                <Grid
+                                    key={guest.id}
+                                    item
+                                    // key={index}
+                                    xs={3}
+                                    sm={3}
+                                    md={3}
+                                    display="flex"
+                                    flexDirection="column"
+                                    justifyContent="center"
+                                >
+                                    <Box
+                                        sx={{
+                                            borderRadius: 2,
+                                            overflow: 'hidden',
+                                            position: 'relative',
+                                            width: 1,
+                                            maxWidth: 320,
+                                            '&:hover': {
+                                            '& .content': { opacity: 1 },
+                                            [`& .${imageClasses.root}`]: { transform: 'scale(1.06)' },
+                                            [`& .${imageClasses.overlay}`]: { opacity: 1 },
+                                            },
+                                        }}
+                                    >
+                                    <Box
+                                        className="content"
+                                        sx={{
+                                            p:1,
+                                            py: 3,
+                                            left: 0,
+                                            width: 1,
+                                            zIndex: 9,
+                                            bottom: 0,
+                                            opacity: 0,
+                                            transition,
+                                            display: 'flex',
+                                            position: 'absolute',
+                                            justifyContent: 'center',
+                                            textAlign: 'center',
+                                        }}
+                                    >
+                                        {guest.copy}
+                                    </Box>
 
-                            <Image
-                                alt='Nombre'
-                                src={`${CONFIG.assetsDir}/assets/images/portrait/portrait-1.webp`}
-                                // src="https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/784c13a9-86e3-4432-68c1-eff87234d400/public"
-                                ratio="9/16"
-                                sx={{ transition }}
-                                slotProps={{
-                                overlay: {
-                                    sx: (theme) => ({
-                                    transition,
-                                    opacity: 0,
-                                    backgroundImage: `linear-gradient(to bottom, transparent 0%, ${
-                                        theme.vars.palette.common.black
-                                    } 75%)`,
-                                    }),
-                                },
-                                }}
-                            />
-                            </Box>
-                            <Typography variant="h6" sx={{ mt: 2.5, mb: 0.5, textAlign: 'center' }}>
-                                Nombre
-                            </Typography>
-                            <Typography variant="body2" sx={{ color: 'text.disabled', textAlign: 'center' }}>
-                                Role
-                            </Typography>
-                        </Grid>
-                        <Grid
-                            item
-                            // key={index}
-                            xs={12}
-                            sm={4}
-                            md={3}
-                            display="flex"
-                            flexDirection="column"
-                            justifyContent="center"
-                        >
-                            <Box
-                            sx={{
-                                borderRadius: 2,
-                                overflow: 'hidden',
-                                position: 'relative',
-                                width: 1,
-                                maxWidth: 320,
-                                '&:hover': {
-                                '& .content': { opacity: 1 },
-                                [`& .${imageClasses.root}`]: { transform: 'scale(1.06)' },
-                                [`& .${imageClasses.overlay}`]: { opacity: 1 },
-                                },
-                            }}
-                            >
-                            <Box
-                                className="content"
-                                sx={{
-                                    p:4,
-                                py: 3,
-                                left: 0,
-                                width: 1,
-                                zIndex: 9,
-                                bottom: 0,
-                                opacity: 0,
-                                transition,
-                                display: 'flex',
-                                position: 'absolute',
-                                justifyContent: 'center',
-                                textAlign: 'center',
-                                }}
-                            >
-                                Tras liderar grupos creativos en Walt Disney World, en Florida y DiscoveryCommunications en Washington, Danilo abrió su propia agencia de publicidad en Nueva York, donde ayuda a marcas americanas a conectarse con audiencias latinas.
-                            </Box>
-
-                            <Image
-                                alt='Nombre'
-                                src={`${CONFIG.assetsDir}/assets/images/portrait/portrait-1.webp`}
-                                // src="https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/42bb0ec0-ab70-4a30-c801-df4daf286800/public"
-                                ratio="9/16"
-                                sx={{ transition }}
-                                slotProps={{
-                                overlay: {
-                                    sx: (theme) => ({
-                                    transition,
-                                    opacity: 0,
-                                    backgroundImage: `linear-gradient(to bottom, transparent 0%, ${
-                                        theme.vars.palette.common.black
-                                    } 75%)`,
-                                    }),
-                                },
-                                }}
-                            />
-                            </Box>
-                            <Typography variant="h6" sx={{ mt: 2.5, mb: 0.5, textAlign: 'center' }}>
-                                Nombre
-                            </Typography>
-                            <Typography variant="body2" sx={{ color: 'text.disabled', textAlign: 'center' }}>
-                                Role
-                            </Typography>
+                                    <Image
+                                        alt='Nombre'
+                                        // src={`${CONFIG.assetsDir}/assets/images/portrait/portrait-1.webp`}
+                                        src={guest.photoUrl}
+                                        // src="https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/784c13a9-86e3-4432-68c1-eff87234d400/public"
+                                        ratio="9/16"
+                                        sx={{ transition }}
+                                        slotProps={{
+                                        overlay: {
+                                            sx: (theme) => ({
+                                            transition,
+                                            opacity: 0,
+                                            backgroundImage: `linear-gradient(to bottom, transparent 0%, ${
+                                                theme.vars.palette.common.black
+                                            } 75%)`,
+                                            }),
+                                        },
+                                        }}
+                                    />
+                                    </Box>
+                                    <img src={guest.label} alt="" />
+                                </Grid>
+                            ))}
                         </Grid>
                     </Grid>
-                    </Grid> */}
-                </Grid>
                 </Container>
             </Box>
             <Box

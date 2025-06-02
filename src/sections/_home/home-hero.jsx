@@ -53,15 +53,16 @@ export function HomeHero({ sx, ...other }) {
           <Box
           sx={{color: '#c106ff'}}
           >
-          Brain5tormers
+          ¡No te limites!
           </Box>
-          Donde las ideas conectan ⚡
+          {/* Donde las ideas conectan ⚡ */}
         </Typography>
       </m.div>
 
       <m.div variants={variants}>
         <Typography sx={{ mb: 2, fontSize: '1.3rem' }}>
-          Un encuentro para creadores, marketers y mentes que no se apagan. Conecta con quienes están reescribiendo las reglas del juego.
+          Lleva tu visión profesional más allá de la frontera. Hoy más empresas que nunca están buscando talento remoto.
+          Únete a Brain5stormers, profesionales del mundo.
         </Typography>
         <Typography 
           sx={{ fontSize: '1.3rem', fontWeight: 'bold' }}>
