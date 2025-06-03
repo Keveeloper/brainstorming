@@ -36,7 +36,7 @@ export const FieldsSchema = zod
       .string()
       .min(1, { message: 'Instagram es requerido' })
       .min(6, { message: 'Mínimo 6 caracteres!' })
-      .max(16, { message: 'Máximo 16 caracteres!' }),
+      .max(100, { message: 'Máximo 100 caracteres!' }),
     image: zod
       .string()
       .min(1, { message: 'La imagen es requerida' })

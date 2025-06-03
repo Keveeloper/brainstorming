@@ -58,12 +58,6 @@ const guests = [
         label: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/501219c7-386b-467e-c052-c26a6f22a900/public',
     },
     {
-        id: 2,
-        copy: 'Jeff Monroy es director y productor ejecutivo enfocado en storytelling. Ha trabajado con Netflix, Nike, Eiza González y Demi Moore. Ganó el premio PRODU 2022 y sus cortos Brave Children y HOPE fueron premiados en Mumbai IFF. Actualmente está en postproducción de Survivors y distribuye 1973: Asalto a la Casa de la Moneda.',
-        photoUrl: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/ab59b88e-d724-48f2-abbf-6f3656781e00/public',
-        label: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/501219c7-386b-467e-c052-c26a6f22a900/public',
-    },
-    {
         id: 3,
         copy: 'Daniel Velásquez es un emprendedor colombiano experto en marketing digital e inteligencia artificial. Con más de nueve años de experiencia, es conferencista internacional y mentor en Meta Ads, ventas, métricas y embudos de conversión. Es usuario Black de Hotmart.',
         photoUrl: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/cc7b78a5-ff95-4e25-6828-9dea953cc300/public',
@@ -210,14 +204,15 @@ export function HomePanelistas({ sx, ...other }) {
                     {/* Fila 2: 2 panelistas centrados */}
                     
                 </Grid>
-                <Typography
+                    <Typography
                         variant="h3"
-                        sx={{mb: 4, color: 'white', textAlign: 'center'}}
+                        sx={{mt: 4, mb: 4, color: '#00fff2', textAlign: 'center'}}
                     >
                         Invitados
                     </Typography>
                     <Grid xs={12}>
-                        <Grid container justifyContent="center" spacing={4} sx={{display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)'}}>
+                        {/* <Grid container justifyContent="center" spacing={4} sx={{display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)'}}> */}
+                        <Grid container justifyContent="center" spacing={4}>
                             {guests.map((guest) => (
                                 <Grid
                                     key={guest.id}
@@ -284,7 +279,7 @@ export function HomePanelistas({ sx, ...other }) {
                                         }}
                                     />
                                     </Box>
-                                    <img src={guest.label} alt="" />
+                                    {/* <img src={guest.label} alt="" /> */}
                                 </Grid>
                             ))}
                         </Grid>
