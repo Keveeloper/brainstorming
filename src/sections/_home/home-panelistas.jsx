@@ -82,6 +82,10 @@ export function HomePanelistas({ sx, ...other }) {
         slideSpacing: '32px',
         slidesToShow: { xs: 1, sm: 2, lg: 3, xl: 4 },
     });
+    const carouselGuests = useCarousel({
+        slideSpacing: '32px',
+        slidesToShow: { xs: 1, sm: 2, lg: 3, xl: 4 },
+    });
 
     useEffect(() => {
         setRefs({
@@ -116,94 +120,94 @@ export function HomePanelistas({ sx, ...other }) {
                 {...other}
             >
                 <Container component={MotionViewport}>
-                <Typography variant="h5" sx={{ color: '#8299ae', fontSize: '1.5rem', textAlign: 'center' }}>
-                    Panelistas
-                </Typography>
-                <Typography
-                    variant="h3"
-                    sx={{mb: 4, color: '#00fff2', textAlign: 'center'}}
-                >
-                    ¿Y quiénes agitan la tormenta?
-                </Typography>
-                <Grid 
-                    container 
-                    spacing={4}
-                    display="flex"
-                    justifyContent="center"
-                >
-                    {penalist.map((item, index) => (
-                        <Grid
-                            key={index}
-                            xs={12}
-                            sm={4}
-                            display="flex"
-                            flexDirection="column"
-                            justifyContent="space-between"
-                        >
-                            <Box
-                                sx={{
-                                    borderRadius: 2,
-                                    overflow: 'hidden',
-                                    position: 'relative',
-                                    width: 1,
-                                    maxWidth: 320,
-                                    '&:hover': {
-                                    '& .content': { opacity: 1 },
-                                    [`& .${imageClasses.root}`]: { transform: 'scale(1.06)' },
-                                    [`& .${imageClasses.overlay}`]: { opacity: 1 },
-                                    },
-                                }}
+                    <Typography variant="h5" sx={{ color: '#8299ae', fontSize: '1.5rem', textAlign: 'center' }}>
+                        Panelistas
+                    </Typography>
+                    <Typography
+                        variant="h3"
+                        sx={{mb: 4, color: '#00fff2', textAlign: 'center'}}
+                    >
+                        ¿Y quiénes agitan la tormenta?
+                    </Typography>
+                    <Grid 
+                        container 
+                        spacing={4}
+                        display="flex"
+                        justifyContent="center"
+                    >
+                        {penalist.map((item, index) => (
+                            <Grid
+                                key={index}
+                                xs={12}
+                                sm={4}
+                                display="flex"
+                                flexDirection="column"
+                                justifyContent="space-between"
                             >
                                 <Box
-                                    className="content"
                                     sx={{
-                                    p:4,
-                                    py: 3,
-                                    left: 0,
-                                    width: 1,
-                                    zIndex: 9,
-                                    bottom: 0,
-                                    opacity: 0,
-                                    transition,
-                                    display: 'flex',
-                                    position: 'absolute',
-                                    justifyContent: 'center',
-                                    textAlign: 'center',
-                                    }}
-                                >
-                                    {item.copy}
-                                </Box>
-                                <Image
-                                    alt='Nombre'
-                                    // src={`${CONFIG.assetsDir}/assets/images/portrait/portrait-1.webp`}
-                                    src={item.photoUrl}
-                                    ratio="9/16" 
-                                    sx={{ transition }}
-                                    slotProps={{
-                                        overlay: {
-                                            sx: (theme) => ({
-                                            transition,
-                                            opacity: 0,
-                                            backgroundImage: `linear-gradient(to bottom, transparent 0%, ${
-                                                theme.vars.palette.common.black
-                                            } 75%)`,
-                                            }),
+                                        borderRadius: 2,
+                                        overflow: 'hidden',
+                                        position: 'relative',
+                                        width: 1,
+                                        maxWidth: 320,
+                                        '&:hover': {
+                                        '& .content': { opacity: 1 },
+                                        [`& .${imageClasses.root}`]: { transform: 'scale(1.06)' },
+                                        [`& .${imageClasses.overlay}`]: { opacity: 1 },
                                         },
                                     }}
-                                />
-                            </Box>
-                            <Typography variant="h6" sx={{ mt: 2.5, mb: 0.5, fontSize: '1.3rem !important', textAlign: 'center' }}>
-                                {item.name}
-                            </Typography>
-                            {/* <Typography variant="body2" sx={{ color: 'text.disabled', textAlign: 'center' }}>
-                                {item.role}
-                            </Typography> */}
-                        </Grid>
-                    ))}
+                                >
+                                    <Box
+                                        className="content"
+                                        sx={{
+                                        p:4,
+                                        py: 3,
+                                        left: 0,
+                                        width: 1,
+                                        zIndex: 9,
+                                        bottom: 0,
+                                        opacity: 0,
+                                        transition,
+                                        display: 'flex',
+                                        position: 'absolute',
+                                        justifyContent: 'center',
+                                        textAlign: 'center',
+                                        }}
+                                    >
+                                        {item.copy}
+                                    </Box>
+                                    <Image
+                                        alt='Nombre'
+                                        // src={`${CONFIG.assetsDir}/assets/images/portrait/portrait-1.webp`}
+                                        src={item.photoUrl}
+                                        ratio="9/16" 
+                                        sx={{ transition }}
+                                        slotProps={{
+                                            overlay: {
+                                                sx: (theme) => ({
+                                                transition,
+                                                opacity: 0,
+                                                backgroundImage: `linear-gradient(to bottom, transparent 0%, ${
+                                                    theme.vars.palette.common.black
+                                                } 75%)`,
+                                                }),
+                                            },
+                                        }}
+                                    />
+                                </Box>
+                                <Typography variant="h6" sx={{ mt: 2.5, mb: 0.5, fontSize: '1.3rem !important', textAlign: 'center' }}>
+                                    {item.name}
+                                </Typography>
+                                {/* <Typography variant="body2" sx={{ color: 'text.disabled', textAlign: 'center' }}>
+                                    {item.role}
+                                </Typography> */}
+                            </Grid>
+                        ))}
 
-                    {/* Fila 2: 2 panelistas centrados */}
-                    
-                </Grid>
+                        {/* Fila 2: 2 panelistas centrados */}
+                        
+                    </Grid>
                     <Typography
                         variant="h3"
                         sx={{mt: 4, mb: 4, color: '#00fff2', textAlign: 'center'}}
@@ -302,71 +306,130 @@ export function HomePanelistas({ sx, ...other }) {
                     py: { xs: 10, md: 20 },
                 }),
                 ...(Array.isArray(sx) ? sx : [sx]),
-                {display: { xs: 'flex', md: 'none' },}
+                {display: { xs: 'flex', md: 'none' }, flexDirection: 'column'}
                 ]}
                 {...other}
             >
                 <Container>
-                <Grid container spacing={{ xs: 5, md: 3 }} sx={{ justifyContent: { md: 'space-between' } }}>
-                    <Grid
-                    size={{ xs: 12, md: 4 }}
-                    sx={{
-                        gap: 3,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        textAlign: { xs: 'center', md: 'unset' },
-                    }}
-                    >
-                    <Typography variant="overline" sx={{ color: '#8299ae', fontSize: '1.3rem' }}>
-                        Panelistas
-                    </Typography>
-        
-                    <Typography
-                        variant="h2"
-                        sx={(theme) => ({
-                            fontSize: '2.2rem',
-                        ...theme.mixins.textGradient(
-                            `90deg, ${'#00fff2'} 20%, ${'#00fff2'} 100%`
-                        ),
-                        })}
-                    >
-                        ¿Y quiénes agitan la tormenta?
-                    </Typography>
-        
-                    <CarouselArrowBasicButtons
-                        {...carousel.arrows}
-                        options={carousel.options}
+                    <Grid container spacing={{ xs: 5, md: 3 }} sx={{ justifyContent: { md: 'space-between' } }}>
+                        <Grid
+                            size={{ xs: 12, md: 4 }}
+                            sx={{
+                                gap: 3,
+                                display: 'flex',
+                                flexDirection: 'column',
+                                textAlign: { xs: 'center', md: 'unset' },
+                            }}
+                        >
+                            <Typography variant="overline" sx={{ color: '#8299ae', fontSize: '1.3rem' }}>
+                                Panelistas
+                            </Typography>
+                
+                            <Typography
+                                variant="h2"
+                                sx={(theme) => ({
+                                    fontSize: '2.2rem',
+                                ...theme.mixins.textGradient(
+                                    `90deg, ${'#00fff2'} 20%, ${'#00fff2'} 100%`
+                                ),
+                                })}
+                            >
+                                ¿Y quiénes agitan la tormenta?
+                            </Typography>
+                
+                            <CarouselArrowBasicButtons
+                                {...carousel.arrows}
+                                options={carousel.options}
+                                sx={{
+                                gap: 1,
+                                mt: 'auto',
+                                color: 'primary.main',
+                                display: { xs: 'none', md: 'flex' },
+                                }}
+                            />
+                        </Grid>
+            
+                        <Grid size={{ xs: 12, md: 7 }}>
+                            <Box sx={{ width: { md: 'calc(50vw + 120px)' } }}>
+                                <Carousel carousel={carousel}>
+                                    {penalist.map((item, index) => (
+                                        <MemberItem key={item.id} item={item} sx={{ color: 'common.white' }} />
+                                    ))}
+                                </Carousel>
+                            </Box>
+                        </Grid>
+                    </Grid>
+            
+                    <CarouselDotButtons
+                        scrollSnaps={carousel.dots.scrollSnaps}
+                        selectedIndex={carousel.dots.selectedIndex}
+                        onClickDot={carousel.dots.onClickDot}
                         sx={{
-                        gap: 1,
-                        mt: 'auto',
-                        color: 'primary.main',
-                        display: { xs: 'none', md: 'flex' },
+                            // mt: 5,
+                            color: 'primary.main',
+                            justifyContent: 'center',
+                            display: { xs: 'flex', md: 'none' },
                         }}
                     />
+                </Container>
+                <Container>
+                    <Grid container spacing={{ xs: 5, md: 3 }} sx={{ justifyContent: { md: 'space-between' } }}>
+                        <Grid
+                            size={{ xs: 12, md: 4 }}
+                            sx={{
+                                gap: 3,
+                                display: 'flex',
+                                flexDirection: 'column',
+                                textAlign: { xs: 'center', md: 'unset' },
+                            }}
+                        >                
+                            <Typography
+                                variant="h2"
+                                sx={(theme) => ({
+                                    fontSize: '2.2rem',
+                                    mt: 6,
+                                ...theme.mixins.textGradient(
+                                    `90deg, ${'#00fff2'} 20%, ${'#00fff2'} 100%`
+                                ),
+                                })}
+                            >
+                                Invitados
+                            </Typography>
+                
+                            <CarouselArrowBasicButtons
+                                {...carouselGuests.arrows}
+                                options={carouselGuests.options}
+                                sx={{
+                                gap: 1,
+                                mt: 'auto',
+                                color: 'primary.main',
+                                display: { xs: 'none', md: 'flex' },
+                                }}
+                            />
+                        </Grid>
+            
+                        <Grid size={{ xs: 12, md: 7 }}>
+                            <Box sx={{ width: { md: 'calc(50vw + 120px)' } }}>
+                                <Carousel carousel={carouselGuests}>
+                                    {guests.map((item, index) => (
+                                        <MemberItem key={item.id} item={item} sx={{ color: 'common.white' }} />
+                                    ))}
+                                </Carousel>
+                            </Box>
+                        </Grid>
                     </Grid>
-        
-                    <Grid size={{ xs: 12, md: 7 }}>
-                    <Box sx={{ width: { md: 'calc(50vw + 120px)' } }}>
-                        <Carousel carousel={carousel}>
-                        {penalist.map((item, index) => (
-                            <MemberItem key={item.id} item={item} sx={{ color: 'common.white' }} />
-                        ))}
-                        </Carousel>
-                    </Box>
-                    </Grid>
-                </Grid>
-        
-                <CarouselDotButtons
-                    scrollSnaps={carousel.dots.scrollSnaps}
-                    selectedIndex={carousel.dots.selectedIndex}
-                    onClickDot={carousel.dots.onClickDot}
-                    sx={{
-                        // mt: 5,
-                        color: 'primary.main',
-                        justifyContent: 'center',
-                        display: { xs: 'flex', md: 'none' },
-                    }}
-                />
+            
+                    <CarouselDotButtons
+                        scrollSnaps={carouselGuests.dots.scrollSnaps}
+                        selectedIndex={carouselGuests.dots.selectedIndex}
+                        onClickDot={carouselGuests.dots.onClickDot}
+                        sx={{
+                            // mt: 5,
+                            color: 'primary.main',
+                            justifyContent: 'center',
+                            display: { xs: 'flex', md: 'none' },
+                        }}
+                    />
                 </Container>
             </Box>
         </>

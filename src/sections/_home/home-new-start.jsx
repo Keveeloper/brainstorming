@@ -104,7 +104,7 @@ export function HomeNewStart({ sx, ...other }) {
               loading="lazy"
               alt="Cover"
               // src={`${CONFIG.assetsDir}/assets/images/home/desktop-mouse-keyboard.webp`}
-              src="https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/7033e937-a2f2-4429-d954-bacd03287f00/public"
+              src="https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/b57b4845-057c-4dca-38e1-c2f692e18700/public"
             />
           </m.div>
         </Box>
