@@ -65,7 +65,7 @@ export function HomeHero({ sx, ...other }) {
           Únete a Brain5stormers, profesionales del mundo.
         </Typography>
         <Typography 
-          sx={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#c106ff' }}>
+          sx={{ fontSize: '1.6rem', fontWeight: 'bold', color: '#c106ff' }}>
           Bogotá
         </Typography>
         <Typography 
@@ -77,7 +77,7 @@ export function HomeHero({ sx, ...other }) {
           Martes 17 de junio – 7:00 PM
         </Typography>
         <Typography 
-          sx={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#c106ff' }}>
+          sx={{ fontSize: '1.6rem', fontWeight: 'bold', color: '#c106ff' }}>
           Medellín
         </Typography>
         <Typography 
