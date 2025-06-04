@@ -37,7 +37,7 @@ export function HomeHero({ sx, ...other }) {
     bookingRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
   const renderTexts = () => (
-    <>
+    <Box>
       <m.div variants={variants}>
         <Typography variant="h1">
           {/* <Box
@@ -53,7 +53,7 @@ export function HomeHero({ sx, ...other }) {
           <Box
           sx={{color: '#c106ff'}}
           >
-          ¡No te limites!
+            ¡No te limites!
           </Box>
           {/* Donde las ideas conectan ⚡ */}
         </Typography>
@@ -65,18 +65,34 @@ export function HomeHero({ sx, ...other }) {
           Únete a Brain5stormers, profesionales del mundo.
         </Typography>
         <Typography 
-          sx={{ fontSize: '1.3rem', fontWeight: 'bold' }}>
-          Bogotá: martes 17 de junio – 7:00 PM
+          sx={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#c106ff' }}>
+          Bogotá
         </Typography>
         <Typography 
           sx={{ fontSize: '1.3rem', fontWeight: 'bold' }}>
-          Medellín: jueves 19 de junio – 7:00 PM
+          Mazaryk Restaurante
+        </Typography>
+        <Typography 
+          sx={{ mb: 3, fontSize: '1.3rem', fontWeight: 'bold' }}>
+          Martes 17 de junio – 7:00 PM
+        </Typography>
+        <Typography 
+          sx={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#c106ff' }}>
+          Medellín
+        </Typography>
+        <Typography 
+          sx={{ fontSize: '1.3rem', fontWeight: 'bold' }}>
+          Inzolent Rooftop
+        </Typography>
+        <Typography 
+          sx={{ mb: 3, fontSize: '1.3rem', fontWeight: 'bold' }}>
+          Jueves 19 de junio – 7:00 PM
         </Typography>
         <Typography sx={{ fontSize: '1.3rem', fontWeight: 'bold' }}>
           Sin costo, cupos limitados.
         </Typography>
       </m.div>
-    </>
+    </Box>
   );
 
   const renderLabel = () => (
@@ -141,26 +157,16 @@ export function HomeHero({ sx, ...other }) {
         gap: 5,
         maxWidth: 550,
         display: 'flex',
+        height: { xs: 'calc(100vh - 64px)', md: 'auto'},
+        justifyContent: {xs: 'space-between'},
         flexDirection: 'column',
+        // background: 'red',
         alignItems: { xs: 'center', md: 'flex-start' },
         textAlign: { xs: 'center', md: 'left' },
       }}
     >
       {renderTexts()}
 
-      {/* <m.div variants={variants}>
-        <Button
-          color="inherit"
-          size="large"
-          variant="contained"
-          endIcon={<Iconify icon="carbon:launch" />}
-          target="_blank"
-          rel="noopener"
-          href={paths.figmaUrl}
-        >
-          Quiero mi entrada
-        </Button>
-      </m.div> */}
       <AnimateBorder
         sx={[
           {
@@ -213,7 +219,6 @@ export function HomeHero({ sx, ...other }) {
         </Button>
       </AnimateBorder>
       
-
       <div>
         {renderLabel()}
         {/* {renderPlatformIcons()} */}
@@ -261,11 +266,12 @@ export function HomeHero({ sx, ...other }) {
               `url(${CONFIG.assetsDir}/assets/background/overlay-1.webp)`,
             ],
           }),
-          py: 10,
+          py: 2,
           overflow: 'hidden',
           position: 'relative',
           [theme.breakpoints.up('md')]: {
             // py: 15,
+            py: 10,
             pb: 0,
             minHeight: 760,
             // height: '100vh',

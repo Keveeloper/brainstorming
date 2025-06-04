@@ -54,18 +54,21 @@ const guests = [
     {
         id: 1,
         name: 'Jeff Monroy',
+        city: 'Bogotá',
         copy: 'Es director y productor ejecutivo enfocado en storytelling. Ha trabajado con Netflix, Nike, Eiza González y Demi Moore. Ganó el premio PRODU 2022 y sus cortos Brave Children y HOPE fueron premiados en Mumbai IFF. Actualmente está en postproducción de Survivors y distribuye 1973: Asalto a la Casa de la Moneda.',
         photoUrl: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/45c12533-4a76-4f49-15ce-f160ba903300/public',
     },
     {
         id: 2,
         name: 'Tin Castro',
+        city: 'Medellín',
         copy: 'Es un destacado deportista colombiano, seis veces campeón mundial de BMX y finalista olímpico. Tras retirarse, se dedicó al crossfit, fundó una cadena de gimnasios y fue finalista del reality "Desafío". Hoy es empresario y conferencista, promoviendo el bienestar integral.',
         photoUrl: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/10cc6f65-a348-444c-8821-ec8924b4da00/public',
     },
     {
         id: 3,
         name: 'Daniel Velásquez',
+        city: 'Medellín',
         copy: 'Es un emprendedor colombiano experto en marketing digital e inteligencia artificial. Con más de nueve años de experiencia, es conferencista internacional y mentor en Meta Ads, ventas, métricas y embudos de conversión. Es usuario Black de Hotmart.',
         photoUrl: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/3c270e6f-8abb-4f3e-00d7-5fe1e5040e00/public',
     },
@@ -286,6 +289,9 @@ export function HomePanelistas({ sx, ...other }) {
                                     {/* <img src={guest.label} alt="" /> */}
                                     <Typography variant="h6" sx={{ mt: 2.5, mb: 0.5, fontSize: '1.3rem !important', textAlign: 'center' }}>
                                         {guest.name}
+                                    </Typography>
+                                    <Typography sx={{ mb: 0.5, fontSize: '1rem', textAlign: 'center', color: '#00fff2' }}>
+                                        {guest.city}
                                     </Typography>
                                 </Grid>
                             ))}
