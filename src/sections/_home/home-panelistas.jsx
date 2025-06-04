@@ -503,6 +503,9 @@ export function MemberItem({ item, sx, ...other }) {
         <Typography variant="h6" sx={{ mt: 2.5, mb: 0.5, textAlign: 'center' }}>
           {item.name}
         </Typography>
+        <Typography sx={{ mb: 0.5, fontSize: '1rem', textAlign: 'center', color: '#00fff2' }}>
+            {item.city}
+        </Typography>
         {/* <Typography variant="body2" sx={{ color: 'text.disabled', textAlign: 'center' }}>
           {item.role}
         </Typography> */}
