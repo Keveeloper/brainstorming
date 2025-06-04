@@ -53,21 +53,21 @@ const penalist = [
 const guests = [
     {
         id: 1,
-        copy: 'Jeff Monroy es director y productor ejecutivo enfocado en storytelling. Ha trabajado con Netflix, Nike, Eiza González y Demi Moore. Ganó el premio PRODU 2022 y sus cortos Brave Children y HOPE fueron premiados en Mumbai IFF. Actualmente está en postproducción de Survivors y distribuye 1973: Asalto a la Casa de la Moneda.',
-        photoUrl: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/ab59b88e-d724-48f2-abbf-6f3656781e00/public',
-        label: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/501219c7-386b-467e-c052-c26a6f22a900/public',
+        name: 'Jeff Monroy',
+        copy: 'Es director y productor ejecutivo enfocado en storytelling. Ha trabajado con Netflix, Nike, Eiza González y Demi Moore. Ganó el premio PRODU 2022 y sus cortos Brave Children y HOPE fueron premiados en Mumbai IFF. Actualmente está en postproducción de Survivors y distribuye 1973: Asalto a la Casa de la Moneda.',
+        photoUrl: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/45c12533-4a76-4f49-15ce-f160ba903300/public',
+    },
+    {
+        id: 2,
+        name: 'Tin Castro',
+        copy: 'Es un destacado deportista colombiano, seis veces campeón mundial de BMX y finalista olímpico. Tras retirarse, se dedicó al crossfit, fundó una cadena de gimnasios y fue finalista del reality "Desafío". Hoy es empresario y conferencista, promoviendo el bienestar integral.',
+        photoUrl: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/10cc6f65-a348-444c-8821-ec8924b4da00/public',
     },
     {
         id: 3,
-        copy: 'Daniel Velásquez es un emprendedor colombiano experto en marketing digital e inteligencia artificial. Con más de nueve años de experiencia, es conferencista internacional y mentor en Meta Ads, ventas, métricas y embudos de conversión. Es usuario Black de Hotmart.',
-        photoUrl: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/cc7b78a5-ff95-4e25-6828-9dea953cc300/public',
-        label: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/c6ac9190-8250-4028-80e3-bc8ee11c5e00/public',
-    },
-    {
-        id: 4,
-        copy: 'Tin Castro es un destacado deportista colombiano, seis veces campeón mundial de BMX y finalista olímpico. Tras retirarse, se dedicó al crossfit, fundó una cadena de gimnasios y fue finalista del reality "Desafío". Hoy es empresario y conferencista, promoviendo el bienestar integral.',
-        photoUrl: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/e0c1b25b-2fde-4cf4-204a-8453c27aa500/public',
-        label: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/c6ac9190-8250-4028-80e3-bc8ee11c5e00/public',
+        name: 'Daniel Velásquez',
+        copy: 'Es un emprendedor colombiano experto en marketing digital e inteligencia artificial. Con más de nueve años de experiencia, es conferencista internacional y mentor en Meta Ads, ventas, métricas y embudos de conversión. Es usuario Black de Hotmart.',
+        photoUrl: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/3c270e6f-8abb-4f3e-00d7-5fe1e5040e00/public',
     },
 ]
 
@@ -284,6 +284,9 @@ export function HomePanelistas({ sx, ...other }) {
                                     />
                                     </Box>
                                     {/* <img src={guest.label} alt="" /> */}
+                                    <Typography variant="h6" sx={{ mt: 2.5, mb: 0.5, fontSize: '1.3rem !important', textAlign: 'center' }}>
+                                        {guest.name}
+                                    </Typography>
                                 </Grid>
                             ))}
                         </Grid>
