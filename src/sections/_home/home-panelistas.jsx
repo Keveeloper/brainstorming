@@ -60,13 +60,20 @@ const guests = [
     },
     {
         id: 2,
+        name: 'Óscar Martan',
+        city: 'Bogotá',
+        copy: `Viajero y creador digital con 20+ años en tech. Fundador de Incdustry, con 5,000+ proyectos en 12 países. Referente en IA en LATAM, ha trabajado con Rappi, Netflix y Coca-Cola. Comparte tips para usar la tecnología con equilibrio, comodidad y libertad.`,
+        photoUrl: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/1b546104-b8eb-4a21-7369-f5455fc9d400/public',
+    },
+    {
+        id: 3,
         name: 'Tin Castro',
         city: 'Medellín',
         copy: 'Es un destacado deportista colombiano, seis veces campeón mundial de BMX y finalista olímpico. Tras retirarse, se dedicó al crossfit, fundó una cadena de gimnasios y fue finalista del reality "Desafío". Hoy es empresario y conferencista, promoviendo el bienestar integral.',
         photoUrl: 'https://imagedelivery.net/zbd8viznFTU9Xm-HIspwjQ/10cc6f65-a348-444c-8821-ec8924b4da00/public',
     },
     {
-        id: 3,
+        id: 4,
         name: 'Daniel Velásquez',
         city: 'Medellín',
         copy: 'Es un emprendedor colombiano experto en marketing digital e inteligencia artificial. Con más de nueve años de experiencia, es conferencista internacional y mentor en Meta Ads, ventas, métricas y embudos de conversión. Es usuario Black de Hotmart.',
@@ -218,8 +225,8 @@ export function HomePanelistas({ sx, ...other }) {
                         Invitados
                     </Typography>
                     <Grid xs={12}>
-                        {/* <Grid container justifyContent="center" spacing={4} sx={{display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)'}}> */}
-                        <Grid container justifyContent="center" spacing={4}>
+                        <Grid container justifyContent="center" spacing={4} sx={{display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)'}}>
+                        {/* <Grid container justifyContent="center" spacing={4}> */}
                             {guests.map((guest) => (
                                 <Grid
                                     key={guest.id}

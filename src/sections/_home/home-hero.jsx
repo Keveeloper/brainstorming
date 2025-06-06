@@ -82,7 +82,7 @@ export function HomeHero({ sx, ...other }) {
         </Typography>
         <Typography 
           sx={{ fontSize: '1.3rem', fontWeight: 'bold' }}>
-          Inzolent Rooftop
+          Inzolente Rooftop
         </Typography>
         <Typography 
           sx={{ mb: 3, fontSize: '1.3rem', fontWeight: 'bold' }}>
