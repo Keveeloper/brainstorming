@@ -53,7 +53,6 @@ export function HomeHero({ sx, ...other }) {
           <Box
             sx={{
               color: '#c106ff',
-              lineHeight: 1,
             }}
           >
             ¡No te limites!
@@ -68,30 +67,30 @@ export function HomeHero({ sx, ...other }) {
           Únete a Brain5stormers, profesionales del mundo.
         </Typography>
         <Typography 
-          sx={{ fontSize: '1.6rem', fontWeight: 'bold', color: '#c106ff', lineHeight: 1 }}>
+          sx={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#c106ff', lineHeight: 1 }}>
           Bogotá
         </Typography>
         <Typography 
-          sx={{ fontSize: '1.3rem', fontWeight: 'bold' }}>
+          sx={{ fontSize: '1.1rem', fontWeight: 'bold' }}>
           Mazaryk Restaurante
         </Typography>
         <Typography 
-          sx={{ mb: 3, fontSize: '1.3rem', fontWeight: 'bold' }}>
+          sx={{ mb: 3, fontSize: '1.1rem', fontWeight: 'bold' }}>
           Martes 17 de junio – 7:00 PM
         </Typography>
         <Typography 
-          sx={{ fontSize: '1.6rem', fontWeight: 'bold', color: '#c106ff', lineHeight: 1 }}>
+          sx={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#c106ff', lineHeight: 1 }}>
           Medellín
         </Typography>
         <Typography 
-          sx={{ fontSize: '1.3rem', fontWeight: 'bold' }}>
+          sx={{ fontSize: '1.1rem', fontWeight: 'bold' }}>
           Inzolente Rooftop
         </Typography>
         <Typography 
-          sx={{ mb: 3, fontSize: '1.3rem', fontWeight: 'bold' }}>
+          sx={{ mb: 3, fontSize: '1.1rem', fontWeight: 'bold' }}>
           Jueves 19 de junio – 7:00 PM
         </Typography>
-        <Typography sx={{ fontSize: '1.3rem', fontWeight: 'bold' }}>
+        <Typography sx={{ fontSize: '1.1rem', fontWeight: 'bold' }}>
           Sin costo, cupos limitados.
         </Typography>
       </m.div>
