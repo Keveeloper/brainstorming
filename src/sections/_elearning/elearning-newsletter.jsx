@@ -75,11 +75,6 @@ const OPTIONS_PROFESSION = [
 ];
 
 const OPTIONS_AREA = [
-  { value: 'Marketing', label: 'Marketing' },
-  { value: 'Branding', label: 'Branding' },
-  { value: 'Ventas', label: 'Ventas' },
-  { value: 'Tecnología', label: 'Tecnología' },
-  { value: 'Producción', label: 'Producción' },
   { value: 'Agricultura & Medio Ambiente', label: 'Agricultura & Medio Ambiente' },
   { value: 'Agricultura / Agronegocios', label: 'Agricultura / Agronegocios' },
   { value: 'Servicios Ambientales / Sostenibilidad', label: 'Servicios Ambientales / Sostenibilidad' },
