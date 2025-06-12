@@ -104,31 +104,34 @@ export function ComponentsView() {
   );
 
   return (
-    <ComponentLayout
-      heroProps={{
-        sx: { py: 15 },
-        overrideContent: (
-          <MotionContainer sx={{ textAlign: 'center' }}>
-            <m.div variants={varFade('inUp', { distance: 24 })}>
-              <Typography variant="h3" component="h1">
-                Components
-              </Typography>
-            </m.div>
+    // <ComponentLayout
+    //   heroProps={{
+    //     sx: { py: 15 },
+    //     overrideContent: (
+    //       <MotionContainer sx={{ textAlign: 'center' }}>
+    //         <m.div variants={varFade('inUp', { distance: 24 })}>
+    //           <Typography variant="h3" component="h1">
+    //             Components
+    //           </Typography>
+    //         </m.div>
 
-            <m.div variants={varFade('inUp', { distance: 24 })}>
-              <Typography sx={{ color: 'text.secondary', mt: 3 }}>
-                With huge resource pack making deployment easy and expanding more effectively
-              </Typography>
-            </m.div>
-          </MotionContainer>
-        ),
-      }}
-    >
-      {renderMuiComponents()}
+    //         <m.div variants={varFade('inUp', { distance: 24 })}>
+    //           <Typography sx={{ color: 'text.secondary', mt: 3 }}>
+    //             With huge resource pack making deployment easy and expanding more effectively
+    //           </Typography>
+    //         </m.div>
+    //       </MotionContainer>
+    //     ),
+    //   }}
+    // >
+    //   {renderMuiComponents()}
 
-      <Divider sx={{ borderStyle: 'dashed', my: 5 }} />
+    //   <Divider sx={{ borderStyle: 'dashed', my: 5 }} />
 
-      {renderExtraComponents()}
-    </ComponentLayout>
+    //   {renderExtraComponents()}
+    // </ComponentLayout>
+    <div>
+      hola
+    </div>
   );
 }

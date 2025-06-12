@@ -110,7 +110,7 @@ export function AuthSplitSection({
       {...other}
     >
       {renderCarousel()}
-      {renderFooter()}
+      {/* {renderFooter()} */}
     </Box>
   );
 }

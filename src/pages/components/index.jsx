@@ -9,9 +9,12 @@ const metadata = { title: `Components - ${CONFIG.appName}` };
 export default function Page() {
   return (
     <>
-      <title> {metadata.title}</title>
+      <title> {metadata.title}Hello worldddddd</title>
 
-      <ComponentsView />
+      <ComponentsView />    
+      {/* <div>
+        Hola
+      </div> */}
     </>
   );
 }

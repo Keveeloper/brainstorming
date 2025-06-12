@@ -34,7 +34,7 @@ export function AuthSplitLayout({ sx, cssVars, children, slotProps, layoutQuery 
       /** **************************************
        * @Footer
        *************************************** */
-      footerSection={renderFooter()}
+      // footerSection={renderFooter()}
       /** **************************************
        * @Styles
        *************************************** */

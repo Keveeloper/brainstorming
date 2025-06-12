@@ -108,7 +108,7 @@ export function AuthIllustrationLayout({ sx, cssVars, children, slotProps, layou
       /** **************************************
        * @Footer
        *************************************** */
-      footerSection={renderFooter()}
+      // footerSection={renderFooter()}
       /** **************************************
        * @Styles
        *************************************** */
