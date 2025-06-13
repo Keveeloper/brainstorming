@@ -5,6 +5,7 @@ import { HomeElearningNewsletter } from 'src/sections/_elearning/elearning-newsl
 import { HomeTravelLandingIntroduce } from 'src/sections/_travel/landing/travel-landing-introduce';
 
 import { HomeHero } from '../home-hero';
+import { HomeSponsor } from '../home-sponsor';
 import { HomeNewStart } from '../home-new-start';
 import { HomePanelistas } from '../home-panelistas';
 import { HomeMinimalUI } from '../home-combination';
@@ -29,6 +30,8 @@ export function HomeView() {
       <HomeNewStart />
 
       <HomePanelistas />
+
+      <HomeSponsor />
 
       <HomeTravelLandingIntroduce />
 
