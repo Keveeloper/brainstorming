@@ -42,17 +42,17 @@ const SUMMARY = [
 
 export function HomeTravelLandingIntroduce({ sx, ...other }) {
 
-  const whyComeRef = useRef(null);
+  // const whyComeRef = useRef(null);
   
-  const setRefs = useMenuRefsStore((state) => state.setRefs);
+  // const setRefs = useMenuRefsStore((state) => state.setRefs);
 
-  useEffect(() => {
-    // window.scrollTo({ top: 0, behavior: 'smooth' });
-    // whyComeRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    setRefs({
-        whyComeRef,
-    });
-  }, []);
+  // useEffect(() => {
+  //   // window.scrollTo({ top: 0, behavior: 'smooth' });
+  //   // whyComeRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  //   setRefs({
+  //       whyComeRef,
+  //   });
+  // }, []);
 
   const renderList = () => (
     <Container sx={{ textAlign: 'center' }}>
@@ -112,7 +112,7 @@ export function HomeTravelLandingIntroduce({ sx, ...other }) {
 
   return (
     <div
-      ref={whyComeRef}
+      // ref={whyComeRef}
     >
       <Box
         component="section"

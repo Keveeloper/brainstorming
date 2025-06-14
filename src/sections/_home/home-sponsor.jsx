@@ -1,6 +1,8 @@
+import { useEffect, useRef } from "react";
+
 import { Box, Grid, Container, Typography } from "@mui/material";
 
-import { Image } from 'src/components/image';
+import { useMenuRefsStore } from "src/store/MenuRefsStore";
 
 const sectionTitle = "Nuestros Sponsors";
 const sponsors = [
@@ -63,10 +65,19 @@ const sponsors = [
 ]
 
 export function HomeSponsor() {
+  const whyComeRef = useRef(null);
+  const setRefs = useMenuRefsStore((state) => state.setRefs);
+  
+  useEffect(() => {
+    setRefs({
+        whyComeRef,
+    });
+  }, []);
   return (
     <Container
+      ref={whyComeRef}
       maxWidth="lg"
-      sx={{ py: 5 }}>
+      sx={{ py: 5, scrollMargin: 30 }}>
       <Box
         sx={{ textAlign: "center", mb: 5 }}>
         <Typography

@@ -42,7 +42,7 @@ export function NavList({ data, sx, ...other }) {
         panelistsRef.current?.scrollIntoView({behavior: 'smooth', block: 'start'});
         break;
       case '¿Por qué venir?':
-        whyComeRef.current?.scrollIntoView({behavior: 'smooth', block: 'center'});
+        whyComeRef.current?.scrollIntoView({behavior: 'smooth', block: 'start'});
         break;
       case 'Sobre Alerta':
         aboutAlertaRef.current?.scrollIntoView({behavior: 'smooth', block: 'start'});
