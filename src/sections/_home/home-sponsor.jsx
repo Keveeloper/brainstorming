@@ -78,36 +78,37 @@ export function HomeSponsor() {
         container
         spacing={12}
         justifyContent="center"
-        alignItems="center">
-  {sponsors.map((sponsor) => (
-    <Grid
-      key={sponsor.id}
-      sx={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      {sponsor.logoUrl ? (
-        <Image
-          src={sponsor.logoUrl}
-          alt={sponsor.altText}
-          sx={{
-            height: sponsor.imageHeight || { xs: "48px", sm: "60px", md: "80px" },
-            width: "auto",
-            maxWidth: "100%",
-            objectFit: "contain",
-          }}
-          loading="lazy"
-        />
-      ) : (
-        <Typography variant="subtitle1" color="text.secondary" align="center">
-          {sponsor.name}
-        </Typography>
-      )}
-    </Grid>
-  ))}
-</Grid>
+        alignItems="center"
+      >
+        {sponsors.map((sponsor) => (
+          <Grid
+            key={sponsor.id}
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            {sponsor.logoUrl ? (
+              <Image
+                src={sponsor.logoUrl}
+                alt={sponsor.altText}
+                sx={{
+                  height: sponsor.imageHeight || { xs: "48px", sm: "60px", md: "80px" },
+                  width: "auto",
+                  maxWidth: "100%",
+                  objectFit: "contain",
+                }}
+                loading="lazy"
+              />
+            ) : (
+              <Typography variant="subtitle1" color="text.secondary" align="center">
+                {sponsor.name}
+              </Typography>
+            )}
+          </Grid>
+        ))}
+      </Grid>
     </Container>
   );
 }
