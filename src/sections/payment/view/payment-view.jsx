@@ -12,7 +12,7 @@ import { PaymentMethods } from '../payment-methods';
 export function PaymentView() {
   return (
     <Container sx={{ pb: 10, pt: { xs: 3, md: 5 } }}>
-      <Typography variant="h3" sx={{ mb: 2, textAlign: 'center' }}>
+      {/* <Typography variant="h3" sx={{ mb: 2, textAlign: 'center' }}>
         {`Let's finish powering you up!`}
       </Typography>
 
@@ -54,7 +54,7 @@ export function PaymentView() {
         <Grid size={{ xs: 12, md: 4 }}>
           <PaymentSummary />
         </Grid>
-      </Grid>
+      </Grid> */}
     </Container>
   );
 }

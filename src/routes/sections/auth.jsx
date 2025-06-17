@@ -96,11 +96,12 @@ export const authRoutes = [
     ],
   },
   {
-    path: 'reset-password',
+    // path: 'reset-password',
+    path: 'medellin',
     element: (
-      <AuthCenteredLayout>
+      // <AuthCenteredLayout>
         <ResetPasswordPage />
-      </AuthCenteredLayout>
+      // </AuthCenteredLayout>
     ),
   },
   {
