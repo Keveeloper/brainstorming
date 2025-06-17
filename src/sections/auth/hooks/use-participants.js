@@ -35,7 +35,7 @@ const useParticipants = (city) => {
   useEffect(() => {
     fetchParticipants();
 
-    intervalIdRef.current = window.setInterval(fetchParticipants, 300000); // 5 minutos en milisegundos
+    intervalIdRef.current = window.setInterval(fetchParticipants, 120000); // 5 minutos en milisegundos
 
     return () => {
       if (intervalIdRef.current !== null) {
