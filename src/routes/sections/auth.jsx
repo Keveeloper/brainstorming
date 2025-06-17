@@ -105,6 +105,15 @@ export const authRoutes = [
     ),
   },
   {
+    // path: 'reset-password',
+    path: 'bogota',
+    element: (
+      // <AuthCenteredLayout>
+        <ResetPasswordPage />
+      // </AuthCenteredLayout>
+    ),
+  },
+  {
     path: 'update-password',
     element: (
       <AuthCenteredLayout>
