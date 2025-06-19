@@ -66,21 +66,25 @@ export function HomeHero({ sx, ...other }) {
           Lleva tu visión profesional más allá de la frontera. Hoy más empresas que nunca están buscando talento remoto.
           Únete a Brain5stormers, profesionales del mundo.
         </Typography>
-        <Typography 
-          sx={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#c106ff', lineHeight: 1 }}>
-          Medellín
-        </Typography>
-        <Typography 
-          sx={{ fontSize: '1.1rem', fontWeight: 'bold' }}>
-          Inzolente Rooftop
-        </Typography>
-        <Typography 
-          sx={{ mb: 3, fontSize: '1.1rem', fontWeight: 'bold' }}>
-          Jueves 19 de junio – 7:00 PM
-        </Typography>
-        <Typography sx={{ fontSize: '1.1rem', fontWeight: 'bold' }}>
-          Sin costo, cupos limitados.
-        </Typography>
+        <Box
+          sx={{pt:{ xs: 10, md: 5}, pb:{ xs: 6}}}
+        >
+          <Typography 
+            sx={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#c106ff', lineHeight: 1 }}>
+            Medellín
+          </Typography>
+          <Typography 
+            sx={{ fontSize: '1.1rem', fontWeight: 'bold' }}>
+            Inzolente Rooftop
+          </Typography>
+          <Typography 
+            sx={{ mb: 3, fontSize: '1.1rem', fontWeight: 'bold' }}>
+            Jueves 19 de junio – 7:00 PM
+          </Typography>
+          <Typography sx={{ fontSize: '1.1rem', fontWeight: 'bold' }}>
+            Sin costo, cupos limitados.
+          </Typography>
+          </Box>
       </m.div>
     </Box>
   );
@@ -147,7 +151,7 @@ export function HomeHero({ sx, ...other }) {
         gap: 5,
         maxWidth: 550,
         display: 'flex',
-        height: { xs: 'calc(100vh - 64px)', md: 'auto'},
+        height: { md: 'auto'},
         justifyContent: {xs: 'space-between'},
         flexDirection: 'column',
         // background: 'red',
