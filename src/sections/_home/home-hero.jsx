@@ -68,18 +68,6 @@ export function HomeHero({ sx, ...other }) {
         </Typography>
         <Typography 
           sx={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#c106ff', lineHeight: 1 }}>
-          Bogotá
-        </Typography>
-        <Typography 
-          sx={{ fontSize: '1.1rem', fontWeight: 'bold' }}>
-          Mazaryk Restaurante
-        </Typography>
-        <Typography 
-          sx={{ mb: 3, fontSize: '1.1rem', fontWeight: 'bold' }}>
-          Martes 17 de junio – 7:00 PM
-        </Typography>
-        <Typography 
-          sx={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#c106ff', lineHeight: 1 }}>
           Medellín
         </Typography>
         <Typography 
